@@ -1,6 +1,3 @@
-waks-tuning
-===========
-
 Web UI Frameworks
 ---
 
