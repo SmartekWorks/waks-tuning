@@ -16,17 +16,22 @@
 				}
 		},
 		{
-				"selectors":["div.widget_Left", "div.mrItem", "div.ui-datepicker"], "collectionNode":"html5.buttonGroup", "nesting":"outer"
+				"selectors":["div.myUpdateItem"], "collectionNode":"html5.form", "nesting":"outer"
+		},
+		{
+				"selectors":["div.widget_Left", "div.mrItem", "div#Home_Foot2", "div.ui-datepicker"], "collectionNode":"html5.buttonGroup", "nesting":"outer"
 		},
 		{
 				"selectors":["div.updateModule"], "collectionNode":"updateModule", "nesting":"outer",
 				"collectionNodes":{
 						"updateModule":{"selectors":["*"], "children":["updateItem"], "action":"or", "label":"html5.block", "locator":"html5.block"},
-						"updateItem":{"selectors":["div.updateItem"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+						"updateItem":{"selectors":["table.updateItem"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"}
 				},
 				"settings":{
 						"locatorRelation":"or"
 				}
-		}
+		},
+		{"selectors":["map", "ul", "ol", "dl"], "collectionNode":"html5.buttonGroup", "nesting":"inner"}
+
 	]
 }
