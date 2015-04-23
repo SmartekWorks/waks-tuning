@@ -1,0 +1,35 @@
+"charset": "UTF-8"
+
+"profile": {
+	"rules": [
+		{"selector":"form.sForm table", "template":"standard.list", "elements":["link"]},
+
+		{"selector":"auto", "template":"standard.tree", "elements":["link", "imageLink"]},
+		{"selector":"auto", "template":"standard.table", "elements":["text", "select", "radio", "checkbox", "submitButton", "imageButton", "inputButton", "link", "imageLink"]},
+		{"selector":"auto", "template":"standard.form", "elements":["text", "password", "textarea", "select", "radio", "checkbox", "submitButton", "imageButton", "button", "inputButton", "resetButton"]},
+		{"selector":"auto", "template":"standard.list", "elements":["link", "imageLink", "areaLink"]},
+	],
+
+	"elements": [
+		{"code":"text", "template":"standard.text", "selector":"input[type=text]"},
+		{"code":"password", "template":"standard.text", "selector":"input[type=password]"},
+		{"code":"textarea", "template":"standard.text", "selector":"textarea"},
+		{"code":"select", "template":"standard.select", "selector":"select"},
+		{"code":"radio", "template":"standard.select", "selector":"input[type=radio]"},
+		{"code":"checkbox", "template":"standard.select", "selector":"input[type=checkbox]"},
+		{"code":"button", "template":"standard.button", "selector":"button"},
+		{"code":"inputButton", "template":"standard.button", "selector":"input[type=button]"},
+		{"code":"submitButton", "template":"standard.button", "selector":"input[type=submit]"},
+		{"code":"resetButton", "template":"standard.button", "selector":"input[type=reset]"},
+		{"code":"imageButton", "template":"standard.button", "selector":"input[type=image]"},
+		{"code":"link", "template":"standard.button", "selector":"a[href]"},
+		{"code":"imageLink", "template":"standard.button", "selector":"img[onclick]"},
+		{"code":"areaLink", "template":"standard.button", "selector":"area[href]"},
+	],
+}
+
+"baseUrl": ""
+
+"replaceRules": [
+	{"./res":"http://mameeval.swat.smartekworks.com/data/upload/mamezou/res"}
+]

@@ -1,0 +1,47 @@
+"charset": "UTF-8"
+
+"profile": {
+	"rules": [
+		{"selector":".x-toolbar", "template":"standard.list", "elements":["link", "imageLink", "button"]},
+		{"selector":".x-tab-bar", "template":"standard.list", "elements":["link", "imageLink", "button"]},
+		{"selector":".x-tree-panel", "template":"standard.list", "elements":["gridCellTreeColumn"]},
+
+		{"selector":"auto", "template":"extjs.panelForm", "elements":["formText", "password", "textarea", "buttonCheckbox", "buttonRadio", "button"]},
+		{"selector":".x-grid", "template":"extjs.grid", "elements":["gridRowChecker", "gridCheckHeader"]},
+
+		{"selector":"auto", "template":"standard.tree", "elements":["link", "imageLink"]},
+		{"selector":"auto", "template":"standard.list", "elements":["link", "imageLink", "areaLink"]},
+	],
+
+	"elements": [
+		{"code":"buttonCheckbox", "template":"extjs.buttonSelect", "selector":"input.x-form-checkbox[type=button]"},
+		{"code":"buttonRadio", "template":"extjs.buttonSelect", "selector":"input.x-form-radio[type=button]"},
+		{"code":"formText", "template":"extjs.formText", "selector":"input.x-form-text[type=text]"},
+
+		{"code":"gridRowChecker", "template":"extjs.gridRowChecker", "selector":"div.x-grid-row-checker"},
+		{"code":"gridCheckHeader", "template":"extjs.gridRowChecker", "selector":"div.x-grid-checkheader"},
+		{"code":"gridCellEditor", "template":"extjs.gridCellEditor", "selector":"div.x-grid-editor input[type=text]"},
+		{"code":"gridCellTreeColumn", "template":"standard.button", "selector":"td.x-grid-cell-treecolumn div"},
+
+		{"code":"text", "template":"standard.text", "selector":"input[type=text]"},
+		{"code":"password", "template":"standard.text", "selector":"input[type=password]"},
+		{"code":"textarea", "template":"standard.text", "selector":"textarea"},
+		{"code":"select", "template":"standard.select", "selector":"select"},
+		{"code":"radio", "template":"standard.select", "selector":"input[type=radio]"},
+		{"code":"checkbox", "template":"standard.select", "selector":"input[type=checkbox]"},
+		{"code":"button", "template":"standard.button", "selector":"button"},
+		{"code":"inputButton", "template":"standard.button", "selector":"input[type=button]"},
+		{"code":"submitButton", "template":"standard.button", "selector":"input[type=submit]"},
+		{"code":"imageButton", "template":"standard.button", "selector":"input[type=image]"},
+		{"code":"link", "template":"standard.button", "selector":"a[href]"},
+		{"code":"imageLink", "template":"standard.button", "selector":"img[onclick]"},
+		{"code":"areaLink", "template":"standard.button", "selector":"area[href]"},
+	],
+}
+
+"baseUrl": ""
+
+"replaceRules": [
+	{"/HPFS/resources":"/swat/data/upload/extjs/HPFS/resources"},
+	{"<script.*?>[\\s\\S]*?</script>":""}
+]

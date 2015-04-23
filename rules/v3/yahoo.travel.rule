@@ -1,0 +1,44 @@
+{
+	"imports":[
+		{"name":"html5", "version":"1.0.0"}
+	],
+	"operations":[
+		{
+			"selectors":["table"], 
+			"collectionNode":"table-hotel-list", 
+			"nesting":"outer", 
+			"collectionNodes":{
+				"table-hotel-list":{"selectors":["table"], "children":["table-hotel"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"table-hotel":{"selectors":["table[bgcolor=#B5B6B5]"], "children":["hotel-plan-list", "html5.buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+				"hotel-plan-list":{"selectors":["table[bgcolor=#FFFFFF]"], "children":["hotel-plan"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"hotel-plan":{"selectors":["tr[bgcolor=#EEEEEE]"], "children":["html5.link"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+			}, 
+			"settings":{"locatorRelation":"or"}
+		},
+		{
+			"selectors":["table"], 
+			"collectionNode":"table-tr-station", 
+			"nesting":"outer",
+			"collectionNodes":{
+				"table-tr-station":{"selectors":["table"], "children":["tr-station"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"tr-station":{"selectors":["tr[bgcolor=#EEEEEE]"], "children":["html5.link"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+			},
+			"settings":{"locatorRelation":"or"}
+		},
+		{
+			"selectors":["table"], 
+			"collectionNode":"table-td-station", 
+			"nesting":"outer",
+			"collectionNodes":{
+				"table-td-station":{"selectors":["table"], "children":["td-station"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"td-station":{"selectors":["td[bgcolor=#EEEEEE]"], "children":["html5.link"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+			},
+			"settings":{"locatorRelation":"or"}
+		},
+		{
+			"selectors":["table[bgcolor=#eeeeee]"],
+			"collectionNode":"html5.form", 
+			"nesting":"outer"
+		}
+	]
+}

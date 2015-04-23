@@ -1,0 +1,60 @@
+{	
+	"imports": [
+		{"name":"html5", "version":"1.0.0"}
+	],
+
+	"operations": [
+		{"selectors": ["div.navbar-static-top", "div#treePages"], "collectionNode":"html5.list", "nesting":"outer"},
+		{
+			"selectors": ["div.accordion"], "collectionNode":"accordion", "nesting":"outer",
+			"collectionNodes": {
+				"accordion": {"selectors":["div.accordion"], "children":["accordion-group"], "action":"or"},
+				"accordion-group": {"selectors":["div.accordion-group"], "children":["accordion-heading", "accordion-body"], "action":"and"},
+				"accordion-heading": {"selectors":["div.accordion-heading"], "children":["html5.link"], "action":"or"},
+				"accordion-body": {"selectors":["div.accordion-body"], "children":["html5.link"], "action":"or"}
+			}
+		},
+		{
+			"selectors": ["div.navbar-fixed-bottom", "div#header"], "collectionNode":"btn-toolbar", "nesting":"outer",
+			"collectionNodes": {
+				"btn-toolbar": {"selectors":["div.btn-toolbar", "div#header"], "children":["btn-group"], "action":"or"},
+				"btn-group": {"selectors":["div.btn-group"], "children":["btn", "dropdown-menu"], "action":"and"},
+				"dropdown-menu": {"selectors":["ul.dropdown-menu"], "children":["html5.link"], "action":"or"}
+			},
+			"singleNodes": {
+				"btn": {"selectors":["a.btn"], "decisive":true, "action":"click", "label":"html5.link", "locator":"html5.link"}
+			}
+		},
+		{
+			"selectors": ["div.group-list"], "collectionNode":"group-list", "nesting":"outer",
+			"collectionNodes": {
+				"group-list":{"selectors":["div.group-list"], "children":["scenario-group"], "action":"or"},
+				"scenario-group":{"selectors":["div[id]"], "children":["group-heading", "scenario-list"], "action":"and"},
+				"group-heading":{"selectors":["ul.breadcrumb-cat"], "children":["html5.checkbox", "html5.buttonGroup"], "action":"and"},
+				"scenario-list":{"selectors":["div.scenario-list"], "children":["scenario-table"], "action":"or"},
+				"scenario-table":{"selectors":["table"], "children":["scenario-heading", "case-list"], "action":"and"},
+				"scenario-heading":{"selectors":["thead"], "children":["html5.checkbox", "html5.buttonGroup"], "action":"and"},
+				"case-list":{"selectors":["tbody"], "children":["case-body"], "action":"or"},
+				"case-body":{"selectors":["tr"], "children":["html5.checkbox", "html5.buttonGroup"], "action":"and"}
+			}
+		},
+		{
+			"selectors": ["div.group-list"], "collectionNode":"group-form-list", "nesting":"outer",
+			"collectionNodes": {
+				"group-form-list":{"selectors":["div.group-list"], "children":["scenario-form-group"], "action":"or"},
+				"scenario-form-group":{"selectors":["div[id]"], "children":["form-list"], "action":"and"},
+				"form-list":{"selectors":["div.scenario-list"], "children":["scenario-form"], "action":"or"},
+				"scenario-form":{"selectors":["form.validate-form"], "children":["html5.text", "html5.textarea", "html5.checkbox", "html5.buttonGroup"], "action":"and"}
+			}
+		},
+		{
+			"selectors": ["div.modal"], "collectionNode":"modal-dialog", "nesting":"outer",
+			"collectionNodes": {
+				"modal-dialog":{"selectors":["div.modal"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "html5.buttonGroup"], "action":"and", "label":"dialog"}
+			},
+			"labelPolicies": {
+				"dialog":["firstChild"]
+			}
+		}
+	]
+}

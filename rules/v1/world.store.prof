@@ -1,0 +1,37 @@
+"charset": "UTF-8"
+
+"profile": {
+	"rules": [
+		{"selector":"form#Search3", "template":"standard.form", "elements":["text", "dkSelect", "submitButton", "imageButton"]},
+
+		{"selector":"auto", "template":"standard.tree", "elements":["link", "imageLink"]},
+		{"selector":"auto", "template":"standard.table", "elements":["text", "select", "radio", "checkbox", "submitButton", "imageButton", "inputButton", "link", "imageLink"]},
+		{"selector":"auto", "template":"standard.form", "elements":["text", "password", "textarea", "select", "radio", "checkbox", "submitButton", "imageButton", "button", "inputButton"]},
+		{"selector":"auto", "template":"standard.list", "elements":["link", "imageLink", "areaLink"]},
+	],
+
+	"elements": [
+		{"code":"dkSelect", "template":"dropkick.dropdownSelect", "selector":"select[name]"},
+
+		{"code":"text", "template":"standard.text", "selector":"input[type=text]"},
+		{"code":"password", "template":"standard.text", "selector":"input[type=password]"},
+		{"code":"textarea", "template":"standard.text", "selector":"textarea"},
+		{"code":"select", "template":"standard.select", "selector":"select"},
+		{"code":"radio", "template":"standard.select", "selector":"input[type=radio]"},
+		{"code":"checkbox", "template":"standard.select", "selector":"input[type=checkbox]"},
+		{"code":"button", "template":"standard.button", "selector":"button"},
+		{"code":"inputButton", "template":"standard.button", "selector":"input[type=button]"},
+		{"code":"submitButton", "template":"standard.button", "selector":"input[type=submit]"},
+		{"code":"imageButton", "template":"standard.button", "selector":"input[type=image]"},
+		{"code":"link", "template":"standard.button", "selector":"a[href]"},
+		{"code":"imageLink", "template":"standard.button", "selector":"img[onclick]"},
+		{"code":"areaLink", "template":"standard.button", "selector":"area[href]"},
+	],
+}
+
+"baseUrl": "https://store.world.co.jp"
+
+"replaceRules": [
+	{"https://store.world.co.jp/res/p/common/js/vl-pc.js":"https://dev02.swat.smartekworks.com/swat/data/upload/worldstore/js/vl-pc.js"},
+	{"http://img.world.co.jp/":"https://img.world.co.jp/"},
+]

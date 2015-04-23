@@ -1,0 +1,37 @@
+{
+	"operations":[
+		{"selectors": ["#main-navigation", "div.header"], "collectionNode":"list", "nesting":"outer"},
+		{"selectors": ["ul.chzn-results"], "collectionNode":"chznList", "nesting":"inner"},
+
+		{"selectors": ["table"], "collectionNode":"table", "nesting":"outer"},
+		{"selectors": ["form", "table", "div.k-toolbar"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors": ["map", "ul", "ol", "dl", "div", "a"], "collectionNode":"buttonGroup", "nesting":"inner"},
+	],
+
+	"collectionNodes":{
+		"chznList": {"selectors":["*"], "children":["chznItem"], "action":"or"},
+
+		"form": {"selectors":["*"],"children":["text", "textarea", "checkbox", "radio", "select", "multiSelect", "buttonGroup"], "mergeBy":"name", "action":"and"},
+		"buttonGroup": {"selectors":["*"], "children":["button", "link"], "action":"or"},
+		"select": {"selectors":["select:not([multiple])"], "children":["option"], "action":"or"},
+		"multiSelect": {"selectors":["select[multiple]"], "children":["option"], "action":"multi"},
+
+		"list": {"selectors":["ul", "ol"], "children":["list-unit"], "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5},
+		"list-unit": {"selectors":["li"], "children":["dropdown", "buttonGroup"]},
+		"table": {"selectors":["tbody"], "children":["table-unit"], "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5},
+		"table-unit": {"selectors":["tr"], "children":["form"]},
+	},
+
+	"singleNodes":{
+		"dropdown": {"selectors":["i.icon-caret-down", "i.fa-angle-down"], "decisive":true, "action":"moveTo"}, 
+		"chznItem": {"selectors":["li.active-result"], "decisive":true, "action":"click"}, 
+
+		"text": {"selectors":["input:not([type])", "input[type=text]", "input[type=password]", "input[type=email]", "input[type=url]"], "decisive":false, "action":"type"},
+		"textarea": {"selectors":["textarea"], "action":"type"},
+		"checkbox": {"selectors":["input[type=checkbox]"], "decisive":false, "action":"check"},
+		"radio": {"selectors":["input[type=radio]"], "decisive":false, "action":"click"},
+		"option": {"selectors":["option"], "decisive":false, "action":"select"},
+		"link": {"selectors":["a[href]", "area[href]"], "decisive":true, "action":"click"}, 
+		"button": {"selectors":["input[type=submit]", "input[type=button]", "input[type=image]", "button"], "decisive":true, "action":"click"},
+	},
+}

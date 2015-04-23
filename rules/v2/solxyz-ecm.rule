@@ -1,0 +1,156 @@
+{
+	"operations":[
+		// Home page
+		{"selectors": ["div#setupNavTree"], "collectionNode":"setupNavTree", "nesting":"outer"},
+
+		// ECM Settings
+		{"selectors": ["div#setting_menu_div"], "collectionNode":"menu-close", "nesting":"outer"},
+		{"selectors": ["div#setting_menu_div"], "collectionNode":"menu-open", "nesting":"outer"},
+
+		// Chatter
+		{"selectors": ["div.publishercontainer"], "collectionNode":"list", "nesting":"outer"},
+		{"selectors": ["div.publisherTemplate"], "collectionNode":"form", "nesting":"outer"},
+
+		// Content Management
+		{"selectors": ["div.ui-jqgrid-bdiv"], "collectionNode":"table", "nesting":"outer"},
+		{"selectors": ["div.ui-dialog"], "collectionNode":"form", "nesting":"outer"},
+
+		{"selectors": ["div#contextMenulist"], "collectionNode":"contextMenuList", "nesting":"outer"},
+		{"selectors": ["#lifecycleviewSelectorTable", "#cso-lc-table",], "collectionNode":"hoverIconList", "nesting":"outer"},
+
+		{"selectors": [".c_command_l", ".c_command_lcr"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors": ["#spaceRuleDiv", "#watermarkDiv", "#pdfSecurityDiv", "#lifeCycleZweiDiv", "#EditorDiv", "#ReferenceDiv", "#invitatiedDiv", "#lifeCycleDiv", "#discloseDiv"], "collectionNode":"form", "nesting":"outer"},
+
+		// General
+		{"selectors": ["form", "table"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors": ["map", "ul", "ol", "dl", "div", "a"], "collectionNode":"buttonGroup", "nesting":"inner"},
+	],
+
+	"collectionNodes":{
+		"setupNavTree": {"selectors":["*"], "children":["parentDiv"], "action":"or"},
+		"parentDiv": {"selectors":["div.parent"], "children":["childDiv", "buttonGroup"], "action":"and"},
+		"childDiv": {"selectors":["div.childContainer"], "children":["link"], "action":"or"},
+
+		"menu-close": {"selectors":["*"], "children":["menu-close-link"], "action":"or"},
+		"menu-open": {"selectors":["*"], "children":["menu-open-link"], "action":"or"},
+
+		"contextMenuList": {"selectors":["*"], "children":["contextMenu"], "action":"or"},
+		"hoverIconList": {"selectors":["*"], "children":["hoverIcon"], "action":"or"},
+
+		"form": {"selectors":["*"],"children":["text", "textarea", "checkbox", "radio", "select", "multiSelect", "buttonGroup"], "mergeBy":"name", "action":"and"},
+		"buttonGroup": {"selectors":["*"], "children":["button", "link"], "action":"or"},
+		"select": {"selectors":["select:not([multiple])"], "children":["option"], "action":"or"},
+		"multiSelect": {"selectors":["select[multiple]"], "children":["option"], "action":"multi"},
+
+		"list": {"selectors":["ul", "ol"], "children":["list-unit"], "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5},
+		"list-unit": {"selectors":["li"], "children":["buttonGroup"]},
+		"table": {"selectors":["tbody"], "children":["table-unit"], "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5},
+		"table-unit": {"selectors":["tr"], "children":["form"]},
+	},
+
+	"singleNodes":{
+		"menu-close-link": {"selectors":["div[id*=menuId-close] a"], "decisive":true, "action":"click"},
+		"menu-open-link": {"selectors":["div[id*=menuId-open] a"], "decisive":true, "action":"click"},
+
+		"contextMenu": {"selectors":["div.contextMenuDisable span", "div.contextMenuEnable span"], "decisive":true, "action":"click"},
+		"hoverIcon": {"selectors":["div.lc-hover-icon"], "decisive":true, "action":"click"},
+
+		"text": {"selectors":["input:not([type])", "input[type=text]", "input[type=password]", "input[type=email]", "input[type=url]"], "decisive":false, "action":"type"},
+		"textarea": {"selectors":["textarea"], "decisive":false, "action":"type"},
+		"checkbox": {"selectors":["input[type=checkbox]"], "decisive":false, "action":"check"},
+		"radio": {"selectors":["input[type=radio]"], "decisive":false, "action":"click"},
+		"option": {"selectors":["option"], "decisive":false, "action":"select"},
+		"link": {"selectors":["a[href]", "area[href]"], "decisive":true, "action":"click"}, 
+		"button": {"selectors":["input[type=submit]", "input[type=button]", "input[type=image]", "button"], "decisive":true, "action":"click"},
+	},
+}
+
+"previewRule":[
+	{"<script.*?>[\\s\\S]*?</script>":""},
+	{"<link.*?href=\"":"<link href=\"http://local01.swat.me:8080/swat/data/resources/upload/solxyz"},
+	{"/resource/[0-9]*?/":"/resource/"},
+	{"/sCSS/[0-9\\.]*/sprites/[0-9]*?/":"/sCSS/sprites/"},
+]
+
+"previewServerUrl":"https://ap.salesforce.com"
+
+// S63 - Content Management
+{
+	"operations":[
+		{"selectors": ["div.ui-jqgrid-bdiv"], "collectionNode":"table", "nesting":"outer"},
+		{"selectors": ["div.ui-dialog"], "collectionNode":"ui-dialog", "nesting":"outer"},
+
+		{"selectors": ["div#tree_div", "div.menuButton"], "collectionNode":"buttonGroup", "nesting":"outer"},
+
+		{"selectors": ["div#contextMenulist"], "collectionNode":"contextMenuList", "nesting":"outer"},
+		{"selectors": ["#lifecycleviewSelectorTable", "#lifecycleview", "#lifecycleview2"], "collectionNode":"hoverIconList", "nesting":"outer"},
+		{"selectors": ["#filterDialog"], "collectionNode":"lcForm", "nesting":"outer"},
+
+		{"selectors": [".c_command_l", ".c_command_lcr"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors": ["#spaceRuleDiv", "#watermarkDiv", "#pdfSecurityDiv", "#lifeCycleZweiDiv", "#EditorDiv", "#ReferenceDiv", "#invitatiedDiv", "#lifeCycleDiv", "#discloseDiv"], "collectionNode":"form", "nesting":"outer"},
+
+		{"selectors": ["form", "table"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors": ["map", "ul", "ol", "dl", "div", "a"], "collectionNode":"buttonGroup", "nesting":"inner"},
+	],
+
+	"collectionNodes":{
+		"ui-dialog":{"selectors":["*"],"children":["text", "textarea", "upload", "checkbox", "radio", "select", "multiSelect", "buttonGroup"], "action":"and", "label":"dialog"},
+
+		"contextMenuList": {"selectors":["*"], "children":["contextMenu"], "action":"or"},
+		"hoverIconList": {"selectors":["*"], "children":["hoverIcon"], "action":"or"},
+		"lcSelect":{"selectors":["select:not([multiple])"], "children":["option"], "action":"or", "label":"fieldLeft", "locator":"xpath"},
+		"lcForm":{"selectors":["*"],"children":["lcText", "checkbox", "radio", "lcSelect", "buttonGroup"], "action":"and"},
+
+		"form":{"selectors":["*"],"children":["text", "textarea", "upload", "checkbox", "radio", "select", "multiSelect", "buttonGroup"], "action":"and"},
+		"buttonGroup":{"selectors":["*"], "children":["button", "link"], "action":"or"},
+		"select":{"selectors":["select:not([multiple])"], "children":["option"], "action":"or", "label":"fieldLeft", "locator":"field"},
+		"multiSelect":{"selectors":["select[multiple]"], "children":["option"], "action":"multi", "label":"fieldLeft", "locator":"field"},
+
+		"list":{"selectors":["ul", "ol"], "children":["list-unit"], "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5},
+		"list-unit":{"selectors":["li"], "children":["buttonGroup"]},
+		"table":{"selectors":["tbody"], "children":["table-unit"], "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5},
+		"table-unit":{"selectors":["tr"], "children":["form"]},
+	},
+
+	"singleNodes":{ 
+		"contextMenu": {"selectors":["div.contextMenuDisable", "div.contextMenuEnable"], "decisive":true, "action":"click", "label":"button", "locator":"button"},
+		"hoverIcon": {"selectors":["div.lc-hover-icon img"], "decisive":true, "action":"click", "label":"hoverIcon", "locator":"hoverIcon"},
+		"lcText":{"selectors":["input[type=text]"], "decisive":false, "action":"type", "label":"fieldLeft", "locator":"xpath"},
+
+		"text":{"selectors":["input:not([type])", "input[type=text]", "input[type=password]", "input[type=email]", "input[type=url]", "input[type=search]"], "decisive":false, "action":"type", "label":"fieldLeft", "locator":"field"},
+		"textarea":{"selectors":["textarea"], "decisive":false, "action":"type", "label":"fieldLeft", "locator":"field"},
+		"upload":{"selectors":["input[type=file]"], "decisive":false, "action":"upload", "label":"fieldLeft", "locator":"field"},
+		"checkbox":{"selectors":["input[type=checkbox]"], "decisive":false, "action":"check", "label":"fieldRight", "locator":"field", "group":{"label":"group", "locator":"group"}},
+		"radio":{"selectors":["input[type=radio]"], "decisive":false, "action":"click", "label":"fieldRight", "locator":"field", "group":{"label":"group", "locator":"group"}},
+		"option":{"selectors":["option"], "decisive":false, "action":"select", "label":"text", "locator":"text"},
+		"link":{"selectors":["a", "area", "span.menuButtonLabel"], "decisive":true, "action":"click", "label":"link", "locator":"link"}, 
+		"button":{"selectors":["input[type=submit]", "input[type=button]", "input[type=image]", "input[type=reset]", "button"], "decisive":true, "action":"click", "label":"button", "locator":"button"},
+	},
+
+	"labelPolicies":{
+		"fieldLeft":["label", "prevSibling", "parentPrevSibling", "parentTdPrevSibling", "alt", "title",  "id", "name", "value"],
+		"fieldRight":["label", "nextSibling", "parentNextSibling", "alt", "title", "id", "name", "value"],
+		"button":["label", "alt", "title", "value", "text", "id", "name"],
+		"link":["alt", "title", "text", "id", "name", "imgChild"],
+		"text":["alt", "title", "text", "id", "name"],
+		"block":["id", "name"],
+		"group":["prevSibling", "parentPrevSibling", "parentTdPrevSibling"],
+		"hoverIcon":["nextSibling"],
+		"dialog":["firstChild"],
+	},
+
+	"locatorPolicies":{
+		"field":["name", "id", "label", "xpath"],
+		"button":["id", "name", "value", "label", "xpath"],
+		"link":["id", "label"],
+		"text":["label", "value"],
+		"block":["id", "name", "xpath"],
+		"group":["name"],
+		"xpath":["xpath"],
+		"hoverIcon":["label", "xpath"],
+	},
+
+	"settings":{
+		"locatorRelation":"or",
+	},
+}

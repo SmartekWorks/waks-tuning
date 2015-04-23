@@ -1,0 +1,33 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	
+	"operations": [
+		{"selectors":["div.modal"], "collectionNode":"html5.form", "nesting":"outer"},
+		{
+			"selectors": ["#blockWorkspaces"],
+			"collectionNode": "blockWorkspaces",
+			"nesting": "outer",
+			"collectionNodes": {
+				"blockWorkspaces":{"selectors":["*"], "children":["row-stat"], "action":"or"},
+				"row-stat":{"selectors":["div.row-stat"], "children":["html5.link"], "action":"or"}
+			}
+		},
+		{
+			"selectors": ["#treePages"],
+			"collectionNode": "fancytree", 
+			"nesting": "outer",
+			"collectionNodes": {
+				"fancytree":{"selectors":["ul"], "children":["fancytree-unit"], "action":"or", "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5, "label":"html5.block", "locator":"html5.block"},
+				"fancytree-unit":{"selectors":["li"], "children":["fancytree-node"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+			},
+			"singleNodes": {
+				"fancytree-node":{"selectors":["span.fancytree-node"], "decisive":true, "action":"click", "label":"html5.link", "locator":"html5.link"}
+			}
+		}
+	]
+}

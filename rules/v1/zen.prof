@@ -1,0 +1,35 @@
+"charset": "UTF-8"
+
+"profile": {
+	"rules": [
+		{"selector":"auto", "template":"standard.tree", "elements":["link", "imageLink"]},
+		{"selector":"auto", "template":"standard.table", "elements":["text", "select", "radio", "checkbox", "submitButton", "imageButton", "inputButton", "link", "imageLink"]},
+		{"selector":"auto", "template":"standard.form", "elements":["text", "password", "textarea", "select", "radio", "checkbox", "submitButton", "imageButton", "button", "inputButton"]},
+		{"selector":"auto", "template":"standard.list", "elements":["link", "imageLink", "areaLink"]},
+	],
+
+	"elements": [
+		{"code":"text", "template":"standard.text", "selector":"input[type=text]"},
+		{"code":"password", "template":"standard.text", "selector":"input[type=password]"},
+		{"code":"textarea", "template":"standard.text", "selector":"textarea"},
+		{"code":"select", "template":"standard.select", "selector":"select"},
+		{"code":"radio", "template":"standard.select", "selector":"input[type=radio]"},
+		{"code":"checkbox", "template":"standard.select", "selector":"input[type=checkbox]"},
+		{"code":"button", "template":"standard.button", "selector":"button"},
+		{"code":"inputButton", "template":"standard.button", "selector":"input[type=button]"},
+		{"code":"submitButton", "template":"standard.button", "selector":"input[type=submit]"},
+		{"code":"imageButton", "template":"standard.button", "selector":"input[type=image]"},
+		{"code":"link", "template":"standard.button", "selector":"a[href]"},
+		{"code":"imageLink", "template":"standard.button", "selector":"img[onclick]"},
+		{"code":"areaLink", "template":"standard.button", "selector":"area[href]"},
+	],
+}
+
+"baseUrl": "https://speidev001.cloudapp.net"
+
+"replaceRules": [
+	{"\"/Content/":"\"https://speidev001.cloudapp.net/Content/"},
+	{"\"/Scripts/":"\"https://speidev001.cloudapp.net/Scripts/"},
+	{"\"/bundles/":"\"https://speidev001.cloudapp.net/bundles/"},
+	{"https://speidev001.cloudapp.net/Content/bootstrap.min.css":"https://zen.swat.smartekworks.com/swat/data/upload/zen/css/bootstrap.min.css"},
+]

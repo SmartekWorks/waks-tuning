@@ -1,0 +1,48 @@
+"charset": "Shift_JIS"
+
+"profile": {
+	"rules": [
+		{"selector":"table#t > tbody > tr > td > table", "template":"standard.form", "elements":["text", "link"]},
+		{"selector":"td[valign=top]", "template":"standard.list", "elements":["treeLink"]},
+
+		{"selector":"auto", "template":"standard.tree", "elements":["link", "imageLink"]},
+		{"selector":"auto", "template":"standard.table", "elements":["text", "select", "radio", "checkbox", "submitButton", "imageButton", "inputButton", "link", "imageLink"]},
+		{"selector":"auto", "template":"standard.form", "elements":["text", "password", "textarea", "select", "radio", "checkbox", "submitButton", "imageButton", "button", "inputButton"]},
+		{"selector":"auto", "template":"standard.list", "elements":["link", "imageLink", "areaLink"]},
+	],
+
+	"elements": [
+		{"code":"treeLink", "template":"standard.button", "selector":"div.tree_margin a[href]"},
+
+		{"code":"text", "template":"standard.text", "selector":"input[type=text]"},
+		{"code":"password", "template":"standard.text", "selector":"input[type=password]"},
+		{"code":"textarea", "template":"standard.text", "selector":"textarea"},
+		{"code":"select", "template":"standard.select", "selector":"select"},
+		{"code":"radio", "template":"standard.select", "selector":"input[type=radio]"},
+		{"code":"checkbox", "template":"standard.select", "selector":"input[type=checkbox]"},
+		{"code":"button", "template":"standard.button", "selector":"button"},
+		{"code":"inputButton", "template":"standard.button", "selector":"input[type=button]"},
+		{"code":"submitButton", "template":"standard.button", "selector":"input[type=submit]"},
+		{"code":"imageButton", "template":"standard.button", "selector":"input[type=image]"},
+		{"code":"link", "template":"standard.button", "selector":"a[href]"},
+		{"code":"imageLink", "template":"standard.button", "selector":"img[onclick]"},
+		{"code":"areaLink", "template":"standard.button", "selector":"area[href]"},
+	],
+}
+
+"defaultServerUrl": "http://www2.intra-mart.jp/imdemo72/default.portal?im_user=aoyagi&im_password=aoyagi"
+
+"baseUrl": ""
+
+"replaceRules": [
+	{"\"/imdemo72/":"\"https://www2.intra-mart.jp/imdemo72/"},
+	{"\"csjs/":"\"https://www2.intra-mart.jp/imdemo72/csjs/"},
+	{"\"startpack/":"\"https://www2.intra-mart.jp/imdemo72/startpack/"},
+	{"\"yui/":"\"https://www2.intra-mart.jp/imdemo72/yui/"},
+	{"\"workflow/":"\"https://www2.intra-mart.jp/imdemo72/workflow/"},
+	{"\"portal/":"\"https://www2.intra-mart.jp/imdemo72/portal/"},
+	{"\"skin/":"\"https://www2.intra-mart.jp/imdemo72/skin/"},
+	{"\"images/":"\"https://www2.intra-mart.jp/imdemo72/images/"},
+	{"\"favicon.gif":"\"https://www2.intra-mart.jp/imdemo72/favicon.gif"},
+	{"document(.*?)submit\\(\\);":""},
+]

@@ -1,0 +1,35 @@
+{
+	"operations":[
+		{"selectors": ["#acWrSub", "#acMdMenuSubSorce", "#modSsBox"], "collectionNode":"buttonGroup", "nesting":"outer"},
+		{"selectors": ["div[id]"], "collectionNode":"adGroup", "nesting":"inner"},
+
+		{"selectors": ["table"], "collectionNode":"table", "nesting":"outer"},
+		{"selectors": ["form", "table"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors": ["map", "ul", "ol", "dl", "div", "a"], "collectionNode":"buttonGroup", "nesting":"inner"},
+	],
+
+	"collectionNodes":{
+		"adGroup": {"selectors":["*"], "children":["adBox"], "action":"or"},
+		"adBox": {"selectors":["div.w", "div.innre"], "children":["link"], "action":"or"},
+
+		"form": {"selectors":["*"],"children":["text", "textarea", "checkbox", "radio", "select", "multiSelect", "buttonGroup"], "mergeBy":"name", "action":"and"},
+		"buttonGroup": {"selectors":["*"], "children":["link", "button"], "action":"or"},
+		"select": {"selectors":["select:not([multiple])"], "children":["option"], "action":"or"},
+		"multiSelect": {"selectors":["select[multiple]"], "children":["option"], "action":"multi"},
+
+		"list": {"selectors":["ul", "ol"], "children":["list-unit"], "repetitive":true, "similarity":0.75, "combination":2},
+		"list-unit": {"selectors":["li"], "children":["buttonGroup"]},
+		"table": {"selectors":["tbody"], "children":["table-unit"], "repetitive":true, "similarity":0.75, "combination":2},
+		"table-unit": {"selectors":["tr"], "children":["form"]},
+	},
+
+	"singleNodes":{
+		"text": {"selectors":["input:not([type])", "input[type=text]", "input[type=password]", "input[type=email]", "input[type=url]"], "decisive":false, "action":"type"},
+		"textarea": {"selectors":["textarea"], "action":"type"},
+		"checkbox": {"selectors":["input[type=checkbox]"], "decisive":false, "action":"check"},
+		"radio": {"selectors":["input[type=radio]"],	"decisive":false, "action":"click"},
+		"option": {"selectors":["option"], "decisive":false, "action":"select"},
+		"link": {"selectors":["a[href]", "area[href]"], "decisive":true, "action":"click"}, 
+		"button": {"selectors":["input[type=submit]", "input[type=button]", "input[type=image]", "button"], "decisive":true, "action":"click"},
+	},
+}

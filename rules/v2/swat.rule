@@ -1,0 +1,90 @@
+{
+	"operations":[
+		{"selectors": ["div.navbar-static-top"], "collectionNode":"list", "nesting":"outer"},
+		{"selectors": ["div.accordion"], "collectionNode":"accordion", "nesting":"outer"},
+		{"selectors": ["div.navbar-fixed-bottom", "div#header"], "collectionNode":"btn-toolbar", "nesting":"outer"},
+
+		{"selectors": ["div#treePages"], "collectionNode":"list", "nesting":"outer"},
+		{"selectors": ["div.group-list"], "collectionNode":"group-list", "nesting":"outer"},
+		{"selectors": ["div.group-list"], "collectionNode":"group-form-list", "nesting":"outer"},
+		{"selectors": ["div.modal"], "collectionNode":"modal-dialog", "nesting":"outer"},
+
+		{"selectors":["table"], "collectionNode":"table", "nesting":"outer"},
+		{"selectors":["form", "table"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":["map", "ul", "ol", "dl", "div", "a"], "collectionNode":"buttonGroup", "nesting":"inner"},
+	],
+
+	"collectionNodes":{
+		"accordion": {"selectors":["div.accordion"], "children":["accordion-group"], "action":"or"},
+		"accordion-group": {"selectors":["div.accordion-group"], "children":["accordion-heading", "accordion-body"], "action":"and"},
+		"accordion-heading": {"selectors":["div.accordion-heading"], "children":["link"], "action":"or"},
+		"accordion-body": {"selectors":["div.accordion-body"], "children":["link"], "action":"or"},
+
+		"btn-toolbar": {"selectors":["div.btn-toolbar", "div#header"], "children":["btn-group"], "action":"or"},
+		"btn-group": {"selectors":["div.btn-group"], "children":["btn", "dropdown-menu"], "action":"and"},
+		"dropdown-menu": {"selectors":["ul.dropdown-menu"], "children":["link"], "action":"or"},
+
+		"group-list":{"selectors":["div.group-list"], "children":["scenario-group"], "action":"or"},
+		"scenario-group":{"selectors":["div[id]"], "children":["group-heading", "scenario-list"], "action":"and"},
+		"group-heading":{"selectors":["ul.breadcrumb-cat"], "children":["checkbox", "buttonGroup"], "action":"and"},
+		"scenario-list":{"selectors":["div.scenario-list"], "children":["scenario-table"], "action":"or"},
+		"scenario-table":{"selectors":["table"], "children":["scenario-heading", "case-list"], "action":"and"},
+		"scenario-heading":{"selectors":["thead"], "children":["checkbox", "buttonGroup"], "action":"and"},
+		"case-list":{"selectors":["tbody"], "children":["case-body"], "action":"or"},
+		"case-body":{"selectors":["tr"], "children":["checkbox", "buttonGroup"], "action":"and"},
+
+		"group-form-list":{"selectors":["div.group-list"], "children":["scenario-form-group"], "action":"or"},
+		"scenario-form-group":{"selectors":["div[id]"], "children":["form-list"], "action":"and"},
+		"form-list":{"selectors":["div.scenario-list"], "children":["scenario-form"], "action":"or"},
+		"scenario-form":{"selectors":["form.validate-form"], "children":["text", "textarea", "checkbox", "buttonGroup"], "action":"and"},
+
+		"modal-dialog":{"selectors":["div.modal"], "children":["text", "textarea", "upload", "checkbox", "radio", "select", "multiSelect", "buttonGroup"], "action":"and", "label":"dialog"},
+
+		"form":{"selectors":["*"],"children":["text", "textarea", "upload", "checkbox", "radio", "select", "multiSelect", "buttonGroup"], "action":"and"},
+		"buttonGroup":{"selectors":["*"], "children":["button", "link"], "action":"or"},
+		"select":{"selectors":["select:not([multiple])"], "children":["option"], "action":"or", "label":"fieldLeft", "locator":"field"},
+		"multiSelect":{"selectors":["select[multiple]"], "children":["option"], "action":"multi", "label":"fieldLeft", "locator":"field"},
+
+		"list":{"selectors":["ul", "ol"], "children":["list-unit"], "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5},
+		"list-unit":{"selectors":["li"], "children":["buttonGroup"]},
+		"table":{"selectors":["tbody"], "children":["table-unit"], "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5},
+		"table-unit":{"selectors":["tr"], "children":["form"]},
+	},
+
+	"singleNodes":{
+		"btn": {"selectors":["a.btn"], "decisive":true, "action":"click", "label":"link", "locator":"link"}, 		
+
+		"text":{"selectors":["input:not([type])", "input[type=text]", "input[type=password]", "input[type=email]", "input[type=url]", "input[type=search]"], "decisive":false, "action":"type", "label":"fieldLeft", "locator":"field"},
+		"textarea":{"selectors":["textarea"], "decisive":false, "action":"type", "label":"fieldLeft", "locator":"field"},
+		"upload":{"selectors":["input[type=file]"], "decisive":false, "action":"upload", "label":"fieldLeft", "locator":"field"},
+		"checkbox":{"selectors":["input[type=checkbox]"], "decisive":false, "action":"check", "label":"fieldRight", "locator":"field", "group":{"by":"name", "label":"group", "locator":"group"}},
+		"radio":{"selectors":["input[type=radio]"], "decisive":false, "action":"click", "label":"fieldRight", "locator":"field", "group":{"by":"name", "label":"group", "locator":"group"}},
+		"option":{"selectors":["option"], "decisive":false, "action":"select", "label":"text", "locator":"text"},
+		"link":{"selectors":["a[href]", "area[href]"], "decisive":true, "action":"click", "label":"link", "locator":"link"}, 
+		"button":{"selectors":["input[type=submit]", "input[type=button]", "input[type=image]", "button", "span.dynatree-checkbox"], "decisive":true, "action":"click", "label":"button", "locator":"button"},
+	},
+
+	"labelPolicies":{
+		"fieldLeft":["label", "prevSibling", "parentPrevSibling", "parentTdPrevSibling", "alt", "title", "id", "name", "placeholder", "value"],
+		"fieldRight":["label", "nextSibling", "parentNextSibling", "alt", "title", "id", "name", "placeholder", "value"],
+		"button":["label", "alt", "title", "value", "text", "id", "name"],
+		"link":["alt", "title", "text", "id", "name", "imgChild"],
+		"text":["alt", "title", "text", "id", "name"],
+		"block":["id", "name"],
+		"group":["prevSibling", "parentPrevSibling", "parentTdPrevSibling"],
+		"dialog":["firstChild"],
+	},
+
+	"locatorPolicies":{
+		"field":["name", "id", "label", "xpath"],
+		"button":["id", "name", "value", "label", "xpath"],
+		"link":["id", "label", "xpath"],
+		"text":["label", "value", "xpath"],
+		"block":["id", "name", "xpath"],
+		"group":["name"],
+	},
+
+	"settings":{
+		"locatorRelation":"or",
+	}
+}

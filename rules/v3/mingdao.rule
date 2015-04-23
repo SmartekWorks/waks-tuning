@@ -1,0 +1,32 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+		{
+				"selectors":["div#topBar"], "collectionNode":"topBarIcons", "nesting":"outer",
+				"collectionNodes":{
+						"topBarIcons":{"selectors":["*"], "children":["topBarIcon"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+				},
+				"singleNodes":{
+						"topBarIcon":{"selectors":[".topBarIcon"], "decisive":true, "action":"moveTo", "label":"html5.link", "locator":"html5.link"}
+				}
+		},
+		{
+				"selectors":["div.widget_Left", "div.mrItem", "div.ui-datepicker"], "collectionNode":"html5.buttonGroup", "nesting":"outer"
+		},
+		{
+				"selectors":["div.updateModule"], "collectionNode":"updateModule", "nesting":"outer",
+				"collectionNodes":{
+						"updateModule":{"selectors":["*"], "children":["updateItem"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+						"updateItem":{"selectors":["div.updateItem"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+				},
+				"settings":{
+						"locatorRelation":"or"
+				}
+		}
+	]
+}

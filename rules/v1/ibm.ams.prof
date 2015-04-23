@@ -1,0 +1,118 @@
+// 筑波银行
+
+"charset": "Shift_JIS"
+
+"profile": {
+	"rules": [
+		{"selector":"form[target=service]", "template":"standard.list", "elements":["inputButton", "submitButton"]},
+		{"selector":"table[cellspacing=7]", "template":"standard.list", "elements":["inputButton", "submitButton"]},
+		{"selector":"table[width=550]", "template":"standard.list", "elements":["inputButton", "submitButton"]},
+		{"selector":"td.header2", "template":"standard.list", "elements":["inputButton", "imageButton"]},
+		{"selector":"table[border=1]", "template":"standard.list", "elements":["link"]},
+
+		{"selector":"auto", "template":"standard.tree", "elements":["link", "imageLink"]},
+		{"selector":"auto", "template":"standard.table", "elements":["text", "select", "radio", "checkbox", "submitButton", "imageButton", "inputButton", "link", "imageLink"]},
+		{"selector":"auto", "template":"standard.form", "elements":["text", "password", "textarea", "select", "radio", "checkbox", "submitButton", "imageButton", "button", "inputButton"]},
+		{"selector":"auto", "template":"standard.list", "elements":["link", "imageLink", "areaLink"]},
+
+		{"selector":"table", "template":"standard.form", "elements":["text", "password", "textarea", "select", "radio", "checkbox"]},
+		{"selector":"table", "template":"standard.list", "elements":["submitButton", "inputButton", "imageButton"]},
+	],
+
+	"elements": [
+		{"code":"text", "template":"standard.text", "selector":"input[type=text]"},
+		{"code":"password", "template":"standard.text", "selector":"input[type=password]"},
+		{"code":"textarea", "template":"standard.text", "selector":"textarea"},
+		{"code":"select", "template":"standard.select", "selector":"select"},
+		{"code":"radio", "template":"standard.select", "selector":"input[type=radio]"},
+		{"code":"checkbox", "template":"standard.select", "selector":"input[type=checkbox]"},
+		{"code":"button", "template":"standard.button", "selector":"button"},
+		{"code":"inputButton", "template":"standard.button", "selector":"input[type=button]"},
+		{"code":"submitButton", "template":"standard.button", "selector":"input[type=submit]"},
+		{"code":"imageButton", "template":"standard.button", "selector":"input[type=image]"},
+		{"code":"link", "template":"standard.button", "selector":"a[href]"},
+		{"code":"imageLink", "template":"standard.button", "selector":"img[onclick]"},
+		{"code":"areaLink", "template":"standard.button", "selector":"area[href]"},
+	],
+}
+
+// インバン個人
+"defaultServerUrl": "https://test2.ib.cyber-biz.ne.jp/KTIK/BankIK?xtr=aulogon01000&NLS=KTIKP"
+
+"baseUrl": ""
+
+"replaceRules": [
+	{"<base(.*?)>":""},
+	{"href=\"":"href=\"https://test2.ib.cyber-biz.ne.jp/KTIK02/cck/forms/KTIKP/"},
+	{"src=\"images":"src=\"https://test2.ib.cyber-biz.ne.jp/KTIK02/cck/forms/KTIKP/images"},
+	{"JavaScript\" src=\"":"JavaScript\" src=\"https://test2.ib.cyber-biz.ne.jp/KTIK02/cck/forms/KTIKP/"}
+]
+
+
+// インバン法人
+"defaultServerUrl": "https://test2.ib.cyber-biz.ne.jp/KTIH/BankIH?xtr=aulogon01000&NLS=KTIHP"
+
+"baseUrl": ""
+
+"replaceRules": [
+	{"<script.*?>[\\s\\S]*?</script>":""},
+	{"<base(.*?)>":""},
+	{"href=\"":"href=\"https://test2.ib.cyber-biz.ne.jp/KTIH01/cck/forms/KTIHP/"},
+	{"src=\"images":"src=\"https://test2.ib.cyber-biz.ne.jp/KTIH01/cck/forms/KTIHP/images"},
+	{"JavaScript\" src=\"":"JavaScript\" src=\"https://test2.ib.cyber-biz.ne.jp/KTIH01/cck/forms/KTIHP/"}
+]
+
+====================================================================================================================
+
+// IBM Bank
+
+"charset": "Shift_JIS"
+
+"profile": {
+	"rules": [
+		{"selector":"form[name=cssChange]", "template":"standard.list", "elements":["inputButton", "submitButton", "imageButton"]},
+		{"selector":"form[name=GlobalNaviTop]", "template":"standard.list", "elements":["inputButton", "submitButton", "imageButton"]},
+		{"selector":"form[name=GlobalNavi]", "template":"standard.list", "elements":["inputButton", "submitButton", "imageButton"]},
+		{"selector":"form[name=imgForm]", "template":"standard.list", "elements":["inputButton", "submitButton", "imageButton"]},
+		{"selector":"table.table_list", "template":"standard.list", "elements":["linkButton"]},
+		{"selector":"table.table_softkey", "template":"standard.list", "elements":["inputButton"]},
+
+//		{"selector":"form[name=f1]", "template":"standard.list", "elements":["inputButton", "submitButton", "imageButton"]},
+
+		{"selector":"auto", "template":"standard.tree", "elements":["link", "imageLink"]},
+		{"selector":"auto", "template":"standard.table", "elements":["submitButton", "imageButton", "inputButton", "link", "imageLink"]},
+		{"selector":"auto", "template":"standard.form", "elements":["text", "password", "textarea", "select", "radio", "checkbox", "submitButton", "imageButton", "button", "inputButton", "labelButton"]},
+		{"selector":"auto", "template":"standard.list", "elements":["link", "imageLink", "areaLink"]},
+	],
+
+	"elements": [
+		{"code":"linkButton", "template":"standard.button", "selector":"tr.linkButton"},
+		{"code":"labelButton", "template":"standard.button", "selector":"label[onclick]"},
+
+		{"code":"text", "template":"standard.text", "selector":"input[type=text]"},
+		{"code":"password", "template":"standard.text", "selector":"input[type=password]"},
+		{"code":"textarea", "template":"standard.text", "selector":"textarea"},
+		{"code":"select", "template":"standard.select", "selector":"select"},
+		{"code":"radio", "template":"standard.select", "selector":"input[type=radio]"},
+		{"code":"checkbox", "template":"standard.select", "selector":"input[type=checkbox]"},
+		{"code":"button", "template":"standard.button", "selector":"button"},
+		{"code":"inputButton", "template":"standard.button", "selector":"input[type=button]"},
+		{"code":"submitButton", "template":"standard.button", "selector":"input[type=submit]"},
+		{"code":"imageButton", "template":"standard.button", "selector":"input[type=image]"},
+		{"code":"link", "template":"standard.button", "selector":"a[href]"},
+		{"code":"imageLink", "template":"standard.button", "selector":"img[onclick]"},
+		{"code":"areaLink", "template":"standard.button", "selector":"area[href]"},
+	],
+}
+
+"defaultServerUrl": "https://test3.ib.cyber-biz.ne.jp/P3IK/BankIK?xtr=aulogon01000&NLS=IKP"
+
+"baseUrl": ""
+
+"replaceRules": [
+	{"<script.*?>[\\s\\S]*?</script>":""},
+	{"<base(.*?)>":""},
+	{"href=\"":"href=\"https://test3.ib.cyber-biz.ne.jp/P3IK02/cck/forms/IKP/"},
+	{"src=\"images":"src=\"https://test3.ib.cyber-biz.ne.jp/P3IK02/cck/forms/IKP/images"},
+	{"JavaScript\" src=\"":"JavaScript\" src=\"https://test3.ib.cyber-biz.ne.jp/P3IK02/cck/forms/IKP/"}
+]

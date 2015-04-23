@@ -1,0 +1,56 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	
+	"operations": [
+		{"selectors":["div.zon_edit"], "collectionNode":"zon_edit", "nesting":"outer"},
+		{"selectors":["div.jsBubble_s", "div.jsbox"], "collectionNode":"wj_popup", "nesting":"outer"},
+		{"selectors":["div.loginBox", "div.surveyhead"], "collectionNode":"html5.form", "nesting":"outer"},
+		{
+			"selectors":["form#form1"], "collectionNode":"newSurveyForm", "nesting":"outer",
+			"collectionNodes":{
+				"newSurveyForm":{"selectors":["*"], "children":["textareaInput", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+				"buttonGroup":{"selectors":["*"], "children":["divButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+			},
+			"singleNodes":{
+				"textareaInput":{"selectors":["input[type=textarea]"], "decisive":false, "action":"type", "label":"html5.fieldLeft", "locator":"html5.field"},
+				"divButton":{"selectors":["div.btn1", "li"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+			},
+			"settings":{
+				"locatorRelation":"or"
+			}
+		},
+		{
+			"selectors":["ul#question_box"], "collectionNode":"singleChoiceList", "nesting":"outer",
+			"collectionNodes":{
+				"singleChoiceList":{"selectors":["*"], "children":["singleChoice"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"singleChoice":{"selectors":["li[issue=2]"], "children":["choiceItems", "text_btn", "html5.buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+				"choiceItems":{"selectors":["div.topic_type_con ul"], "children":["choiceItem"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"choiceItem":{"selectors":["li"], "children":["html5.radio", "text_btn"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+			},
+			"settings":{
+				"locatorRelation":"or"
+			}
+		}
+	],
+
+	"collectionNodes":{
+		"zon_edit":{"selectors":["*"], "children":["zon_text_edit", "html5.buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"wj_popup":{"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.checkbox", "html5.radio", "html5.select", "wj_btns"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"wj_btns":{"selectors":["*"], "children":["wj_btn"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes":{
+		"zon_text_edit":{"selectors":["div.add_edit"], "decisive":false, "action":"type", "label":"html5.block", "locator":"html5.block"},
+		"text_btn":{"selectors":[".T_edit", ".T_edit_min", "h4"], "decisive":false, "action":"click", "label":"html5.link", "locator":"html5.link"},
+		"wj_btn":{"selectors":[".WJButton"], "decisive":true, "action":"click", "label":"html5.link", "locator":"html5.link"}
+	},
+
+	"settings":{
+		"locatorRelation":"or"
+	}	
+}

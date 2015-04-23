@@ -1,0 +1,28 @@
+{
+	"imports":[
+		{"name":"html5", "version":"1.0.0"}
+	],
+
+	"operations":[
+		{"selectors":["header", "nav", "div.creator-handler-set"], "collectionNode":"html5.buttonGroup", "nesting":"outer"},
+		{"selectors":["div.popover", "div.modal"], "collectionNode":"html5.form", "nesting":"outer", "settings":{"locatorRelation":"or"}},
+		{
+			"selectors":["div.creator-selector", "li.project-category-item"], "collectionNode":"tb-buttonGroup", "nesting":"outer", 
+			"collectionNodes":{
+				"tb-buttonGroup":{"selectors":["*"], "children":["h3-button", "html5.link", "html5.button"], "action":"or"}
+			},
+			"singleNodes":{
+				"h3-button":{"selectors":["h3"], "action":"click", "decisive":"true"}
+			}
+		},
+		{
+			"selectors":["div.datepicker-days", "div.datepicker-months", "div.datepicker-years"], "collectionNode":"tb-datepicker", "nesting":"outer", 
+			"collectionNodes":{
+				"tb-datepicker":{"selectors":["*"], "children":["date-button"], "action":"or"}
+			},
+			"singleNodes":{
+				"date-button":{"selectors":["th.prev", "th.next", "th.datepicker-switch", "td.day", "span.month", "span.year", "th.today", "th.tomorrow", "th.someday"], "action":"click", "decisive":"true"}
+			}
+		}
+	]
+}

@@ -1,0 +1,52 @@
+"charset": "UTF-8"
+
+"profile": {
+	"rules": [
+		{"selector":"div#loginContainer", "template":"standard.form", "elements":["text", "password", "button"]},	
+		{"selector":"div.tabcontent", "template":"standard.form", "elements":["selectbox", "text", "password", "textarea", "select", "radio", "checkbox", "button"]},	
+		{"selector":"div.selectbox", "template":"standard.form", "elements":["selectbox"]},
+
+		{"selector":"div.rollerarea", "template":"standard.list", "elements":["divButton"]},	
+		{"selector":"div.groupcontent", "template":"standard.list", "elements":["divButton"]},	
+		{"selector":"div#curtain_footer", "template":"standard.list", "elements":["spanButton"]},	
+
+		{"selector":"div.xgriddatacolumn", "template":"cordys.grid", "elements":["checkbox"]},
+
+		{"selector":"auto", "template":"standard.tree", "elements":["link", "imageLink"]},
+		{"selector":"auto", "template":"standard.table", "elements":["text", "select", "radio", "checkbox", "submitButton", "imageButton", "inputButton", "link", "imageLink"]},
+		{"selector":"auto", "template":"standard.form", "elements":["text", "password", "textarea", "select", "radio", "checkbox", "submitButton", "imageButton", "button", "inputButton"]},
+		{"selector":"auto", "template":"standard.list", "elements":["link", "imageLink", "areaLink", "button"]},
+	],
+
+	"elements": [
+		{"code":"divButton", "template":"cordys.divButton", "selector":".item"},
+		{"code":"spanButton", "template":"cordys.divButton", "selector":"span img"},
+
+		{"code":"selectbox", "template":"cordys.selectbox", "selector":"div.selectbox"},
+
+		{"code":"text", "template":"standard.text", "selector":"input[type=text]"},
+		{"code":"password", "template":"standard.text", "selector":"input[type=password]"},
+		{"code":"textarea", "template":"standard.text", "selector":"textarea"},
+		{"code":"select", "template":"standard.select", "selector":"select"},
+		{"code":"radio", "template":"standard.select", "selector":"input[type=radio]"},
+		{"code":"checkbox", "template":"standard.select", "selector":"input[type=checkbox]"},
+		{"code":"button", "template":"standard.button", "selector":"button"},
+		{"code":"inputButton", "template":"standard.button", "selector":"input[type=button]"},
+		{"code":"submitButton", "template":"standard.button", "selector":"input[type=submit]"},
+		{"code":"imageButton", "template":"standard.button", "selector":"input[type=image]"},
+		{"code":"link", "template":"standard.button", "selector":"a[href]"},
+		{"code":"imageLink", "template":"standard.button", "selector":"img[onclick]"},
+		{"code":"areaLink", "template":"standard.button", "selector":"area[href]"},
+	],
+}
+
+"baseUrl": "http://211.9.59.249:8010/home/SWATDemo/"
+
+"replaceRules": [
+	{"<script.*?>[\\s\\S]*?</script>":""},
+	{"<(base|BASE)(.*?)>":""},
+	{"wcp/theme/default/style/print.css":"https://dev02.swat.smartekworks.com/data/upload/cordys/css/print.css"},
+	{"wcp/theme/default/style/default.css":"https://dev02.swat.smartekworks.com/data/upload/cordys/css/default.css"},
+	{"wcp/theme/default/style/cusp.css":"https://dev02.swat.smartekworks.com/data/upload/cordys/css/cusp.css"},
+	{"cpc/nsinbox/style/workflow.css":"https://dev02.swat.smartekworks.com/data/upload/cordys/css/workflow.css"},
+]
