@@ -31,7 +31,17 @@
 						"locatorRelation":"or"
 				}
 		},
-		{"selectors":["map", "ul", "ol", "dl"], "collectionNode":"html5.buttonGroup", "nesting":"inner"}
-
+		{
+				"selectors":["div#easyDialogBox"], "collectionNode":"easyDialogBox", "nesting":"outer",
+				"collectionNodes":{
+						"easyDialogBox":{"selectors":["*"], "children":["mdCheckbox", "html5.button", "html5.link"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+				},
+				"singleNodes":{
+						"mdCheckbox":{"selectors":[".Icon_Checked", ".Icon_UnChecked"], "decisive":true, "action":"click", "label":"html5.fieldRight", "locator":"html5.link"}
+				}
+		},
+		{
+			"selectors":["map", "ul", "ol", "dl"], "collectionNode":"html5.buttonGroup", "nesting":"inner"
+		}
 	]
 }
