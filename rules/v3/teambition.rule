@@ -1,28 +1,376 @@
 {
-	"imports":[
-		{"name":"html5", "version":"1.0.0"}
-	],
-
-	"operations":[
-		{"selectors":["header", "nav", "div.creator-handler-set"], "collectionNode":"html5.buttonGroup", "nesting":"outer"},
-		{"selectors":["div.popover", "div.modal"], "collectionNode":"html5.form", "nesting":"outer", "settings":{"locatorRelation":"or"}},
-		{
-			"selectors":["div.creator-selector", "li.project-category-item"], "collectionNode":"tb-buttonGroup", "nesting":"outer", 
-			"collectionNodes":{
-				"tb-buttonGroup":{"selectors":["*"], "children":["h3-button", "html5.link", "html5.button"], "action":"or"}
-			},
-			"singleNodes":{
-				"h3-button":{"selectors":["h3"], "action":"click", "decisive":"true"}
-			}
-		},
-		{
-			"selectors":["div.datepicker-days", "div.datepicker-months", "div.datepicker-years"], "collectionNode":"tb-datepicker", "nesting":"outer", 
-			"collectionNodes":{
-				"tb-datepicker":{"selectors":["*"], "children":["date-button"], "action":"or"}
-			},
-			"singleNodes":{
-				"date-button":{"selectors":["th.prev", "th.next", "th.datepicker-switch", "td.day", "span.month", "span.year", "th.today", "th.tomorrow", "th.someday"], "action":"click", "decisive":"true"}
-			}
-		}
-	]
+  "imports": [
+    {
+      "name": "html5",
+      "version": "1.0.0"
+    }
+  ],
+  "operations": [
+    {
+      "selectors": [
+        "div.popover",
+        "div.modal"
+      ],
+      "collectionNode": "tb-form",
+      "nesting": "outer",
+      "settings": {
+        "locatorRelation": "or"
+      }
+    },
+    {
+      "selectors": [
+        "ul.projects"
+      ],
+      "collectionNode": "tb-projects",
+      "nesting": "outer",
+      "collectionNodes": {
+        "tb-projects": {
+          "selectors": [
+            "*"
+          ],
+          "children": [
+            "tb-project"
+          ],
+          "action": "or"
+        },
+        "tb-project": {
+          "selectors": [
+            "li.project"
+          ],
+          "children": [
+            "tb-link",
+            "html5.link",
+            "html5.button"
+          ],
+          "action": "or"
+        }
+      }
+    },
+    {
+      "selectors": [
+        "ul.scrum-stage-tasks",
+        "ul.scrum-stage-tasks-done"
+      ],
+      "collectionNode": "tb-tasks",
+      "nesting": "outer",
+      "collectionNodes": {
+        "tb-tasks": {
+          "selectors": [
+            "*"
+          ],
+          "children": [
+            "tb-task"
+          ],
+          "action": "or"
+        },
+        "tb-task": {
+          "selectors": [
+            "li.task"
+          ],
+          "children": [
+            "tb-checkbox",
+            "tb-link"
+          ],
+          "action": "or"
+        }
+      }
+    },
+    {
+      "selectors": [
+        "ul.library-list"
+      ],
+      "collectionNode": "tb-library",
+      "nesting": "outer",
+      "collectionNodes": {
+        "tb-library": {
+          "selectors": [
+            "*"
+          ],
+          "children": [
+            "tb-work",
+            "tb-collection"
+          ],
+          "action": "or"
+        },
+        "tb-work": {
+          "selectors": [
+            "li.work"
+          ],
+          "children": [
+            "html5.text",
+            "tb-buttonGroup"
+          ],
+          "action": "and"
+        },
+        "tb-collection": {
+          "selectors": [
+            "li.collection"
+          ],
+          "children": [
+            "html5.text",
+            "tb-buttonGroup"
+          ],
+          "action": "and"
+        }
+      },
+       "settings": {
+        "locatorRelation": "or"
+      }     
+    },
+    {
+      "selectors": [
+        "ul.events-card-list"
+      ],
+      "collectionNode": "tb-events",
+      "nesting": "outer",
+      "collectionNodes": {
+        "tb-events": {
+          "selectors": [
+            "*"
+          ],
+          "children": [
+            "tb-event"
+          ],
+          "action": "or"
+        },
+        "tb-event": {
+          "selectors": [
+            ".event-view"
+          ],
+          "children": [
+            "tb-link",
+            "html5.link"
+          ],
+          "action": "or"
+        }
+      }
+    },
+    {
+      "selectors": [
+        "ul.tag-list"
+      ],
+      "collectionNode": "tb-tags",
+      "nesting": "outer",
+      "collectionNodes": {
+        "tb-tags": {
+          "selectors": [
+            "*"
+          ],
+          "children": [
+            "tb-tag"
+          ],
+          "action": "or"
+        },
+        "tb-tag": {
+          "selectors": [
+            ".tag-item"
+          ],
+          "children": [
+            "tb-hover",
+            "html5.buttonGroup"
+          ],
+          "action": "and"
+        }
+      },
+      "settings": {
+        "locatorRelation": "or"
+      }
+    },
+    {
+      "selectors": [
+        "ul.reviews-list"
+      ],
+      "collectionNode": "tb-reviews",
+      "nesting": "outer",
+      "collectionNodes": {
+        "tb-reviews": {
+          "selectors": [
+            "*"
+          ],
+          "children": [
+            "tb-review"
+          ],
+          "action": "or"
+        }
+      },
+      "singleNodes": {
+        "tb-review": {
+          "selectors": [
+            "li.review"
+          ],
+          "action": "click",
+          "desive": true
+        }
+      }
+    },
+    {
+      "selectors": [
+        "ul.subtasks-list"
+      ],
+      "collectionNode": "tb-subtasks",
+      "nesting": "outer",
+      "collectionNodes": {
+        "tb-subtasks": {
+          "selectors": [
+            "*"
+          ],
+          "children": [
+            "tb-subtask"
+          ],
+          "action": "or"
+        },
+        "tb-subtask": {
+          "selectors": [
+            "li.subtask-view"
+          ],
+          "children": [
+            "tb-checkbox",
+            "tb-edit",
+            "html5.textarea",
+            "html5.buttonGroup"
+          ],
+          "action": "and"
+        }
+      }
+    },
+    {
+      "selectors": [
+        "div.detail-infos-note-view",
+        "div.subtask-card",
+        "div.detail-infos-link-view",
+        "div.detail-infos-tag-view",
+        "footer",
+        "div.task-detail-panel"
+      ],
+      "collectionNode": "html5.form",
+      "nesting": "outer",
+      "settings": {
+        "locatorRelation": "or"
+      }
+    },
+    {
+      "selectors": [
+        "div.datepicker-days",
+        "div.datepicker-months",
+        "div.datepicker-years"
+      ],
+      "collectionNode": "tb-datepicker",
+      "nesting": "outer",
+      "collectionNodes": {
+        "tb-datepicker": {
+          "selectors": [
+            "*"
+          ],
+          "children": [
+            "date-button"
+          ],
+          "action": "or"
+        }
+      },
+      "singleNodes": {
+        "date-button": {
+          "selectors": [
+            "th.prev",
+            "th.next",
+            "th.datepicker-switch",
+            "td.day",
+            "span.month",
+            "span.year",
+            "th.today",
+            "th.tomorrow",
+            "th.someday"
+          ],
+          "action": "click",
+          "decisive": true
+        }
+      }
+    },
+    {
+      "selectors": [
+        ".dropdown-menu",
+        "header",
+        "nav",
+        "div.creator-handler-set",
+        "li.project-category-item",
+        "div.home-card"
+      ],
+      "collectionNode": "tb-buttonGroup",
+      "nesting": "outer"
+    }
+  ],
+  "collectionNodes": {
+    "tb-form": {
+      "selectors": [
+        "*"
+      ],
+      "children": [
+        "html5.text",
+        "html5.textarea",
+        "simditor",
+        "html5.upload",
+        "html5.checkbox",
+        "html5.radio",
+        "html5.select",
+        "html5.multiSelect",
+        "tb-buttonGroup"
+      ],
+      "action": "and",
+      "label": "html5.block",
+      "locator": "html5.block"
+    },
+    "tb-buttonGroup": {
+      "selectors": [
+        "*"
+      ],
+      "children": [
+        "tb-checkbox",
+        "tb-link",
+        "html5.link",
+        "html5.button"
+      ],
+      "action": "or"
+    }
+  },
+  "singleNodes": {
+    "tb-checkbox": {
+      "selectors": [
+        ".check-box"
+      ],
+      "action": "click",
+      "decisive": true
+    },
+    "tb-link": {
+      "selectors": [
+        ".on-openable",
+        ".open-detail",
+        ".work-title",
+        ".collection-title",
+        ".project-name",
+        "[data-gta]"
+      ],
+      "action": "click",
+      "decisive": true
+    },
+    "tb-hover": {
+      "selectors": [
+        ".tag-item"
+      ],
+      "action": "moveTo",
+      "decisive": false
+    },
+    "tb-edit": {
+      "selectors": [
+        "div.subtask-content"
+      ],
+      "action": "click",
+      "decisive": false
+    },
+    "simditor": {
+      "selectors": [
+        "div.simditor-body"
+      ],
+      "action": "type",
+      "decisive": false
+    }
+  }
 }

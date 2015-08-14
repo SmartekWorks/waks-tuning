@@ -1,0 +1,55 @@
+{
+	"name":"html5",
+	"version":"1.0.0",
+
+	"operations":[
+		{"selectors":["form", "table"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":["map", "ul", "ol", "dl", "nav", "div", "a", "button"], "collectionNode":"buttonGroup", "nesting":"inner"}
+	],
+
+	"collectionNodes":{
+		"form":{"selectors":["*"],"children":["text", "textarea", "upload", "checkbox", "radio", "select", "multiSelect", "buttonGroup"], "action":"and", "label":"block", "locator":"block"},
+		"buttonGroup":{"selectors":["*"], "children":["button", "link"], "action":"or", "label":"block", "locator":"block"},
+		"select":{"selectors":["select:not([multiple])"], "children":["option"], "action":"or", "label":"fieldLeft", "locator":"field"},
+		"multiSelect":{"selectors":["select[multiple]"], "children":["option"], "action":"multi", "label":"fieldLeft", "locator":"field"},
+
+		"list":{"selectors":["ul", "ol"], "children":["list-unit"], "action":"or", "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5, "label":"block", "locator":"block"},
+		"list-unit":{"selectors":["li"], "children":["buttonGroup"], "action":"and", "label":"block", "locator":"block"},
+		"table":{"selectors":["tbody"], "children":["table-unit"], "action":"or", "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5, "label":"block", "locator":"block"},
+		"table-unit":{"selectors":["tr"], "children":["form"], "action":"and", "label":"block", "locator":"block"}
+	},
+
+	"singleNodes":{
+		"text":{"selectors":["input:not([type])", "input[type=text]", "input[type=password]", "input[type=email]", "input[type=url]", "input[type=search]", "input[type=number]", "input[type=tel]"], "decisive":false, "action":"type", "label":"fieldLeft", "locator":"field"},
+		"textarea":{"selectors":["textarea"], "decisive":false, "action":"type", "label":"fieldLeft", "locator":"field"},
+		"upload":{"selectors":["input[type=file]"], "decisive":false, "action":"upload", "label":"fieldLeft", "locator":"field"},
+		"checkbox":{"selectors":["input[type=checkbox]"], "decisive":false, "action":"check", "label":"fieldRight", "locator":"field", "group":{"by":"name", "label":"group", "locator":"group"}},
+		"radio":{"selectors":["input[type=radio]"], "decisive":false, "action":"click", "label":"fieldRight", "locator":"field", "group":{"by":"name", "label":"group", "locator":"group"}},
+		"option":{"selectors":["option"], "decisive":false, "action":"select", "label":"text", "locator":"text"},
+		"link":{"selectors":["a", "area"], "decisive":true, "action":"click", "label":"link", "locator":"link"}, 
+		"button":{"selectors":["input[type=submit]", "input[type=button]", "input[type=image]", "input[type=reset]", "button"], "decisive":true, "action":"click", "label":"button", "locator":"button"}
+	},
+
+	"labelPolicies":{
+		"fieldLeft":["label", "prevSibling", "parentPrevSibling", "parentTdPrevSibling", "alt", "title", "id", "name", "placeholder", "value"],
+		"fieldRight":["label", "nextSibling", "parentNextSibling", "alt", "title", "id", "name", "placeholder", "value"],
+		"button":["label", "alt", "title", "value", "text", "id", "name"],
+		"link":["alt", "title", "text", "id", "name", "imgChild"],
+		"text":["alt", "title", "text", "id", "name"],
+		"block":["id", "name"],
+		"group":["prevSibling", "parentPrevSibling", "parentTdPrevSibling"]
+	},
+
+	"locatorPolicies":{
+		"field":["name", "id", "label", "xpath"],
+		"button":["id", "name", "value", "label", "xpath"],
+		"link":["id", "label", "xpath"],
+		"text":["label", "value", "xpath"],
+		"block":["id", "name", "xpath"],
+		"group":["name"]
+	},
+
+	"settings":{
+		"locatorRelation":"and"
+	}
+}

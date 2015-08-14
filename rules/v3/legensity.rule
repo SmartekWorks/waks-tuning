@@ -1,0 +1,34 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations":[
+		{"selectors":["#navigateDiv", ".dx-tabs"], "collectionNode":"buttonGroup", "nesting":"outer", "settings":{"locatorRelation":"or"}},
+		{"selectors":["#search", ".dx-popup-content", ".WdateDiv"], "collectionNode":"form", "nesting":"outer", "settings":{"locatorRelation":"or"}},
+		{"selectors":["div[ng-show]"], "collectionNode":"form", "nesting":"inner", "settings":{"locatorRelation":"or"}},
+		{"selectors":[".dx-datagrid-headers"], "collectionNode":"buttonGroup", "nesting":"outer", "settings":{"locatorRelation":"or"}},
+		{"selectors":[".dx-datagrid-rowsview"], "collectionNode":"datagrid", "nesting":"outer", "settings":{"locatorRelation":"or"}}
+	],
+
+	"collectionNodes":{
+		"form":{"selectors":["*"],"children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup":{"selectors":["*"], "children":["html5.button", "html5.link", "button", "dateButton", "checkboxButton"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+		"datagrid":{"selectors":["*"], "children":["datarow"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes":{
+		"button":{"selectors":["[onclick]", "[ng-click]", ".dx-datagrid-action-cursor", ".dx-list-item", ".dx-lookup", ".dx-tab", ".dx-dropdowneditor-button"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"},
+		"dateButton":{"selectors":["[date-picker]"], "decisive":true, "action":"click", "label":"html5.fieldLeft", "locator":"html5.field"},
+		"checkboxButton":{"selectors":[".dx-checkbox"], "decisive":true, "action":"click", "label":"html5.fieldRight", "locator":"html5.field"},
+		"datarow":{"selectors":[".dx-data-row"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	},
+
+	"settings":{
+		"locatorRelation":"or"
+	}
+}
+

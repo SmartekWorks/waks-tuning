@@ -1,0 +1,39 @@
+{
+  "imports": [
+    {
+      "name": "html5",
+      "version": "1.0.0"
+    }
+  ],
+  "operations": [
+    {
+      "selectors":[".bar-header"], "collectionNode":"form", "nesting":"outer",
+      "collectionNodes":{
+          "form":{"selectors":["*"], "children":["html5.text", "buttonGroup"], "action":"and"},
+          "buttonGroup":{"selectors":["*"], "children":["html5.button", "html5.link", "ng-click"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+      }
+    },
+    {
+      "selectors":["div.list"], "collectionNode":"list", "nesting":"outer", 
+      "collectionNodes":{
+          "list":{"selectors":["*"], "children":["item"], "action":"or"},
+          "item":{"selectors":["div.item"], "children":["parkinglot", "html5.button"], "action":"and"}
+      },
+      "singleNodes":{
+          "parkinglot":{"selectors":["div.parkinglot-list-content"], "action":"click", "decisive":true}
+      },
+      "settings":{
+          "locatorRelation":"or"
+      }
+    },
+    {
+      "selectors":["ul.list"], "collectionNode":"list", "nesting":"outer", 
+      "collectionNodes":{
+          "list":{"selectors":["*"], "children":["ng-click"], "action":"or"}
+      }
+    }
+  ],
+  "singleNodes":{
+    "ng-click":{"selectors":["[ng-click]"], "action":"click", "decisive":true}
+  }
+}

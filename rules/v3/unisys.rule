@@ -1,0 +1,159 @@
+{
+  "imports": [
+    {
+      "name": "html5",
+      "version": "1.0.0"
+    }
+  ],
+  "operations": [
+    {
+      "selectors": [
+        ".mdl-grid"
+      ],
+      "collectionNode": "mdl-grid",
+      "collectionNodes": {
+        "mdl-grid": {
+          "selectors": [
+            "*"
+          ],
+          "children": [
+            "mdl-cell"
+          ],
+          "action": "or",
+          "label": "html5.block",
+          "locator": "html5.block"
+        },
+        "mdl-cell": {
+          "selectors": [
+            ".mdl-cell"
+          ],
+          "children": [
+            "mdl-checkbox",
+            "text",
+            "textarea",
+            "html5.checkbox",
+            "html5.radio",
+            "html5.select",
+            "html5.multiSelect",
+            "html5.buttonGroup"
+          ],
+          "action": "and",
+          "label": "html5.block",
+          "locator": "html5.block"
+        }
+      },
+      "singleNodes": {
+        "text": {
+          "selectors": [
+            "input:not([type])",
+            "input[type=text]",
+            "input[type=password]",
+            "input[type=email]",
+            "input[type=url]",
+            "input[type=search]",
+            "input[type=number]",
+            "input[type=tel]"
+          ],
+          "decisive": false,
+          "action": "type",
+          "label": "html5.fieldRight",
+          "locator": "html5.field"
+        },
+        "textarea": {
+          "selectors": [
+            "textarea"
+          ],
+          "decisive": false,
+          "action": "type",
+          "label": "html5.fieldRight",
+          "locator": "html5.field"
+        }
+      },
+      "nesting": "outer",
+      "settings": {
+        "locatorRelation": "or"
+      }
+    },
+    {
+      "selectors": [
+        "table"
+      ],
+      "collectionNode": "table",
+      "collectionNodes": {
+        "table": {
+          "selectors": [
+            "tbody"
+          ],
+          "children": [
+            "table-unit"
+          ],
+          "action": "or",
+          "repetitive": true,
+          "similarity": 0.9,
+          "combination": 2,
+          "percentage": 0.5,
+          "label": "html5.block",
+          "locator": "html5.block"
+        },
+        "table-unit": {
+          "selectors": [
+            "tr"
+          ],
+          "children": [
+            "form"
+          ],
+          "action": "and",
+          "label": "html5.block",
+          "locator": "html5.block"
+        }
+      },
+      "nesting": "outer",
+      "settings": {
+        "locatorRelation": "or"
+      }
+    },
+    {
+      "selectors": [
+        "form",
+        "table"
+      ],
+      "collectionNode": "form",
+      "nesting": "outer",
+      "settings": {
+        "locatorRelation": "or"
+      }
+    }
+  ],
+  "collectionNodes": {
+    "form": {
+      "selectors": [
+        "*"
+      ],
+      "children": [
+        "mdl-checkbox",
+        "html5.text",
+        "html5.textarea",
+        "html5.upload",
+        "html5.checkbox",
+        "html5.radio",
+        "html5.select",
+        "html5.multiSelect",
+        "html5.buttonGroup"
+      ],
+      "action": "and",
+      "label": "html5.block",
+      "locator": "html5.block"
+    }
+  },
+  "singleNodes": {
+    "mdl-checkbox": {
+      "selectors": [
+        ".mdl-checkbox"
+      ],
+      "decisive": false,
+      "action": "click",
+      "label": "html5.link",
+      "locator": "html5.link"
+    }
+  }
+}
