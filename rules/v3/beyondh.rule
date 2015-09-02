@@ -1,0 +1,35 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{"selectors": [".tableList"], "collectionNode":"html5.table", "nesting":"outer"},
+		{"selectors":["header", "footer", ".form", ".modal", ".floadPanel", "#SearchBar", "#templateOrderMemo", ".header"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors": ["#leftContainer", "#select2-drop"], "collectionNode":"buttonGroup", "nesting":"outer"},
+		{"selectors":["form", "table", ".frame"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":["map", "ul", "ol", "dl", "nav", "div", "a", "button"], "collectionNode":"buttonGroup", "nesting":"inner"}		
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["menuButton", "html5.button", "html5.link", "select2Button"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"menuButton": {"selectors":["a[hotkey]"], "decisive":true, "action":"click", "label":"menu", "locator":"html5.button"},
+		"select2Button": {"selectors":[".select2-result"], "decisive":false, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	},
+
+	"labelPolicies": {
+		"menu":["text", "alt", "title", "id", "name"]
+	},
+
+	"settings":{
+		"locatorRelation":"or"
+	}
+
+}

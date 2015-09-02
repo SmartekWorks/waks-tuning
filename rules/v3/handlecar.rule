@@ -1,0 +1,69 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{"selectors":[".WdateDiv"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors": [".sidebar_menu", ".third_menu", ".fourth_menu", ".online_package"], "collectionNode":"buttonGroup", "nesting":"outer"},
+		{
+			"selectors":[".pick_up_mod_b"], "collectionNode":"meterialItemList", "nesting":"outer",
+			"collectionNodes": {
+				"meterialItemList": {"selectors":["*"], "children":["fees_item_meterial"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"fees_item_meterial": {"selectors":[".fees_item_meterial"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "hcCheckbox", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+			}
+		},
+		{
+			"selectors":[".pick_up_mod_b"], "collectionNode":"projectMetList", "nesting":"outer",
+			"collectionNodes": {
+				"projectMetList": {"selectors":["*"], "children":["project_met_b"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"project_met_b": {"selectors":[".project_met_b"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "hcCheckbox", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+			}
+		},
+		{
+			"selectors":[".pick_up_mod_b"], "collectionNode":"cardList", "nesting":"outer",
+			"collectionNodes": {
+				"cardList": {"selectors":["*"], "children":["card"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"card": {"selectors":[".cards"], "children":["cardHeader"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+			},
+			"singleNodes": {
+				"cardHeader": {"selectors":[".cards_h"], "decisive":false, "action":"click", "label":"html5.button", "locator":"html5.button"}
+			}
+		},
+		{"selectors":["form"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":[".pick_up_mod"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":[".ui-jqgrid-htable"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":[".ui-jqgrid-btable"], "collectionNode":"table", "nesting":"outer"},
+		{"selectors":[".ui-dialog", "div[class$=_item]"], "collectionNode":"dialog", "nesting":"outer"},
+
+		{"selectors":["map", "ul", "ol", "dl", "nav", "div", "a", "button"], "collectionNode":"buttonGroup", "nesting":"inner"}
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "hcCheckbox", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"dialog": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "hcCheckbox", "buttonGroup"], "action":"and", "label":"dialog", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "dateButton", "menuButton", "hcButton", "gridButton", "checkButton"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+		"table":{"selectors":["tbody"], "children":["table-unit"], "action":"or", "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5, "label":"html5.block", "locator":"html5.block"},
+		"table-unit":{"selectors":["tr"], "children":["form"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"hcCheckbox": {"selectors":[".unticked"], "decisive":false, "action":"click", "label":"html5.fieldRight", "locator":"html5.field"},
+		"checkButton": {"selectors":[".chk"], "decisive":true, "action":"click", "label":"html5.fieldRight", "locator":"html5.field"},
+		"dateButton": {"selectors":["[date-picker]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"},
+		"menuButton": {"selectors": [".m_title", ".m_title_hover", ".second_menu", "li[href]"], "decisive":true, "action": "click", "label": "html5.button", "locator": "html5.button"},
+		"hcButton": {"selectors":["[onclick]", ".login_btn", ".h_btn", ".hc-button", ".pick_up_btn", ".info_btn", ".src_add_btn", ".pick_up_mod_save", ".print-select-icon", ".package_detail"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"},
+		"gridButton": {"selectors": [".jqgRow"], "decisive":true, "action": "click", "label": "html5.button", "locator": "html5.button"}
+	},
+
+	"labelPolicies": {
+		"dialog":["firstChild", "id", "name"]
+	},
+
+	"settings":{
+		"locatorRelation":"or"
+	}
+}

@@ -8,7 +8,45 @@
   "operations": [
     {
       "selectors": [
-        ".mdl-grid"
+        "table"
+      ],
+      "collectionNode": "table",
+      "collectionNodes": {
+        "table": {
+          "selectors": [
+            "tbody"
+          ],
+          "children": [
+            "table-unit"
+          ],
+          "action": "or",
+          "repetitive": true,
+          "similarity": 0.9,
+          "combination": 2,
+          "percentage": 0.5,
+          "label": "html5.block",
+          "locator": "html5.block"
+        },
+        "table-unit": {
+          "selectors": [
+            "tr"
+          ],
+          "children": [
+            "form"
+          ],
+          "action": "and",
+          "label": "html5.block",
+          "locator": "html5.block"
+        }
+      },
+      "nesting": "outer",
+      "settings": {
+        "locatorRelation": "or"
+      }
+    },
+    {
+      "selectors": [
+        "#KojinSyujiHokoku"
       ],
       "collectionNode": "mdl-grid",
       "collectionNodes": {
@@ -76,41 +114,36 @@
     },
     {
       "selectors": [
-        "table"
+        "div.account-menu"
       ],
-      "collectionNode": "table",
+      "collectionNode": "buttonGroup",
       "collectionNodes": {
-        "table": {
+        "buttonGroup": {
           "selectors": [
-            "tbody"
+            "*"
           ],
           "children": [
-            "table-unit"
+            "mdl-menuitem",
+            "html5.button",
+            "html5.link"
           ],
           "action": "or",
-          "repetitive": true,
-          "similarity": 0.9,
-          "combination": 2,
-          "percentage": 0.5,
-          "label": "html5.block",
-          "locator": "html5.block"
-        },
-        "table-unit": {
-          "selectors": [
-            "tr"
-          ],
-          "children": [
-            "form"
-          ],
-          "action": "and",
           "label": "html5.block",
           "locator": "html5.block"
         }
       },
-      "nesting": "outer",
-      "settings": {
-        "locatorRelation": "or"
-      }
+      "singleNodes": {
+        "mdl-menuitem": {
+          "selectors": [
+            ".mdl-menu__item"
+          ],
+          "decisive": true,
+          "action": "click",
+          "label": "html5.button",
+          "locator": "html5.button"
+        }
+      },
+      "nesting": "inner"
     },
     {
       "selectors": [
@@ -143,6 +176,19 @@
       "action": "and",
       "label": "html5.block",
       "locator": "html5.block"
+    },
+    "buttonGroup": {
+      "selectors": [
+        "*"
+      ],
+      "children": [
+        "mdl-menuitem",
+        "html5.button",
+        "html5.link"
+      ],
+      "action": "or",
+      "label": "html5.block",
+      "locator": "html5.block"
     }
   },
   "singleNodes": {
@@ -154,6 +200,15 @@
       "action": "click",
       "label": "html5.link",
       "locator": "html5.link"
+    },
+    "mdl-menuitem": {
+      "selectors": [
+        ".mdl-menu__item"
+      ],
+      "decisive": true,
+      "action": "click",
+      "label": "html5.button",
+      "locator": "html5.button"
     }
   }
 }
