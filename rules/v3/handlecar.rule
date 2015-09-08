@@ -7,6 +7,20 @@
 	],
 
 	"operations": [
+		{
+			"selectors":["#sales_pfm_detail_table"], "collectionNode":"detailTable", "nesting":"outer",
+			"collectionNodes": {
+				"detailTable": {"selectors":["*"], "children":["detailRow"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"detailRow": {"selectors":[".jqgrow"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "hcCheckbox", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+			}
+		},	
+		{
+			"selectors":[".hc_table_content"], "collectionNode":"hcTable", "nesting":"outer",
+			"collectionNodes": {
+				"hcTable": {"selectors":["*"], "children":["ulRow"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"ulRow": {"selectors":["ul"], "children":["html5.text", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "hcCheckbox", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+			}
+		},
 		{"selectors":[".WdateDiv"], "collectionNode":"form", "nesting":"outer"},
 		{"selectors": [".sidebar_menu", ".third_menu", ".fourth_menu", ".online_package"], "collectionNode":"buttonGroup", "nesting":"outer"},
 		{
@@ -34,6 +48,7 @@
 			}
 		},
 		{"selectors":["form"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":[".hc-form-general"], "collectionNode":"form", "nesting":"outer"},
 		{"selectors":[".pick_up_mod"], "collectionNode":"form", "nesting":"outer"},
 		{"selectors":[".ui-jqgrid-htable"], "collectionNode":"form", "nesting":"outer"},
 		{"selectors":[".ui-jqgrid-btable"], "collectionNode":"table", "nesting":"outer"},
