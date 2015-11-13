@@ -1,0 +1,43 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":["#bookmarkList"], "collectionNode":"bookmarkList", "nesting":"outer",
+			"collectionNodes": {
+				"bookmarkList": {"selectors":["*"], "children":["bookmark"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+			},
+			"singleNodes": {
+				"bookmark": {"selectors":["li"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+			}
+		},
+
+
+		{"selectors":["#menu", "#category_tree", ".k-popup"], "collectionNode":"buttonGroup", "nesting":"outer"},
+		{"selectors":[".form_search_document"], "collectionNode":"form", "nesting":"outer"},
+
+		{"selectors":[".k-grid"], "collectionNode":"table", "nesting":"outer"},
+		{"selectors":["form", "table"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":["map", "ul", "ol", "dl", "nav", "div", "a", "button"], "collectionNode":"buttonGroup", "nesting":"inner"}		
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "sdButton"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+		"table":{"selectors":["tbody"], "children":["table-unit"], "action":"or", "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5, "label":"html5.block", "locator":"html5.block"},
+		"table-unit":{"selectors":["tr"], "children":["form"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"sdButton": {"selectors":[".k-link", ".k-in", ".link_primary", ".k-multiselect-wrap", "span.date_info", "li[role=option]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	},
+
+	"settings":{
+		"locatorRelation":"or"
+	}
+}

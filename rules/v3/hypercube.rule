@@ -1,0 +1,48 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":[".select2-drop"], "collectionNode":"select2-drop", "nesting":"outer",
+			"collectionNodes": {
+				"select2-drop": {"selectors":["*"], "children":["select2-result"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+			},
+			"singleNodes": {
+				"select2-result": {"selectors":[".select2-result"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+			}	
+		},	
+		{
+			"selectors":[".table-responsive", ".list-group"], "collectionNode":"hcTable", "nesting":"outer",
+			"collectionNodes": {
+				"hcTable": {"selectors":["*"], "children":["hcRow"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"hcRow": {"selectors":["tr[ng-repeat]", "li[ng-repeat]"], "children":["html5.text", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+			}
+		},
+
+		{"selectors":[".modal"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":[".nav"], "collectionNode":"buttonGroup", "nesting":"outer"},
+
+		{"selectors":["form"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":["map", "ul", "ol", "dl", "nav"], "collectionNode":"buttonGroup", "nesting":"inner"},
+		{"selectors":["div[id]"], "collectionNode":"form", "nesting":"outer"}
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "hcButton", "ngButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"hcButton": {"selectors":[".dropdown-toggle", ".select2-arrow", ".select2-search-field", ".accordion-arrow"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"},
+		"ngButton": {"selectors":["[ng-click]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	},
+
+	"settings":{
+		"locatorRelation":"or"
+	}
+}
