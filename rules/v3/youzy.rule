@@ -18,7 +18,7 @@
 			"selectors":[".uzy-dialogs-future-choose-wish"], "collectionNode":"wishTables", "nesting":"outer",
 			"collectionNodes": {
 				"wishTables": {"selectors":["*"], "children":["wishTable"], "action":"or", "label":"html5.block", "locator":"html5.block"},
-				"wishTable": {"selectors":["tbody[ng-repeat^='college']"], "children":["html5.button", "html5.link"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+				"wishTable": {"selectors":["tbody[ng-repeat^=college]"], "children":["html5.button", "html5.link"], "action":"or", "label":"html5.block", "locator":"html5.block"}
 			}
 		},
 

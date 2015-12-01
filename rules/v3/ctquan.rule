@@ -25,6 +25,17 @@
 			}
 		},
 
+		{
+			"selectors":[".tags"], "collectionNode":"tags", "nesting":"outer",
+			"collectionNodes": {
+				"tags": {"selectors":["*"], "children":["tag"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"tag": {"selectors":["*"], "children":["tagButtons"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+			},
+			"singleNodes": {
+				"tagButtons": {"selectors":["span", "i"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+			}	
+		},
+
 		{"selectors":[".modal"], "collectionNode":"form", "nesting":"outer"},
 		{"selectors":[".nav"], "collectionNode":"buttonGroup", "nesting":"outer"},
 
@@ -38,6 +49,6 @@
 	},
 
 	"singleNodes": {
-		"ctButton": {"selectors":[".select2-search-field"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+		"ctButton": {"selectors":[".select2-search-field", ".select2-search"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
 	}
 }
