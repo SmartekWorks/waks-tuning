@@ -23,30 +23,11 @@
 		},
 		{"selectors":[".WdateDiv"], "collectionNode":"form", "nesting":"outer"},
 		{"selectors": [".sidebar_menu", ".third_menu", ".fourth_menu", ".online_package"], "collectionNode":"buttonGroup", "nesting":"outer"},
-		{
-			"selectors":[".pick_up_mod_b"], "collectionNode":"meterialItemList", "nesting":"outer",
-			"collectionNodes": {
-				"meterialItemList": {"selectors":["*"], "children":["fees_item_meterial"], "action":"or", "label":"html5.block", "locator":"html5.block"},
-				"fees_item_meterial": {"selectors":[".fees_item_meterial"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "hcCheckbox", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"}
-			}
-		},
-		{
-			"selectors":[".pick_up_mod_b"], "collectionNode":"projectMetList", "nesting":"outer",
-			"collectionNodes": {
-				"projectMetList": {"selectors":["*"], "children":["project_met_b"], "action":"or", "label":"html5.block", "locator":"html5.block"},
-				"project_met_b": {"selectors":[".project_met_b"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "hcCheckbox", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"}
-			}
-		},
-		{
-			"selectors":[".pick_up_mod_b"], "collectionNode":"cardList", "nesting":"outer",
-			"collectionNodes": {
-				"cardList": {"selectors":["*"], "children":["card"], "action":"or", "label":"html5.block", "locator":"html5.block"},
-				"card": {"selectors":[".cards"], "children":["cardHeader"], "action":"and", "label":"html5.block", "locator":"html5.block"}
-			},
-			"singleNodes": {
-				"cardHeader": {"selectors":[".cards_h"], "decisive":false, "action":"click", "label":"html5.button", "locator":"html5.button"}
-			}
-		},
+		{"selectors":[".deduct_item_body"], "collectionNode":"meterialItemList", "nesting":"outer"},
+		{"selectors":[".deduct_item_body"], "collectionNode":"projectMetList", "nesting":"outer"},
+		{"selectors":[".cost_item_body"], "collectionNode":"meterialItemList", "nesting":"outer"},
+		{"selectors":[".cost_item_body"], "collectionNode":"projectMetList", "nesting":"outer"},
+		{"selectors":[".pkg_mod"], "collectionNode":"cardList", "nesting":"outer"},		
 		{"selectors":["form"], "collectionNode":"form", "nesting":"outer"},
 		{"selectors":[".hc-form-general"], "collectionNode":"form", "nesting":"outer"},
 		{"selectors":[".pick_up_mod"], "collectionNode":"form", "nesting":"outer"},
@@ -58,6 +39,13 @@
 	],
 
 	"collectionNodes": {
+		"meterialItemList": {"selectors":["*"], "children":["fees_item_meterial"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+		"fees_item_meterial": {"selectors":[".fees_item_meterial"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "hcCheckbox", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"projectMetList": {"selectors":["*"], "children":["project_met_b"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+		"project_met_b": {"selectors":[".project_met_b"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "hcCheckbox", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"cardList": {"selectors":["*"], "children":["card"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+		"card": {"selectors":[".cards"], "children":["cardHeader"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+
 		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "hcCheckbox", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
 		"dialog": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "hcCheckbox", "buttonGroup"], "action":"and", "label":"dialog", "locator":"html5.block"},
 		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "dateButton", "menuButton", "hcButton", "gridButton", "checkButton"], "action":"or", "label":"html5.block", "locator":"html5.block"},
@@ -66,6 +54,7 @@
 	},
 
 	"singleNodes": {
+		"cardHeader": {"selectors":[".cards_h"], "decisive":false, "action":"click", "label":"html5.button", "locator":"html5.button"},
 		"hcCheckbox": {"selectors":[".unticked"], "decisive":false, "action":"click", "label":"html5.fieldRight", "locator":"html5.field"},
 		"checkButton": {"selectors":[".chk"], "decisive":true, "action":"click", "label":"html5.fieldRight", "locator":"html5.field"},
 		"dateButton": {"selectors":["[date-picker]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"},
