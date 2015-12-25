@@ -1,0 +1,16 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{"selectors":[".block_search_btn"], "collectionNode":"html5.buttonGroup", "nesting":"outer"},
+
+		{"selectors":["form"], "collectionNode":"html5.form", "nesting":"outer"},
+		{"selectors":["map", "ul", "ol", "dl", "nav"], "collectionNode":"html5.buttonGroup", "nesting":"inner"},
+		{"selectors":["div[id]", "table"], "collectionNode":"html5.form", "nesting":"outer"}
+	]
+}

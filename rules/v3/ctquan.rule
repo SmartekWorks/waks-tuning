@@ -29,13 +29,41 @@
 			"selectors":[".tags"], "collectionNode":"tags", "nesting":"outer",
 			"collectionNodes": {
 				"tags": {"selectors":["*"], "children":["tag"], "action":"or", "label":"html5.block", "locator":"html5.block"},
-				"tag": {"selectors":["*"], "children":["tagButtons"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"tag": {"selectors":["*"], "children":["tagButtons"], "action":"or", "label":"html5.block", "locator":"html5.block"}
 			},
 			"singleNodes": {
 				"tagButtons": {"selectors":["span", "i"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
 			}	
 		},
 
+		{
+			"selectors":[".investor_block"], "collectionNode":"investor_block", "nesting":"outer",
+			"collectionNodes": {
+				"investor_block": {"selectors":["*"], "children":["investor_thumbnail"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"investor_thumbnail": {"selectors":[".investor_thumbnail"], "children":["html5.button", "html5.link", "thumbButtons"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+			},
+			"singleNodes": {
+				"thumbButtons": {"selectors":["h4"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+			}
+		},
+
+		{
+			"selectors":["#startups_list"], "collectionNode":"startups_list", "nesting":"outer",
+			"collectionNodes": {
+				"startups_list": {"selectors":["*"], "children":["startup"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"startup": {"selectors":[".startup-card-two-column"], "children":["html5.button", "html5.link"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+			}
+		},
+
+		{
+			"selectors":[".crowd-list"], "collectionNode":"crowd-list", "nesting":"outer",
+			"collectionNodes": {
+				"crowd-list": {"selectors":["*"], "children":["crowd-card"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"crowd-card": {"selectors":[".crowd-card"], "children":["html5.button", "html5.link"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+			}
+		},
+
+		{"selectors":[".new-stake"], "collectionNode":"form", "nesting":"outer"},
 		{"selectors":[".modal"], "collectionNode":"form", "nesting":"outer"},
 		{"selectors":[".nav"], "collectionNode":"buttonGroup", "nesting":"outer"},
 

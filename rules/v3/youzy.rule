@@ -23,7 +23,7 @@
 		},
 
 		{"selectors":[".table-main"], "collectionNode":"buttonGroup", "nesting":"outer"},
-		{"selectors":[".someinfo", ".main-function"], "collectionNode":"buttonGroup", "nesting":"outer"},
+		{"selectors":[".someinfo", ".main-function", ".app-square"], "collectionNode":"buttonGroup", "nesting":"outer"},
 		{"selectors":[".modal"], "collectionNode":"form", "nesting":"outer"},
 
 		{"selectors":["form"], "collectionNode":"form", "nesting":"outer"},
@@ -37,6 +37,6 @@
 	},
 
 	"singleNodes": {
-		"yzyButton": {"selectors":[".select-zone"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+		"yzyButton": {"selectors":[".select-zone", "div[onclick]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
 	}	
 }
