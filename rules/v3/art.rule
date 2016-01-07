@@ -8,6 +8,15 @@
 
 	"operations": [
 		{"selectors":[".block_search_btn"], "collectionNode":"html5.buttonGroup", "nesting":"outer"},
+		{
+			"selectors":[".dropDiv"], "collectionNode":"dropDiv","nesting":"outer",
+			"collectionNodes":{
+				"dropDiv":{"selectors":["*"],"children":["dropButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"dropButton":{"selectors":[".list"],"action":"click","decisive":true}
+			}
+		},
 
 		{"selectors":["form"], "collectionNode":"html5.form", "nesting":"outer"},
 		{"selectors":["map", "ul", "ol", "dl", "nav"], "collectionNode":"html5.buttonGroup", "nesting":"inner"},
