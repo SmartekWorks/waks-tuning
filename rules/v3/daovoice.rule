@@ -1,0 +1,26 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{"selectors":[".daodream-conversations-items"], "collectionNode":"buttonGroup", "nesting":"outer"},
+		{"selectors":[".daodream-container"], "collectionNode":"form", "nesting":"outer"},
+
+		{"selectors":["form"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":["map", "ul", "ol", "dl", "nav"], "collectionNode":"buttonGroup", "nesting":"inner"},
+		{"selectors":["div[id]"], "collectionNode":"form", "nesting":"outer"}
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "dvButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"dvButton": {"selectors":[".daodream-launcher-button", ".daodream-conversations-item", ".daodream-composer-action-button", ".daodream-emoji-icon", ".daodream-emoji-group-icon"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}	
+}

@@ -98,7 +98,7 @@
 	},
 	"singleNodes": {
 		"tb-checkbox": {"selectors":[".check-box"],"action":"click","decisive":true},
-		"tb-link": {"selectors":[".on-openable",".open-detail",".work-title",".collection-title",".selector-title",".project-name","[data-color]","[data-gta]"],"action":"click","decisive":true},
+		"tb-link": {"selectors":[".on-openable",".open-detail",".work-title",".collection-title",".selector-title",".project-name","[data-color]","[data-gta]", ".app-item", ".plugin-item"],"action":"click","decisive":true},
 		"tb-hover": {"selectors":[".tag-item"],"action":"moveTo","decisive":false},
 		"tb-edit": {"selectors":["div.subtask-content"],"action":"click","decisive":false},
 		"simditor": {"selectors":["div.simditor-body"],"action":"type","decisive":false}

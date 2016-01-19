@@ -1,0 +1,18 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":["table.table"], "collectionNode":"table", "nesting":"outer",
+			"collectionNodes": {
+				"table": {"selectors":["*"], "children":["tr"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"tr": {"selectors":["tr"], "children":["html5.text", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "html5.buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+			}
+		}
+	]
+}
