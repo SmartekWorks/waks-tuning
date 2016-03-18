@@ -1,0 +1,37 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":["#standard_list"], "collectionNode":"standardList", "nesting":"outer",
+			"collectionNodes": {
+				"standardList": {"selectors":["*"], "children":["listItem"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"listItem": {"selectors":["li"], "children":["html5.text", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+			}
+		},
+
+		{"selectors":[".nav"], "collectionNode":"buttonGroup", "nesting":"outer"},
+		{"selectors":[".application_menu_left"], "collectionNode":"buttonGroup", "nesting":"outer"},
+		{"selectors":["#header"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":[".ui-popup"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":[".datepicker"], "collectionNode":"form", "nesting":"outer"},
+
+		{"selectors":["form"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":["map", "ul", "ol", "dl", "nav"], "collectionNode":"buttonGroup", "nesting":"inner"},
+		{"selectors":["div[id]"], "collectionNode":"form", "nesting":"outer"}
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["buttonGroup", "html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "tnButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"tnButton": {"selectors":["input.form-date", "input#areaName", "input#eventSchoolName", "input#locationName", ".day"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}	
+}

@@ -1,0 +1,13 @@
+{
+  "imports": [
+    {"name": "html5", "version": "1.0.0"}
+  ],
+  "operations": [
+    {
+      "selectors": ["table[border=1]"], "collectionNode": "html5.table", "nesting": "outer",
+      "settings":{
+        "locatorRelation":"or"
+      }
+    }
+  ]
+}

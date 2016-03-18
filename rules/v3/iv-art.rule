@@ -18,6 +18,7 @@
 			}
 		},
 
+		{"selectors":[".expand_table fieldset", ".expand_table"], "collectionNode":"html5.form", "nesting":"outer"},
 		{"selectors":["form"], "collectionNode":"html5.form", "nesting":"outer"},
 		{"selectors":["map", "ul", "ol", "dl", "nav"], "collectionNode":"html5.buttonGroup", "nesting":"inner"},
 		{"selectors":["div[id]", "table"], "collectionNode":"html5.form", "nesting":"outer"}

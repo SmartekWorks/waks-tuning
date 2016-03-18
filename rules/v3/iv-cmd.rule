@@ -1,0 +1,18 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":["table.pg_result"], "collectionNode":"pgResult","nesting":"outer",
+			"collectionNodes":{
+				"pgResult":{"selectors":["*"],"children":["pgRow"],"action":"or"},
+				"pgRow":{"selectors":["tr.pg_result_content"],"children":["html5.form"],"action":"and"},
+			}
+		}
+	]
+}

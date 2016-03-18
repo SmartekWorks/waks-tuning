@@ -1,0 +1,33 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":[".handsontableInputHolder"], "collectionNode":"inputHolder","nesting":"outer",
+			"collectionNodes":{
+				"inputHolder":{"selectors":["*"],"children":["html5.textarea", "buttonGroup"],"action":"and"},
+				"buttonGroup":{"selectors":["*"],"children":["listBox"],"action":"or"}
+			},
+			"singleNodes":{
+				"listBox":{"selectors":["td.listbox"],"action":"click","decisive":true}
+			}
+		},
+		{
+			"selectors":["table.htCore"], "collectionNode":"htTable","nesting":"outer",
+			"collectionNodes":{
+				"htTable":{"selectors":["tbody"],"children":["htRow"],"action":"or"},
+				"htRow":{"selectors":["tr"],"children":["html5.checkbox", "html5.radio", "buttonGroup"],"action":"and"},
+				"buttonGroup":{"selectors":["*"],"children":["htCell", "htAutocomplete"],"action":"or"}
+			},
+			"singleNodes":{
+				"htCell":{"selectors":["td"],"action":"doubleClick","decisive":true},
+				"htAutocomplete":{"selectors":[".htAutocompleteArrow"],"action":"doubleClick","decisive":true}
+			}
+		}
+	]
+}
