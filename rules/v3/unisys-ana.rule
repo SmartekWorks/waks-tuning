@@ -1,0 +1,12 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{"selectors":["table"], "collectionNode":"html5.table", "nesting":"outer"}
+	]
+}

@@ -8,17 +8,18 @@
 
 	"operations": [
 		{
-			"selectors":[".fillin"], "collectionNode":"fillTables", "nesting":"outer",
+			"selectors":["#tableRecommendColleges"], "collectionNode":"collegeList", "nesting":"outer",
 			"collectionNodes": {
-				"fillTables": {"selectors":["*"], "children":["fillTable"], "action":"or", "label":"html5.block", "locator":"html5.block"},
-				"fillTable": {"selectors":[".fill-table"], "children":["html5.text", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+				"collegeList": {"selectors":["*"], "children":["college"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"college": {"selectors":["tr[id^=college]"], "children":["html5.button", "html5.link", "yzyButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
 			}
 		},
 		{
-			"selectors":[".uzy-dialogs-future-choose-wish"], "collectionNode":"wishTables", "nesting":"outer",
+			"selectors":["#tableRecommendColleges"], "collectionNode":"majorList", "nesting":"outer",
 			"collectionNodes": {
-				"wishTables": {"selectors":["*"], "children":["wishTable"], "action":"or", "label":"html5.block", "locator":"html5.block"},
-				"wishTable": {"selectors":["tbody[ng-repeat^=college]"], "children":["html5.button", "html5.link"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+				"majorList": {"selectors":["*"], "children":["major"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"major": {"selectors":["div[id^=divMajor]"], "children":["profession"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+				"profession": {"selectors":["tr[id^=profession]"], "children":["html5.button", "html5.link", "yzyButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
 			}
 		},
 
@@ -37,6 +38,6 @@
 	},
 
 	"singleNodes": {
-		"yzyButton": {"selectors":[".select-zone", "div[onclick]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+		"yzyButton": {"selectors":[".select-zone", "div[onclick]", ".fillin-select-title"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
 	}	
 }

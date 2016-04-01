@@ -1,0 +1,363 @@
+{
+  "operations": [
+    {
+      "collectionNode": "wizTable", "selectors": ["#wizTable2"], "nesting": "outer", 
+      "collectionNodes": {
+        "wizTable": {"selectors":["tbody"], "children":["wizRow"], "action":"or"},
+        "wizRow": {"selectors":["tr"], "children":["checkbox", "radio", "select", "text", "buttonGroup"], "action":"and"}
+      }
+    },
+    {
+      "collectionNode": "form",
+      "nesting": "outer",
+      "selectors": [
+        "form",
+        "table"
+      ]
+    },
+    {
+      "collectionNode": "buttonGroup",
+      "nesting": "inner",
+      "selectors": [
+        "map",
+        "ul",
+        "ol",
+        "dl",
+        "nav",
+        "div",
+        "a",
+        "button"
+      ]
+    },
+    {
+      "collectionNode": "sa_tablist",
+      "selectors": [
+        "#menuul"
+      ],
+      "nesting": "outer"
+    }
+  ],
+  "collectionNodes": {
+    "buttonGroup": {
+      "locator": "block",
+      "selectors": [
+        "*"
+      ],
+      "action": "or",
+      "children": [
+        "button",
+        "link"
+      ],
+      "label": "block"
+    },
+    "form": {
+      "locator": "block",
+      "selectors": [
+        "*"
+      ],
+      "action": "and",
+      "children": [
+        "text",
+        "textarea",
+        "upload",
+        "checkbox",
+        "radio",
+        "select",
+        "multiSelect",
+        "buttonGroup"
+      ],
+      "label": "block"
+    },
+    "list": {
+      "percentage": 0.5,
+      "selectors": [
+        "ul",
+        "ol"
+      ],
+      "combination": 2,
+      "similarity": 0.9,
+      "action": "or",
+      "children": [
+        "list-unit"
+      ],
+      "repetitive": true
+    },
+    "list-unit": {
+      "selectors": [
+        "li"
+      ],
+      "action": "and",
+      "children": [
+        "buttonGroup"
+      ]
+    },
+    "multiSelect": {
+      "locator": "field",
+      "selectors": [
+        "select[multiple]"
+      ],
+      "action": "multi",
+      "children": [
+        "option"
+      ],
+      "label": "fieldLeft"
+    },
+    "part-fieldlist": {
+      "selectors": [
+        "tr"
+      ],
+      "children": [
+        "checkbox"
+      ]
+    },
+    "sa_tablist": {
+      "selectors": [
+        "#menuul"
+      ],
+      "action": "or",
+      "children": [
+        "sa_tab"
+      ]
+    },
+    "select": {
+      "locator": "field",
+      "selectors": [
+        "select:not([multiple])"
+      ],
+      "action": "or",
+      "children": [
+        "option"
+      ],
+      "label": "fieldLeft"
+    },
+    "table": {
+      "percentage": 0.5,
+      "selectors": [
+        "tbody"
+      ],
+      "combination": 2,
+      "similarity": 0.9,
+      "action": "or",
+      "children": [
+        "table-unit"
+      ],
+      "repetitive": true
+    },
+    "table-fieldlist": {
+      "percentage": 0.5,
+      "selectors": [
+        "table"
+      ],
+      "combination": 2,
+      "similarity": 0.9,
+      "children": [
+        "part-fieldlist"
+      ],
+      "repetitive": true
+    },
+    "table-unit": {
+      "selectors": [
+        "tr"
+      ],
+      "action": "and",
+      "children": [
+        "form"
+      ]
+    }
+  },
+  "singleNodes": {
+    "button": {
+      "locator": "button",
+      "decisive": true,
+      "selectors": [
+        "input[type=submit]",
+        "input[type=button]",
+        "input[type=image]",
+        "input[type=reset]",
+        "button"
+      ],
+      "action": "click",
+      "label": "button"
+    },
+    "checkbox": {
+      "locator": "field",
+      "decisive": false,
+      "selectors": [
+        "input[type=checkbox]"
+      ],
+      "action": "check",
+      "label": "fieldRight",
+      "group": {
+        "locator": "group",
+        "label": "group",
+        "by": "name"
+      }
+    },
+    "link": {
+      "locator": "link",
+      "decisive": true,
+      "selectors": [
+        "a",
+        "area"
+      ],
+      "action": "click",
+      "label": "link"
+    },
+    "option": {
+      "locator": "text",
+      "decisive": false,
+      "selectors": [
+        "option"
+      ],
+      "action": "select",
+      "label": "text"
+    },
+    "radio": {
+      "locator": "field",
+      "decisive": false,
+      "selectors": [
+        "input[type=radio]"
+      ],
+      "action": "click",
+      "label": "fieldRight",
+      "group": {
+        "locator": "group",
+        "label": "group",
+        "by": "name"
+      }
+    },
+    "sa_tab": {
+      "locator": "link",
+      "selectors": [
+        "#menuul a"
+      ],
+      "decisive": true,
+      "action": "click",
+      "label": "link"
+    },
+    "text": {
+      "locator": "field",
+      "decisive": false,
+      "selectors": [
+        "input:not([type])",
+        "input[type=text]",
+        "input[type=password]",
+        "input[type=email]",
+        "input[type=url]",
+        "input[type=search]",
+        "input[type=number]"
+      ],
+      "action": "type",
+      "label": "fieldLeft"
+    },
+    "textarea": {
+      "locator": "field",
+      "decisive": false,
+      "selectors": [
+        "textarea"
+      ],
+      "action": "type",
+      "label": "fieldLeft"
+    },
+    "upload": {
+      "locator": "field",
+      "decisive": false,
+      "selectors": [
+        "input[type=file]"
+      ],
+      "action": "upload",
+      "label": "fieldLeft"
+    }
+  },
+  "labelPolicies": {
+    "block": [
+      "id",
+      "name"
+    ],
+    "button": [
+      "label",
+      "alt",
+      "title",
+      "value",
+      "text",
+      "id",
+      "name"
+    ],
+    "fieldLeft": [
+      "label",
+      "prevSibling",
+      "parentPrevSibling",
+      "parentTdPrevSibling",
+      "alt",
+      "title",
+      "id",
+      "name",
+      "placeholder",
+      "value"
+    ],
+    "fieldRight": [
+      "label",
+      "nextSibling",
+      "parentNextSibling",
+      "alt",
+      "title",
+      "id",
+      "name",
+      "placeholder",
+      "value"
+    ],
+    "group": [
+      "prevSibling",
+      "parentPrevSibling",
+      "parentTdPrevSibling"
+    ],
+    "link": [
+      "alt",
+      "title",
+      "text",
+      "id",
+      "name",
+      "imgChild"
+    ],
+    "text": [
+      "alt",
+      "title",
+      "text",
+      "id",
+      "name"
+    ]
+  },
+  "locatorPolicies": {
+    "block": [
+      "id",
+      "name",
+      "xpath"
+    ],
+    "button": [
+      "id",
+      "name",
+      "value",
+      "label",
+      "xpath"
+    ],
+    "field": [
+      "name",
+      "id",
+      "label",
+      "xpath"
+    ],
+    "group": [
+      "name"
+    ],
+    "link": [
+      "id",
+      "label",
+      "xpath"
+    ],
+    "text": [
+      "label",
+      "value",
+      "xpath"
+    ]
+  }
+}
