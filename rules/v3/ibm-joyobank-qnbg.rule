@@ -1,0 +1,10 @@
+{
+  "imports": [
+    {"name": "html5", "version": "1.0.0"}
+  ],
+  "operations": [
+    {"selectors": ["table[border=1]"], "collectionNode": "html5.table", "nesting": "outer"},
+    {"selectors": ["#logoArea", "#footerArea"], "collectionNode": "html5.buttonGroup", "nesting": "outer"},
+    {"selectors": ["#mainArea", "div[id]", "form", "table[width=100%]", "table"], "collectionNode": "html5.form", "nesting": "outer"}
+  ]
+}

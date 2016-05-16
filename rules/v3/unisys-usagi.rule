@@ -28,6 +28,22 @@
 			}
 		},
 
+		{
+			"selectors": ["#GPA130101M01-table"], "collectionNode": "inputList", "nesting": "outer",
+			"collectionNodes": {
+				"inputList": {"selectors": ["tbody"], "children": ["tableRow"], "action": "or"},
+				"tableRow": {"selectors": ["tr"], "children": ["html5.form"], "action": "and"}
+			}
+		},
+
+		{
+			"selectors": ["#GPA130107M01-table-list"], "collectionNode": "checkboxList", "nesting": "outer",
+			"collectionNodes": {
+				"checkboxList": {"selectors": ["tbody"], "children": ["tableRow"], "action": "or"},
+				"tableRow": {"selectors": ["tr"], "children": ["html5.checkbox"], "action": "and"}
+			}
+		},
+
 		{"selectors":["table"], "collectionNode":"html5.table", "nesting":"outer"},
 		{"selectors":[".ui-dialog"], "collectionNode":"form", "nesting":"outer"},
 		{"selectors":["form"], "collectionNode":"form", "nesting":"outer"},
