@@ -44,6 +44,18 @@
 			}
 		},
 
+		{
+			"selectors":["#GZPZZ5100M01-todoList table"], "collectionNode":"tableGrid","nesting":"outer",
+			"collectionNodes":{
+				"tableGrid":{"selectors":["tbody"],"children":["tableRow"],"action":"or"},
+				"tableRow":{"selectors":["tr"],"children":["html5.checkbox", "cellGroup"],"action":"and"},
+				"cellGroup":{"selectors":["*"],"children":["cellClick"],"action":"or"}
+			},
+			"singleNodes":{
+				"cellClick":{"selectors":["td"],"action":"rightClick","decisive":true}
+			}
+		},
+
 		{"selectors":["table"], "collectionNode":"html5.table", "nesting":"outer"},
 		{"selectors":[".ui-dialog"], "collectionNode":"form", "nesting":"outer"},
 		{"selectors":["form"], "collectionNode":"form", "nesting":"outer"},

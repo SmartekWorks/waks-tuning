@@ -1,0 +1,18 @@
+{
+    "imports": [
+        {"name": "html5", "version": "1.0.0"}
+    ],
+    "operations": [
+        {"selectors":["form", "table"], "collectionNode":"form", "nesting":"outer"},
+        {"selectors":["map", "ul", "ol", "dl", "nav", "div", "a", "button"], "collectionNode":"buttonGroup", "nesting":"inner"}   
+    ],
+
+    "collectionNodes": {
+        "form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+        "buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "vButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+    },
+
+    "singleNodes": {
+        "vButton": {"selectors":[".theme-checkbox"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+    }
+}

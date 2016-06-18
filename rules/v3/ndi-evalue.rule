@@ -1,0 +1,39 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":["#form1"], "collectionNode":"form","nesting":"outer",
+			"collectionNodes":{
+				"form":{"selectors":["*"],"children":["html5.text", "buttonGroup"],"action":"and"},
+				"buttonGroup":{"selectors":["*"],"children":["html5.button", "html5.link", "imgButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"imgButton":{"selectors":["img[id]"],"action":"click","decisive":true}
+			}
+		},
+		{
+			"selectors":[".mainmenu"], "collectionNode":"mainmenu","nesting":"outer",
+			"collectionNodes":{
+				"mainmenu":{"selectors":["*"],"children":["menuitem"],"action":"or"}
+			},
+			"singleNodes":{
+				"menuitem":{"selectors":["td.txt", "td[id]"],"action":"doubleClick","decisive":true}
+			}
+		},
+		{
+			"selectors":[".submenu"], "collectionNode":"submenu","nesting":"outer",
+			"collectionNodes":{
+				"submenu":{"selectors":["*"],"children":["menuitem"],"action":"or"}
+			},
+			"singleNodes":{
+				"menuitem":{"selectors":["tr[url]"],"action":"doubleClick","decisive":true}
+			}
+		}
+	]
+}

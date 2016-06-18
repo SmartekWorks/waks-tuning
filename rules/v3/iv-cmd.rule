@@ -14,5 +14,9 @@
 				"pgRow":{"selectors":["tr.pg_result_content"],"children":["html5.form"],"action":"and"},
 			}
 		}
-	]
+	],
+
+	"settings":{
+		"locatorRelation":"and"
+	}
 }
