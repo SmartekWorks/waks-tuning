@@ -1,0 +1,50 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{"selectors":["#topLogo", "#panelbar", "#panelbarRight", ".k-tabstrip-items"], "collectionNode":"buttonGroup", "nesting":"outer"},
+		{"selectors":[".k-list-container"], "collectionNode":"buttonGroup", "nesting":"outer"},
+
+		{
+			"selectors":["#selectAssDiv"], "collectionNode":"appForm", "nesting":"outer",
+			"collectionNodes":{
+				"appForm":{"selectors":["*"],"children":["html5.textarea", "appButtonGroup"],"action":"and"},
+				"appButtonGroup":{"selectors":["*"],"children":["html5.link", "appButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"appButton":{"selectors":["input[type=checkbox]"],"action":"click","decisive":true,"label":"html5.fieldRight","locator":"html5.field"}
+			}
+		},
+
+		{"selectors":[".k-grid-toolbar", ".k-grid-header"], "collectionNode":"buttonGroup", "nesting":"outer"},
+		{
+			"selectors":[".k-grid-content"], "collectionNode":"kGrid","nesting":"outer",
+			"collectionNodes":{
+				"kGrid":{"selectors":["tbody"],"children":["kRow"],"action":"or"},
+				"kRow":{"selectors":["tr"],"children":["html5.text", "html5.checkbox", "html5.radio", "kButtonGroup"],"action":"and"},
+				"kButtonGroup":{"selectors":["*"],"children":["html5.link", "cellButton", "kButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"cellButton":{"selectors":["td:not([style])"],"action":"click","decisive":true}
+			}
+		},
+
+		{"selectors":["form"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":["map", "ul", "ol", "dl", "nav"], "collectionNode":"buttonGroup", "nesting":"inner"}
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "kButton", "comboButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"kButton": {"selectors":["span.k-link", "[role=option]", "img[onclick]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"},
+		"comboButton": {"selectors":[".k-dropdown"], "decisive":true, "action":"click", "label":"html5.fieldLeft", "locator":"html5.button"}
+	}
+}
