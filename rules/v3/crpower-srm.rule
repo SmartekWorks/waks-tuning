@@ -8,7 +8,15 @@
 
 	"operations": [
 		{"selectors":["#topLogo", "#panelbar", "#panelbarRight", ".k-tabstrip-items"], "collectionNode":"buttonGroup", "nesting":"outer"},
-		{"selectors":[".k-list-container"], "collectionNode":"buttonGroup", "nesting":"outer"},
+		{
+			"selectors":[".k-list-container"], "collectionNode":"optionGroup", "nesting":"outer",
+			"collectionNodes":{
+				"optionGroup":{"selectors":["*"],"children":["optionButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"optionButton":{"selectors":["[role=option]"],"action":"scriptClick","decisive":true,"label":"html5.link","locator":"html5.link"}
+			}
+		},
 
 		{
 			"selectors":["#selectAssDiv"], "collectionNode":"appForm", "nesting":"outer",

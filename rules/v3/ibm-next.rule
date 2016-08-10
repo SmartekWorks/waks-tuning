@@ -1,0 +1,19 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+		{
+			"selectors": [".table_list"], "collectionNode": "tableList", "nesting": "outer",
+			"collectionNodes":{
+				"tableList":{"selectors":["*"],"children":["linkButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"linkButton":{"selectors":[".linkButton"],"action":"click","decisive":true}
+			}
+		}
+	]
+}
