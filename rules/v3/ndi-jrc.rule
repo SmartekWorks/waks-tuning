@@ -1,0 +1,28 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{"selectors":[".k-list", ".k-editor"], "collectionNode":"buttonGroup","nesting":"outer"},
+		{"selectors":["md-tabs", "md-menu-bar", "md-menu-content", "md-select-menu"], "collectionNode":"buttonGroup","nesting":"outer"},
+		{"selectors":[".k-grid", "#table-units"], "collectionNode":"html5.table", "nesting":"outer"},
+
+		
+		{"selectors":[".est_draft_section"], "collectionNode":"form","nesting":"outer"},
+		{"selectors":["md-input-container"], "collectionNode":"form","nesting":"outer"}
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "mdButton", "kButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"mdButton": {"selectors":["md-tab-item", "md-option", "md-select", "md-tab-item"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"},
+		"kButton": {"selectors":["[role=option]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}
+}
