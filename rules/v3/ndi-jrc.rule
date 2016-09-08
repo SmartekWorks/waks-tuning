@@ -7,11 +7,12 @@
 	],
 
 	"operations": [
-		{"selectors":[".k-list", ".k-editor"], "collectionNode":"buttonGroup","nesting":"outer"},
-		{"selectors":["md-tabs", "md-menu-bar", "md-menu-content", "md-select-menu"], "collectionNode":"buttonGroup","nesting":"outer"},
 		{"selectors":[".k-grid", "#table-units"], "collectionNode":"html5.table", "nesting":"outer"},
 
-		
+		{"selectors":[".k-list"], "collectionNode":"buttonGroup","nesting":"outer"},
+		{"selectors":["md-tabs", "md-menu-bar", "md-menu-content", "md-select-menu"], "collectionNode":"buttonGroup","nesting":"outer"},
+
+		{"selectors":[".k-editor"], "collectionNode":"form","nesting":"outer"},
 		{"selectors":[".est_draft_section"], "collectionNode":"form","nesting":"outer"},
 		{"selectors":["md-input-container"], "collectionNode":"form","nesting":"outer"}
 	],
