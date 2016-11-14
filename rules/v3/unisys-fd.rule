@@ -1,0 +1,27 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{"selectors":[".top-infoarea"], "collectionNode":"buttonGroup", "nesting":"inner"},
+
+		{"selectors":["table"], "collectionNode":"table", "nesting":"outer"},
+		{"selectors":["form", "table"], "collectionNode":"form", "nesting":"outer"}
+	],
+
+	"collectionNodes": {
+		"table":{"selectors":["tbody"], "children":["table-unit"], "action":"or", "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5, "label":"html5.block", "locator":"html5.block"},
+		"table-unit":{"selectors":["tr"], "children":["form"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "fdButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"fdButton": {"selectors":[".th-checkall"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}
+}

@@ -1,0 +1,37 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":["#recalcBtn"], "collectionNode":"calc","nesting":"outer",
+			"collectionNodes":{
+				"calc":{"selectors":["*"],"children":["calcIcon"],"action":"or"}
+			},
+			"singleNodes":{
+				"calcIcon":{"selectors":["span"],"action":"click","decisive":true}
+			}
+		},
+		{
+			"selectors":["#sortTable", ".item-list"], "collectionNode":"sortTable","nesting":"outer",
+			"collectionNodes":{
+				"sortTable":{"selectors":["tbody"],"children":["sortRow"],"action":"or"},
+				"sortRow": {"selectors":["tr"], "children":["html5.link", "html5.button", "m3Button"], "action":"or"}
+			},
+			"singleNodes":{
+				"m3Button":{"selectors":[".plusBtn"],"action":"click","decisive":true}
+			}
+		},
+		{
+			"selectors":["#lpgaselectTable", "#lpgawaitTable", "#lpganextTable", "#hostselectTable", "#hostwaitTable"], "collectionNode":"table","nesting":"outer",
+			"collectionNodes":{
+				"table":{"selectors":["tbody"],"children":["row"],"action":"or"},
+				"row":{"selectors":["tr"],"children":["html5.text", "html5.select"],"action":"and"}
+			}
+		}
+	]
+}
