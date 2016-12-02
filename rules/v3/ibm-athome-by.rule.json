@@ -1,0 +1,21 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+	    {"selectors": ["header", "nav", ".modal_base"], "collectionNode": "form", "nesting": "outer"},
+	    {"selectors": [".form-container", ".budget_container", ".free_word_container", ".select-area"], "collectionNode": "form", "nesting": "outer"},
+	    {"selectors": [".baloon-list", ".route", ".search-button-container"], "collectionNode": "buttonGroup", "nesting": "outer"}
+	],
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "byButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"byButton": {"selectors":[".baloon-checkbox", ".station", ".search-button", ".search_free_word_button"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}
+}
