@@ -1,0 +1,18 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":[".viewTable"], "collectionNode":"viewTable","nesting":"outer",
+			"collectionNodes":{
+				"viewTable":{"selectors":["tbody"],"children":["tableRow"],"action":"or"},
+				"tableRow":{"selectors":["tr[class^=abolitionInfoList]"],"children":["html5.link"],"action":"or"}
+			}
+		}
+	]
+}

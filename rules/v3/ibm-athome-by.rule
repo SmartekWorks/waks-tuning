@@ -1,0 +1,39 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+	    {"selectors": ["header", "nav", ".modal", ".modal_base", ".begin_chat_modal", ".entryMenuModal", ".overlay-content", ".ReactModal__Content"], "collectionNode": "form", "nesting": "outer"},
+	    {"selectors": ["#addSeiyaku", ".form-container", ".budget_container", ".free_word_container", ".select-area", ".input_form", ".contact"], "collectionNode": "form", "nesting": "outer"},
+	    {"selectors": [".baloon-list", ".route", ".search-button-container", ".importance-enter-active", ".item-count", ".selectmenu", ".entry_types", ".confirmPageLink"], "collectionNode": "buttonGroup", "nesting": "outer"},
+
+		{
+			"selectors":[".forsales-container"], "collectionNode":"salesItems","nesting":"outer",
+			"collectionNodes":{
+				"salesItems":{"selectors":["*"],"children":["item"],"action":"or"},
+				"item":{"selectors":[".item"],"children":["html5.button", "html5.link"],"action":"or"}
+			}
+		},
+		{
+			"selectors":[".entry_project_list"], "collectionNode":"projectList","nesting":"outer",
+			"collectionNodes":{
+				"projectList":{"selectors":["*"],"children":["project"],"action":"or"},
+				"project":{"selectors":[".project"],"children":["projectImg"],"action":"or"}
+			},
+			"singleNodes": {
+				"projectImg": {"selectors":[".project_img"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+			}
+		}
+	],
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "byButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"byButton": {"selectors":["[class$='_btn']", "[class$='Btn']", "[class$='button']", "[class$='-checkbox']", "[for=revailMeCheckbox]", ".routeName", ".station", ".selectmenu dt", ".cancel", ".priority", ".entry_type", ".layoutElement", ".confirmPageLink", ".humbergerMenu"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}
+}

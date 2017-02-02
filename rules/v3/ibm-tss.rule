@@ -1,0 +1,21 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+		{ "selectors":["table"], "collectionNode":"html5.table","nesting":"outer" },
+		{ "selectors":[".ui-dialog"], "collectionNode":"html5.form","nesting":"outer" },
+		{
+			"selectors":[".main-menu-box"], "collectionNode":"mainMenu","nesting":"outer",
+			"collectionNodes":{
+				"mainMenu":{"selectors":["*"],"children":["menuItem"],"action":"or"}
+			},
+			"singleNodes": {
+				"menuItem": {"selectors":["td[onclick]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+			}		
+		}
+	]
+}

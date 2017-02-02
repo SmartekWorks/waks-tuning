@@ -1,0 +1,39 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+	    {"selectors": ["header", "nav", ".modal", ".modal_base", ".begin_chat_modal", ".entryMenuModal", ".overlay-content", ".ReactModal__Content"], "collectionNode": "form", "nesting": "outer"},
+	    {"selectors": ["#addSeiyaku", ".place-input-form", ".form-container", ".budget_container", ".free_word_container", ".input_form", ".contact", ".select-area"], "collectionNode": "form", "nesting": "outer"},
+	    {"selectors": [".baloon-list", ".route", ".search-button-container", ".importance-enter-active", ".item-count", ".selectmenu", ".entry_types", ".confirmPageLink", ".go_next_profile_button", ".learning-evaluate", ".feed-main-function", ".tutorials__tutorial_base___1GhE0"], "collectionNode": "buttonGroup", "nesting": "outer"},
+
+		{
+			"selectors":[".forsales-container"], "collectionNode":"salesItems","nesting":"outer",
+			"collectionNodes":{
+				"salesItems":{"selectors":["*"],"children":["item"],"action":"or"},
+				"item":{"selectors":[".item"],"children":["html5.button", "html5.link"],"action":"or"}
+			}
+		},
+		{
+			"selectors":[".entry_project_list"], "collectionNode":"projectList","nesting":"outer",
+			"collectionNodes":{
+				"projectList":{"selectors":["*"],"children":["project"],"action":"or"},
+				"project":{"selectors":[".project"],"children":["projectImg"],"action":"or"}
+			},
+			"singleNodes": {
+				"projectImg": {"selectors":[".project_img"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+			}
+		}
+	],
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "byButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"byButton": {"selectors":["[class$='_btn']", "[class$='Btn']", "[class$='button']", "[class*='_button']", "[class$='-checkbox']", "[for=revailMeCheckbox]", ".eval-btn", ".function-btn", ".user-setting-positive-btn", ".routeName", ".station", ".selectmenu dt", ".cancel", ".priority", ".entry_type", ".layoutElement", ".confirmPageLink", ".humbergerMenu"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}
+}
