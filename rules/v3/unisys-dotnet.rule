@@ -1,0 +1,29 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+		{
+			"selectors": [".Menu"], "collectionNode": "menu", "nesting": "outer",
+			"collectionNodes": {
+				"menu": {"selectors":["*"], "children":["menuItem"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+			},
+
+			"singleNodes": {
+				"menuItem": {"selectors":["td.Normal"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+			}
+		},
+		{
+			"selectors":["form"], "collectionNode":"hiddenForm", "nesting":"outer",
+			"collectionNodes":{
+				"hiddenForm":{"selectors":["*"],"children":["hiddenInput"],"action":"and"}
+			},
+			"singleNodes": {
+				"hiddenInput":{"selectors":["input.mainHid"], "decisive":false, "action":"type", "label":"html5.fieldLeft", "locator":"html5.field"}
+			}		
+		}
+	]
+}

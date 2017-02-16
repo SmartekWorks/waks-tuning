@@ -6,8 +6,24 @@
 		}
 	],
 	"operations": [
-	    {"selectors": ["header", ".dialog", ".login", ".sort", ".accordion-panel", "div.customer"], "collectionNode": "form", "nesting": "outer"},
-	    {
+		{
+			"selectors": ["table.table-facilities"], "collectionNode": "table", "nesting": "outer",
+			"collectionNodes":{
+				"table":{"selectors":["tbody"],"children":["table-row"],"action":"or"},
+				"table-row":{"selectors":["tr"],"children":["html5.radio"],"action":"and"}
+			}
+		},
+		{
+			"selectors": [".list"], "collectionNode": "list", "nesting": "outer",
+			"collectionNodes":{
+				"list":{"selectors":["*"],"children":["list-item"],"action":"or"}
+			},
+			"singleNodes": {
+				"list-item":{"selectors":[".list-item"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+			}
+		},
+		{"selectors": ["header", ".dialog", ".login", ".sort", ".accordion-panel", "div.customer"], "collectionNode": "form", "nesting": "outer"},
+		{
 			"selectors": [".contacts"], "collectionNode": "contacts", "nesting": "outer",
 			"collectionNodes":{
 				"contacts":{"selectors":["*"],"children":["contact"],"action":"or"},

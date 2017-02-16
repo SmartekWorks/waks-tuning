@@ -1,0 +1,20 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":[".htlList"], "collectionNode":"hotelList","nesting":"outer",
+			"collectionNodes":{
+				"hotelList":{"selectors":["*"],"children":["hotel"],"action":"or"},
+				"hotel":{"selectors":[".htlList > li"],"children":["html5.link", "html5.button"],"action":"or"}
+			}
+		},
+		{"selectors":[".searchBox"], "collectionNode":"html5.form", "nesting":"outer"},
+		{"selectors":[".domestic", ".overseas"], "collectionNode":"html5.buttonGroup", "nesting":"outer"}
+	]
+}
