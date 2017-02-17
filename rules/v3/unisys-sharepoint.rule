@@ -1,0 +1,29 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+		{
+			"selectors":[".CommandBar"], "collectionNode":"CommandBar","nesting":"outer",
+			"collectionNodes":{
+				"CommandBar":{"selectors":["*"],"children":["CommandBarItem"],"action":"or"}
+			},
+			"singleNodes": {
+				"CommandBarItem": {"selectors":[".CommandBarItem"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+			}
+		},
+		{
+			"selectors":[".ms-List"], "collectionNode":"msList","nesting":"outer",
+			"collectionNodes":{
+				"msList":{"selectors":["*"],"children":["msListCell"],"action":"or"},
+				"msListCell":{"selectors":["ms-List-cell"],"children":["html5.button", "html5.link"],"action":"or"}
+			}
+		},
+
+		{"selectors": ["header", "nav", ".od-Dialog", ".od-ClientForm", ".od-SuiteNav", ".od-Search", ".login_panel", ".ms-dialogHidden", ".ms-ContextualMenu"], "collectionNode": "html5.form", "nesting": "outer"},
+		{"selectors": [".ms-DetailsHeader", "#WebPartWPQ2"], "collectionNode": "html5.buttonGroup", "nesting": "outer"}
+	]
+}
