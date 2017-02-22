@@ -1,0 +1,60 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+		{
+			"selectors": [".search-top",".select-cities",".select-routes"], "collectionNode": "checkBtnGroup", "nesting": "outer",
+			"collectionNodes":{
+				"checkBtnGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "checkBtn"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+			},
+			"singleNodes": {
+				"checkBtn":{"selectors":["label.checkbox-inline input[type=checkbox]"], "decisive":true, "action":"click", "label":"html5.fieldRight", "locator":"html5.field"}
+			}
+		},	
+		{"selectors": [".athome-search-condition"], "collectionNode": "form", "nesting": "outer"},
+		{
+			"selectors": [".projects"], "collectionNode": "projects", "nesting": "outer",
+			"collectionNodes":{
+				"projects":{"selectors":["*"],"children":["project-summary"],"action":"or"},
+				"project-summary":{"selectors":[".project-summary"], "children":["form"],"action":"and"}
+			}
+		},
+		{
+			"selectors": ["table.table-facilities"], "collectionNode": "table", "nesting": "outer",
+			"collectionNodes":{
+				"table":{"selectors":["tbody"],"children":["table-row"],"action":"or"},
+				"table-row":{"selectors":["tr"],"children":["html5.radio"],"action":"and"}
+			}
+		},
+		{
+			"selectors": [".list"], "collectionNode": "list", "nesting": "outer",
+			"collectionNodes":{
+				"list":{"selectors":["*"],"children":["list-item"],"action":"or"}
+			},
+			"singleNodes": {
+				"list-item":{"selectors":[".list-item"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+			}
+		},
+		{"selectors": ["header", ".dialog", ".login", ".sort", ".accordion-panel", "div.customer"], "collectionNode": "form", "nesting": "outer"},
+		{
+			"selectors": [".contacts"], "collectionNode": "contacts", "nesting": "outer",
+			"collectionNodes":{
+				"contacts":{"selectors":["*"],"children":["contact"],"action":"or"},
+				"contact":{"selectors":[".contact"],"children":["html5.textarea","buttonGroup"],"action":"and"}
+			}
+		}
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "ngButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"ngButton": {"selectors":["[ng-click]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}
+}

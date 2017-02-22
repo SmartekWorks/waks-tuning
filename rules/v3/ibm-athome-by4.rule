@@ -7,17 +7,17 @@
 	],
 	"operations": [
 	    {"selectors": ["header", "nav", ".modal", ".modal_base", ".begin_chat_modal", ".entryMenuModal", ".overlay-content", ".ReactModal__Content", ".request-change-title-modal", ".request-setting-modal"], "collectionNode": "form", "nesting": "outer"},
-	    {"selectors": ["#addSeiyaku", ".place-input-form", ".form-container", ".budget_container", ".free_word_container", ".input_form", ".contact", ".select-area", ".suggestion-project-list-info", ".suggestion-list"], "collectionNode": "form", "nesting": "outer"},
+	    {"selectors": ["#addSeiyaku", ".place-input-form", ".form-container", ".budget_container", ".free_word_container", ".input_form", ".contact", ".select-area", ".suggestion-project-list-info", ".suggestion-list", ".chat_container"], "collectionNode": "form", "nesting": "outer"},
 	    {"selectors": [".baloon-list", ".route", ".search-button-container", ".importance-enter-active", ".item-count", ".selectmenu", ".entry_types", ".confirmPageLink", ".go_next_profile_button", ".learning-evaluate", ".feed-main-function", ".tutorials__tutorial_base___1GhE0"], "collectionNode": "buttonGroup", "nesting": "outer"},
 
 		{
-			"selectors":[".chat_list", ".chat_container"], "collectionNode":"chatList","nesting":"outer",
+			"selectors":[".chat_list"], "collectionNode":"chatList","nesting":"outer",
 			"collectionNodes":{
 				"chatList":{"selectors":["*"],"children":["chatItem"],"action":"or"},
-				"chatItem":{"selectors":[".chat_item", ".chat_item_base"],"children":["chatButton"],"action":"or"}
+				"chatItem":{"selectors":[".chat_item"],"children":["chatButton"],"action":"or"}
 			},
 			"singleNodes": {
-				"chatButton": {"selectors":[".chat_item", ".chat_item_base", ".chat_status_img"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+				"chatButton": {"selectors":[".chat_item", ".chat_status_img"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
 			}
 		},
 		{
@@ -51,6 +51,6 @@
 	},
 
 	"singleNodes": {
-		"byButton": {"selectors":["[class$='_btn']", "[class$='-btn']", "[class$='Btn']", "[class$='button']", "[class*='_button']", "[class$='-checkbox']", "[for=revailMeCheckbox]", ".user-setting-positive-btn", ".routeName", ".station", ".selectmenu dt", ".cancel", ".priority", ".entry_type", ".layoutElement", ".confirmPageLink", ".humbergerMenu", ".request-list-item-arrow", ".suggestion-project-list-back-img", ".suggestion-project-list-setting"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+		"byButton": {"selectors":["[class$='_btn']", "[class$='-btn']", "[class$='Btn']", "[class$='button']", "[class*='_button']", "[class$='-checkbox']", "[for=revailMeCheckbox]", ".user-setting-positive-btn", ".routeName", ".station", ".selectmenu dt", ".cancel", ".priority", ".entry_type", ".layoutElement", ".confirmPageLink", ".humbergerMenu", ".request-list-item-arrow", ".suggestion-project-list-back-img", ".suggestion-project-list-setting", ".suggestion-project-list-item", ".chat_item_base"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
 	}
 }
