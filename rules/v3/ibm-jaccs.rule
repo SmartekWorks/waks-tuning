@@ -1,0 +1,19 @@
+{
+	"imports": [
+		{"name": "html5", "version": "1.0.0"}
+	],
+	"operations": [
+		{
+			"selectors":[".loginBox", ".kb_contents_body"], "collectionNode":"kbForm","nesting":"outer",
+			"collectionNodes":{
+				"kbForm":{"selectors":["*"],"children":["html5.text", "kbButtonGroup"],"action":"and"},
+				"kbButtonGroup":{"selectors":["*"],"children":["html5.button", "html5.link", "kbButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"kbButton":{"selectors":[".kbkey", ".kbopen", "div>img.over", "p>img.over"],"action":"click","decisive":true}
+			}
+		},	
+		{"selectors":["div[id]"], "collectionNode":"html5.form", "nesting":"inner"},
+		{"selectors":["map", "ul", "ol", "dl", "nav", "a", "button"], "collectionNode":"html5.buttonGroup", "nesting":"inner"}
+	]
+}

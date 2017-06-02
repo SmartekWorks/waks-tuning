@@ -1,0 +1,48 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+		{
+			"selectors": [".Slider"], "collectionNode": "slider", "nesting": "outer",
+			"collectionNodes":{
+				"slider":{"selectors":["*"],"children":["text", "buttonGroup"],"action":"and"},
+				"buttonGroup":{"selectors":["*"],"children":["html5.button", "html5.link", "spanButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"text":{"selectors":["input:not([type])", "input[type=text]"], "decisive":false, "action":"type", "label":"html5.text", "locator":"html5.field"},
+				"spanButton":{"selectors":[".blankBar > span"],"action":"click","decisive":true}
+			}
+		},
+		{
+			"selectors": [".header", ".sidemenu"], "collectionNode": "menu", "nesting": "outer",
+			"collectionNodes":{
+				"menu":{"selectors":["*"],"children":["html5.button", "html5.link", "menuButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"menuButton":{"selectors":[".has-sub > dt", ".sidebar-folder"],"action":"click","decisive":true}
+			}
+		},
+		{
+			"selectors": [".tab-content"], "collectionNode": "pay", "nesting": "outer",
+			"collectionNodes":{
+				"pay":{"selectors":["*"],"children":["html5.text", "html5.checkbox", "radio", "html5.buttonGroup"],"action":"and"}
+			},
+			"singleNodes":{
+				"radio":{"selectors":["input[type=radio]"], "decisive":false, "action":"click", "label":"html5.button", "locator":"html5.field", "group":{"by":"name", "label":"html5.group", "locator":"html5.group"}}
+			}
+		},		
+		{"selectors": [".table"], "collectionNode": "html5.table", "nesting": "outer"},
+		{"selectors": [".dialog_modal"], "collectionNode": "html5.form", "nesting": "outer"},
+		{"selectors": ["footer", ".right-toolbar"], "collectionNode": "html5.buttonGroup", "nesting": "outer"}
+	]
+}
+
+[
+	{"<(script|SCRIPT).*?>[\\s\\S]*?</(script|SCRIPT)>":""},
+	{"<base href=\"/":"<base href=\"https://ecloud.10086.cn:31015/"}
+]
+

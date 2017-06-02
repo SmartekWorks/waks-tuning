@@ -1,0 +1,40 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":[".ms-selectable ul"], "collectionNode":"selectableList", "nesting":"outer",
+			"collectionNodes":{
+				"selectableList":{"selectors":["*"], "children":["selectableItem"], "action":"or"}
+			},
+			"singleNodes":{
+				"selectableItem":{"selectors":[".ms-elem-selectable:not(.ms-selected)"],"decisive":true,"action":"click","label":"html5.button","locator":"html5.button"}
+			}
+		},
+		{
+			"selectors":[".ms-selection ul"], "collectionNode":"selectionList", "nesting":"outer",
+			"collectionNodes":{
+				"selectionList":{"selectors":["*"], "children":["selectedItem"], "action":"or"}
+			},
+			"singleNodes":{
+				"selectedItem":{"selectors":[".ms-elem-selection.ms-selected"],"decisive":true,"action":"click","label":"html5.button","locator":"html5.button"}
+			}
+		},
+
+		{ "selectors":["form"], "collectionNode":"form", "nesting":"outer" }
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "myButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"myButton": {"selectors":["label.btn"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}
+}

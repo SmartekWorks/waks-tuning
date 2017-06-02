@@ -1,0 +1,20 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":["#sa_ul"], "collectionNode":"suggestionList","nesting":"outer",
+			"collectionNodes":{
+				"suggestionList":{"selectors":["*"],"children":["suggestionItem"],"action":"or"}
+			},
+			"singleNodes":{
+				"suggestionItem":{"selectors":["li"],"action":"click","decisive":true}
+			}
+		}
+	]
+}

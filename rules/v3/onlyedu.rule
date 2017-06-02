@@ -1,0 +1,45 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":[".el-menu"], "collectionNode":"menuTitles","nesting":"outer",
+			"collectionNodes":{
+				"menuTitles":{"selectors":["*"],"children":["menuTitle"],"action":"or"}
+			},
+			"singleNodes":{
+				"menuTitle":{"selectors":[".el-submenu__title"],"action":"click","decisive":true}
+			}
+		},
+		{"selectors": ["#headerNav", ".el-menu"], "collectionNode": "html5.buttonGroup", "nesting": "outer"},
+
+		{
+			"selectors":[".el-cascader-menus", ".el-select-dropdown"], "collectionNode":"selectButtonGroup","nesting":"outer",
+			"collectionNodes":{
+				"selectButtonGroup":{"selectors":["*"],"children":["selectButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"selectButton":{"selectors":[".el-cascader-menu__item", ".el-select-dropdown__item"],"action":"click","decisive":true}
+			}
+		},
+
+		{"selectors":["table"], "collectionNode":"html5.table", "nesting":"outer"},
+		{"selectors":[".el-dialog", ".el-popover", ".el-card", "form"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":["map", "ul", "ol", "dl", "div", "a", "button"], "collectionNode":"buttonGroup", "nesting":"inner"}
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "elButton", "onlyButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"elButton": {"selectors":[".el-cascader", ".el-select"], "decisive":true, "action":"click", "label":"html5.fieldLeft", "locator":"html5.button"},
+		"onlyButton": {"selectors":[".login_btn"], "decisive":true, "action":"click"}
+	}	
+}

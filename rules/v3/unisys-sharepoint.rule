@@ -19,11 +19,20 @@
 			"selectors":[".ms-List"], "collectionNode":"msList","nesting":"outer",
 			"collectionNodes":{
 				"msList":{"selectors":["*"],"children":["msListCell"],"action":"or"},
-				"msListCell":{"selectors":["ms-List-cell"],"children":["html5.button", "html5.link"],"action":"or"}
+				"msListCell":{"selectors":[".ms-List-cell"],"children":["html5.button", "html5.link"],"action":"or"}
 			}
 		},
 
-		{"selectors": ["header", "nav", ".od-Dialog", ".od-ClientForm", ".od-SuiteNav", ".od-Search", ".login_panel", ".ms-dialogHidden", ".ms-ContextualMenu"], "collectionNode": "html5.form", "nesting": "outer"},
-		{"selectors": [".ms-DetailsHeader", "#WebPartWPQ2"], "collectionNode": "html5.buttonGroup", "nesting": "outer"}
-	]
+		{"selectors": ["header", "nav", ".od-Dialog", ".od-ClientForm", ".od-SuiteNav", ".od-Search", ".login_panel", ".ms-dialogHidden", ".ms-ContextualMenu"], "collectionNode": "form", "nesting": "outer"},
+		{"selectors": [".ms-DetailsHeader", "#WebPartWPQ2"], "collectionNode": "buttonGroup", "nesting": "outer"}
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "msButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"msButton": {"selectors":["span.ms-Label"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}
 }

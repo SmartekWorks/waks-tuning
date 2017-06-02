@@ -7,6 +7,41 @@
 	],
 
 	"operations": [
-		{"selectors":["table"], "collectionNode":"html5.table", "nesting":"outer"}
-	]
+		{
+			"selectors":[".title-tab"], "collectionNode":"titleTab","nesting":"outer",
+			"collectionNodes":{
+				"titleTab":{"selectors":["*"],"children":["tabButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"tabButton":{"selectors":["li"],"action":"click","decisive":true}
+			}
+		},
+		{
+			"selectors":[".mod-modal-cont"], "collectionNode":"modModal","nesting":"outer",
+			"collectionNodes":{
+				"modModal":{"selectors":["*"],"children":["html5.button", "html5.link", "liButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"liButton":{"selectors":["li"],"action":"click","decisive":true}
+			}
+		},
+
+		{"selectors": [".calendar-module"], "collectionNode": "form", "nesting": "outer"},
+		{"selectors": [".tabiwari75", ".info-area", ".service-area", ".sns-area"], "collectionNode": "form", "nesting": "outer"},
+
+		{"selectors":["table"], "collectionNode":"html5.table", "nesting":"outer"},
+		{"selectors":["header", "nav", "footer", "form"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":["map", "ul", "ol", "dl", "div", "a", "button"], "collectionNode":"buttonGroup", "nesting":"inner"}		
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "anaButton", "inputButton", "checkButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"anaButton": {"selectors":[".btn", ".ico-radio label", ".item-num-down", ".item-num-up"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"},
+		"inputButton": {"selectors":[".item-input"], "decisive":true, "action":"click", "label":"html5.fieldLeft", "locator":"html5.button"},
+		"checkButton": {"selectors":[".selectCheckboxCell"], "decisive":true, "action":"click", "label":"html5.fieldRight", "locator":"html5.button"}
+	}	
 }

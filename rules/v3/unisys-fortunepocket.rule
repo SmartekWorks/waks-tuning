@@ -1,0 +1,84 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":[".nav-area"], "collectionNode":"navArea","nesting":"outer",
+			"collectionNodes":{
+				"navArea":{"selectors":["*"],"children":["html5.link", "spanLink"],"action":"or"}
+			},
+			"singleNodes":{
+				"spanLink":{"selectors":[".nav-parent span"],"action":"click","decisive":true}
+			}
+		},
+		{
+			"selectors":["form[name=underStandingForm]"], "collectionNode":"underStandingForm","nesting":"outer",
+			"collectionNodes":{
+				"underStandingForm":{"selectors":["*"],"children":["questionItem"],"action":"or"},
+				"questionItem":{"selectors":[".understanding-bottom"],"children":["html5.button", "html5.link", "divLink"],"action":"or"}
+			},
+			"singleNodes":{
+				"divLink":{"selectors":["[ng-click]"],"action":"click","decisive":true,"label":"html5.fieldRight", "locator":"html5.button"}
+			}
+		},
+		{
+			"selectors":[".notic-table"], "collectionNode":"noticeTable","nesting":"outer",
+			"collectionNodes":{
+				"noticeTable":{"selectors":["*"],"children":["noticeItem"],"action":"or"},
+				"noticeItem":{"selectors":["tr"],"children":["checkButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"checkButton":{"selectors":[".checkbox-icon"],"action":"click","decisive":true}
+			}
+		},
+		{
+			"selectors":[".balance-sisan-table", ".balance-husai-table"], "collectionNode":"accordionHeader","nesting":"outer",
+			"collectionNodes":{
+				"accordionHeader":{"selectors":["*"],"children":["headerItem"],"action":"or"},
+				"headerItem":{"selectors":[".balance-category2area"],"children":["spanButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"spanButton":{"selectors":["[ng-click]"],"action":"click","decisive":true}
+			}
+		},
+		{
+			"selectors":[".balance-sisan-table", ".balance-husai-table"], "collectionNode":"accordionBody","nesting":"outer",
+			"collectionNodes":{
+				"accordionBody":{"selectors":["*"],"children":["bodyItem"],"action":"or"},
+				"bodyItem":{"selectors":[".balance-category3area"],"children":["spanButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"spanButton":{"selectors":["[ng-click]"],"action":"click","decisive":true}
+			}
+		},
+		{
+			"selectors":["#support"], "collectionNode":"supportList","nesting":"outer",
+			"collectionNodes":{
+				"supportList":{"selectors":["*"],"children":["divButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"divButton":{"selectors":["[ng-click]"],"action":"click","decisive":true}
+			}
+		},	
+
+		{"selectors":["form", ".chart-area"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":["map", "ul", "ol", "dl", "nav"], "collectionNode":"buttonGroup", "nesting":"inner"}		
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "ngButton"], "action":"or", "label":"html5.block", "locator":"html5.block"},
+
+		"table":{"selectors":["tbody"], "children":["table-unit"], "action":"or", "repetitive":true, "similarity":0.90, "combination":2, "percentage":0.5, "label":"html5.block", "locator":"html5.block"},
+		"table-unit":{"selectors":["tr"], "children":["form"], "action":"and", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"ngButton": {"selectors":[".input-radioarea input+label"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}	
+}

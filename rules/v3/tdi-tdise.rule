@@ -1,0 +1,20 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+		{"selectors":["table"], "collectionNode":"html5.table", "nesting":"outer"},
+		{"selectors":["form"], "collectionNode":"form", "nesting":"outer"}
+	],
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "imgButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"imgButton": {"selectors":["img[onclick]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}	
+}
