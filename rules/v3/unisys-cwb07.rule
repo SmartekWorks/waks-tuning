@@ -1,0 +1,11 @@
+{
+	"imports": [
+		{ "name": "html5", "version": "1.0.0" }
+	],
+
+	"operations": [
+		{ "selectors":["table"], "collectionNode":"html5.table","nesting":"outer" },
+		{ "selectors":["[role=dialog]", "#inline_contentWrap"], "collectionNode":"html5.form","nesting":"outer" },
+		{ "selectors":[".treeArea", ".xdsoft_datetimepicker"], "collectionNode":"html5.buttonGroup","nesting":"outer" }
+	]
+}

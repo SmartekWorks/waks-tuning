@@ -1,13 +1,40 @@
 {
   "imports": [
-    {"name": "html5", "version": "1.0.0"}
+    {
+      "name": "html5",
+      "version": "1.0.0"
+    }
   ],
   "operations": [
     {
-      "selectors": ["table[border=1]"], "collectionNode": "html5.table", "nesting": "outer",
-      "settings":{
-        "locatorRelation":"or"
+      "selectors": ["#modalMenu", "#utilityNavi"], "collectionNode": "mainMenu", "nesting": "outer",
+      "collectionNodes":{
+        "mainMenu":{"selectors":["*"],"children":["html5.button", "html5.link", "imgButton"],"action":"or"}
+      },
+      "singleNodes":{
+        "imgButton":{"selectors":["img[onclick]"],"action":"click","decisive":true}
       }
-    }
-  ]
+    },
+    {
+      "selectors": [".table_list"], "collectionNode": "tableList", "nesting": "outer",
+      "collectionNodes":{
+        "tableList":{"selectors":["*"],"children":["linkButton"],"action":"or"}
+      },
+      "singleNodes":{
+        "linkButton":{"selectors":[".linkButton"],"action":"click","decisive":true}
+      }
+    },
+    {"selectors":["form", "table"], "collectionNode":"form", "nesting":"outer"},
+    {"selectors":["map", "ul", "ol", "dl", "nav", "div", "a", "button"], "collectionNode":"buttonGroup", "nesting":"inner"}    
+  ],
+
+  "collectionNodes": {
+    "form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+    "buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "checkButton", "radioButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+  },
+
+  "singleNodes": {
+    "checkButton": {"selectors":["label.iptCheck span"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"},
+    "radioButton": {"selectors":["label.iptRadio span"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+  }
 }

@@ -1,0 +1,30 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":[".datagrid-btable"], "collectionNode":"datagrid","nesting":"outer",
+			"collectionNodes":{
+				"datagrid":{"selectors":["*"],"children":["row"],"action":"or"},
+				"row":{"selectors":["tr"],"children":["html5.text", "html5.checkbox", "html5.radio", "buttonGroup"],"action":"and"}
+			}
+		},
+		{"selectors":[".leftMenu", ".combo-panel"], "collectionNode": "buttonGroup", "nesting": "outer"},
+		{"selectors":[".window", "form", "table"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":["map", "ul", "ol", "dl", "div", "a", "button"], "collectionNode":"buttonGroup", "nesting":"inner"}
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "easyButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"easyButton": {"selectors":[".combobox-item", "td[field=UserName]"], "decisive":true, "action":"click"}
+	}	
+}

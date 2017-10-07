@@ -8,6 +8,16 @@
 
 	"operations": [
 		{
+			"selectors":["#role-table-list"], "collectionNode":"roleList","nesting":"outer",
+			"collectionNodes":{
+				"roleList":{"selectors":["*"],"children":["roleItem"],"action":"or"}
+				"roleItem":{"selectors":["tr"],"children":["button"],"action":"and"}
+			},
+			"singleNodes":{
+				"button":{"selectors":["i"],"action":"click","decisive":true}
+			}
+		},
+		{
 			"selectors":[".chosen-results"], "collectionNode":"chosenResults","nesting":"outer",
 			"collectionNodes":{
 				"chosenResults":{"selectors":["*"],"children":["activeResult"],"action":"or"}
@@ -17,7 +27,7 @@
 			}
 		},
 		{"selectors":["table"], "collectionNode":"html5.table", "nesting":"outer"},
-		{"selectors":[".modal"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":[".form-inline", ".modal", ".popover", ".alert"], "collectionNode":"form", "nesting":"outer"},
 		{"selectors":["form"], "collectionNode":"form", "nesting":"outer"},
 		{"selectors":["map", "ul", "ol", "dl", "nav"], "collectionNode":"buttonGroup", "nesting":"inner"}		
 	],
@@ -30,5 +40,4 @@
 	"singleNodes": {
 		"artButton": {"selectors":[".i-checks label"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
 	}
-
 }
