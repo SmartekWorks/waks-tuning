@@ -1,0 +1,21 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+		{
+			"selectors": [".slideMenu"], "collectionNode": "slideMenu", "nesting": "outer",
+			"collectionNodes":{
+				"slideMenu":{"selectors":["*"],"children":["html5.button", "html5.link", "slideMenuBtn"],"action":"or"}
+			},
+			"singleNodes":{
+				"slideMenuBtn":{"selectors":[".slideMenuBtn"],"action":"click","decisive":true}
+			}
+		},
+		{ "selectors": ["header", "footer"], "collectionNode": "html5.form", "nesting": "outer" },
+		{ "selectors": [".table_list"], "collectionNode": "html5.table", "nesting": "outer" }
+	]
+}
