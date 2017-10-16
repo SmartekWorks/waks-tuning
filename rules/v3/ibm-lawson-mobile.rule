@@ -6,16 +6,16 @@
 		}
 	],
 	"operations": [
-		{
-			"selectors": [".slideMenu"], "collectionNode": "slideMenu", "nesting": "outer",
-			"collectionNodes":{
-				"slideMenu":{"selectors":["*"],"children":["html5.button", "html5.link", "slideMenuBtn"],"action":"or"}
-			},
-			"singleNodes":{
-				"slideMenuBtn":{"selectors":[".slideMenuBtn"],"action":"click","decisive":true}
-			}
-		},
-		{ "selectors": ["header", "footer"], "collectionNode": "html5.form", "nesting": "outer" },
-		{ "selectors": [".table_list"], "collectionNode": "html5.table", "nesting": "outer" }
-	]
+		{ "selectors": [".slideMenu", "#modalMenu", ".table-list"], "collectionNode": "buttonGroup", "nesting": "outer" },
+		{ "selectors": ["header", "footer"], "collectionNode": "html5.form", "nesting": "outer" }
+	],
+	"collectionNodes": {
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "button"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+	"singleNodes": {
+		"button": {"selectors":["[onclick]", ".slideMenuBtn"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	},
+	"settings":{
+		"matchAllFrames": true
+	}
 }
