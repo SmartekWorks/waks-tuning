@@ -1,0 +1,19 @@
+{
+	"imports": [
+		{ "name": "html5", "version": "1.0.0" }
+	],
+
+	"operations": [
+		{ "selectors":["table"], "collectionNode":"html5.table","nesting":"outer" },
+		{ "selectors":["[role=dialog]", "#inline_contentWrap"], "collectionNode":"form","nesting":"outer" },
+		{ "selectors":[".treeArea", ".xdsoft_datetimepicker"], "collectionNode":"buttonGroup","nesting":"outer" }
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "button"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+	"singleNodes": {
+		"button": {"selectors":["[onclick]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}
+}

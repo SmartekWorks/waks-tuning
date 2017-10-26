@@ -6,7 +6,7 @@
 		}
 	],
 	"operations": [
-		{ "selectors": [".slideMenu", "#modalMenu", ".table-list"], "collectionNode": "buttonGroup", "nesting": "outer" },
+		{ "selectors": [".slideMenu", "#modalMenu", ".table_list"], "collectionNode": "buttonGroup", "nesting": "outer" }, 
 		{ "selectors": ["header", "footer"], "collectionNode": "html5.form", "nesting": "outer" }
 	],
 	"collectionNodes": {
@@ -17,5 +17,7 @@
 	},
 	"settings":{
 		"matchAllFrames": true
-	}
+	},
+	"comment": ".table_list仅用于金融机构选择和支店选择页面，缺省页面不需要"
 }
+
