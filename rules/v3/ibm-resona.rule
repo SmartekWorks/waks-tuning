@@ -1,0 +1,17 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+		{
+			"selectors":["#mainContents"], "collectionNode":"mainContents","nesting":"outer",
+			"collectionNodes":{
+				"mainContents":{"selectors":["*"],"children":["linkArea"],"action":"or"},
+				"linkArea":{"selectors":["#LinkArea2"],"children":["html5.button", "html5.link"],"action":"or"}
+			}	
+		}
+	]
+}
