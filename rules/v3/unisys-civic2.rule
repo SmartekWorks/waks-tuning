@@ -1,0 +1,20 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":["table"], "collectionNode":"menu","nesting":"inner",
+			"collectionNodes":{
+				"menu":{"selectors":["*"],"children":["menuItem"],"action":"or"}
+			},
+			"singleNodes":{
+				"menuItem":{"selectors":[".ooMidashi"],"action":"click","decisive":true}
+			}
+		}
+	]
+}

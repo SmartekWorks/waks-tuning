@@ -1,0 +1,20 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":[".dropdown-menu"], "collectionNode":"dropdownMenu","nesting":"outer",
+			"collectionNodes":{
+				"dropdownMenu":{"selectors":["*"],"children":["dropdownSubMenu"],"action":"or"}
+			},
+			"singleNodes":{
+				"dropdownSubMenu":{"selectors":[".dropdown-submenu .dropdown-toggle"],"action":"moveTo","decisive":true}
+			}
+		}
+	]
+}

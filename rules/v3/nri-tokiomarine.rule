@@ -1,0 +1,48 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+		{ "selectors": ["div[id^=tabsetAll_tab]", ".ActiveTextEditor"], "collectionNode": "html5.form", "nesting": "outer" }, 
+		{ "selectors": [".OutlookBar", ".MenuBar", "#tabsetAll"], "collectionNode": "buttonGroup", "nesting": "outer" }, 
+
+		{
+			"selectors": ["#tableUCCTEmployeeViewEO .DataGrid"], "collectionNode": "dataGrid", "nesting": "outer",
+			"collectionNodes":{
+				"dataGrid":{"selectors":["*"],"children":["dataRow"],"action":"or"}
+			},
+			"singleNodes":{
+				"dataRow":{"selectors":["tr"],"action":"doubleClick","decisive":true}
+			}
+		},
+		{
+			"selectors": [".DataGrid"], "collectionNode": "dataGrid", "nesting": "outer",
+			"collectionNodes":{
+				"dataGrid":{"selectors":["*"],"children":["dataRow"],"action":"or"},
+				"dataRow":{"selectors":["tr"],"children":["html5.checkbox", "gridButtons"],"action":"and"},
+				"gridButtons":{"selectors":["*"],"children":["gridButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"gridButton":{"selectors":["td"],"action":"click","decisive":true}
+			}
+		},
+		{
+			"selectors": [".HeaderGrid"], "collectionNode": "headerGrid", "nesting": "outer",
+			"collectionNodes":{
+				"headerGrid":{"selectors":["*"],"children":["headerButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"headerButton":{"selectors":["th"],"action":"click","decisive":true}
+			}
+		}		
+	],
+	"collectionNodes": {
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "button"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},	
+	"singleNodes":{
+		"button":{"selectors":[".SubButton", ".MenuBar_Button", ".CurrentTab_top", ".Tab_top"],"action":"click","decisive":true}
+	}
+}

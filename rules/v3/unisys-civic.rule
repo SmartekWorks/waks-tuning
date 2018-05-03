@@ -1,0 +1,20 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":[".cmTreeTab div"], "collectionNode":"subTree","nesting":"outer",
+			"collectionNodes":{
+				"subTree":{"selectors":["*"],"children":["html5.link", "treeItem"],"action":"or"}
+			},
+			"singleNodes":{
+				"treeItem":{"selectors":[".treeItem2"],"action":"click","decisive":true}
+			}
+		}
+	]
+}

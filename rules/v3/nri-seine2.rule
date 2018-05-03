@@ -1,0 +1,29 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":[".menubar"], "collectionNode":"hoverableMenu","nesting":"outer",
+			"collectionNodes":{
+				"hoverableMenu":{"selectors":["*"],"children":["menuItem"],"action":"or"}
+			},
+			"singleNodes":{
+				"menuItem":{"selectors":[".has-submenu"],"action":"moveTo","decisive":true}
+			}
+		},
+		{
+			"selectors":[".menubar"], "collectionNode":"clickableMenu","nesting":"outer",
+			"collectionNodes":{
+				"clickableMenu":{"selectors":["*"],"children":["menuItem"],"action":"or"}
+			},
+			"singleNodes":{
+				"menuItem":{"selectors":[".clickable"],"action":"click","decisive":true}
+			}
+		}
+	]
+}

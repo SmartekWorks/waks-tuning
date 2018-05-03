@@ -1,0 +1,20 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":["table"], "collectionNode":"dataTable","nesting":"outer",
+			"collectionNodes":{
+				"dataTable":{"selectors":["*"],"children":["tableRow"],"action":"or"}
+			},
+			"singleNodes":{
+				"tableRow":{"selectors":[".clickable-row"],"action":"click","decisive":true}
+			}
+		}
+	]
+}

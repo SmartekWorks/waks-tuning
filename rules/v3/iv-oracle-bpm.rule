@@ -1,0 +1,18 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+		{ "selectors":["table#portletComponentWorkList_viewNormalModeWorkList_viewPanel_instanceListTableWorkList"], "collectionNode":"html5.table", "nesting":"outer" },
+		{
+			"selectors":[".menuPortlet"], "collectionNode":"menuPortlet", "nesting":"outer",
+			"collectionNodes":{
+				"menuPortlet":{ "selectors":["*"],"children":["menuItem"], "action":"or" },
+				"menuItem":{ "selectors":[".bpmWorkspaceMenuAction"], "children":["html5.button", "html5.link"], "action":"or" }
+			}
+		}
+	]
+}
