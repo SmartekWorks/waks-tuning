@@ -1,0 +1,69 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{"selectors": [".dhx_combo_select"], "collectionNode": "html5.form", "nesting": "outer"},
+		{
+			"selectors":[".dhtmlxcalendar_material"], "collectionNode":"datePicker", "nesting":"outer",
+			"collectionNodes":{
+				"datePicker":{"selectors":["*"], "children":["dateCell"], "action":"or"}
+			},
+			"singleNodes":{
+				"dateCell":{"selectors":[".dhtmlxcalendar_label"],"decisive":true,"action":"click","label":"html5.button","locator":"html5.button"}
+			}
+		},
+		{
+			"selectors":[".dhtmlxMenu_material_SubLevelArea_Polygon"], "collectionNode":"contextMenu", "nesting":"outer",
+			"collectionNodes":{
+				"contextMenu":{"selectors":["*"], "children":["menuItem"], "action":"or"}
+			},
+			"singleNodes":{
+				"menuItem":{"selectors":["tr.sub_item"],"decisive":true,"action":"click","label":"html5.button","locator":"html5.button"}
+			}
+		},
+
+		{
+			"selectors":["table.obj"], "collectionNode":"grid", "nesting":"outer",
+			"collectionNodes":{
+				"grid":{"selectors":["*"], "children":["gridRow"], "action":"or"},
+				"gridRow":{"selectors":["tr.ev_material", "tr.odd_material"], "children":["textarea", "html5.upload", "gridButtons"], "action":"and"},
+				"gridButtons":{"selectors":["*"], "children":["gridButton"], "action":"or"}
+
+			},
+			"singleNodes":{
+				"textarea":{"selectors":["textarea"], "decisive":false, "action":"type", "label":"textarea", "locator":"textarea"},
+				"gridButton":{"selectors":["img[onclick]"],"decisive":true,"action":"click","label":"html5.button","locator":"html5.button"}
+			},
+			"labelPolicies":{
+				"textarea":["text", "value", "class"]
+			},
+			"locatorPolicies":{
+				"textarea":["class"]
+			}
+		},
+		{
+			"selectors":["table.obj"], "collectionNode":"gridSelect", "nesting":"outer",
+			"collectionNodes":{
+				"gridSelect":{"selectors":["*"], "children":["gridRow"], "action":"or"},
+				"gridRow":{"selectors":["tr.ev_material", "tr.odd_material"], "children":["gridCell"], "action":"or"}
+			},
+			"singleNodes":{
+				"gridCell":{"selectors":["td"],"decisive":true,"action":"doubleClick","label":"html5.button","locator":"html5.button"}
+			}
+		},
+		{
+			"selectors":["table.obj"], "collectionNode":"gridMenu", "nesting":"outer",
+			"collectionNodes":{
+				"gridMenu":{"selectors":["*"], "children":["gridRow"], "action":"or"}
+			},
+			"singleNodes":{
+				"gridRow":{"selectors":["tr.ev_material", "tr.odd_material"],"decisive":true,"action":"rightClick","label":"html5.button","locator":"html5.button"}
+			}
+		}		
+	]
+}

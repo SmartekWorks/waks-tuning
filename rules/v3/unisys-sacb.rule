@@ -1,0 +1,30 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+		{
+			"selectors": ["#tdJDMenuBar"], "collectionNode": "jdMenu", "nesting": "outer",
+			"collectionNodes":{
+				"jdMenu":{"selectors":["*"],"children":["menuItem"],"action":"or"}
+			},
+			"singleNodes":{
+				"menuItem":{"selectors":["li.accessible", ".jdm_active li"],"action":"moveTo","decisive":true}
+			}
+		},
+		{
+			"selectors": ["table[id$=viewport]"], "collectionNode": "grid", "nesting": "outer",
+			"collectionNodes":{
+				"grid":{"selectors":["*"],"children":["row"],"action":"or"},
+				"row":{"selectors":["tr"],"children":["cell"],"action":"or"}
+			},
+			"singleNodes":{
+				"cell":{"selectors":["td"],"action":"click","decisive":true}
+			}
+		},
+		{ "selectors": ["#titleArea", "#toolbar"], "collectionNode": "html5.form", "nesting": "outer" }
+	]
+}
