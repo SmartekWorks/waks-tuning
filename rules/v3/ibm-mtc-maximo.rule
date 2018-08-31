@@ -1,0 +1,37 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [    
+		{ "selectors":["#titlebar-co_0", "#toolbar2-co_0"], "collectionNode":"form", "nesting":"outer" },
+		{ "selectors":["div[navsearch]", ".navSection"], "collectionNode":"form", "nesting":"outer" },
+		{ "selectors":[".tabgroupback", ".tabBodyTable"], "collectionNode":"form", "nesting":"outer" },
+		{ "selectors":[".modal"], "collectionNode":"form", "nesting":"outer" },
+		{
+			"selectors":["#lookup_page1_tbod-tbd"], "collectionNode":"lookupTable","nesting":"outer",
+			"collectionNodes":{
+				"lookupTable":{"selectors":["*"],"children":["tableRow"],"action":"or"},
+				"tableRow":{"selectors":[".tablerow"],"children":["spanButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"spanButton":{"selectors":["span"],"action":"click","decisive":true}
+			}
+		},
+
+		{ "selectors":["form"], "collectionNode":"form", "nesting":"outer" },
+		{ "selectors":["map", "ul", "ol", "dl", "nav", "div", "a", "button"], "collectionNode":"buttonGroup", "nesting":"inner" }
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "dButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"dButton": {"selectors":[".dButton"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}
+}

@@ -1,0 +1,22 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{
+			"selectors":["#menu"], "collectionNode":"mainMenu","nesting":"outer",
+			"collectionNodes":{
+				"mainMenu":{"selectors":["*"],"children":["menuItem"],"action":"or"}
+			},
+			"singleNodes":{
+				"menuItem":{"selectors":["a.menu-li-a"],"action":"moveTo","decisive":true}
+			}
+		},
+
+		{"selectors":["#menu"], "collectionNode":"html5.buttonGroup", "nesting":"outer"},
+	]
+}
