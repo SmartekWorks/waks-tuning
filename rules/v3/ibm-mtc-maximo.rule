@@ -21,6 +21,15 @@
 				"spanButton":{"selectors":["span"],"action":"click","decisive":true}
 			}
 		},
+		{
+			"selectors":["[id$=tabs_backToList]"], "collectionNode":"tabsBack","nesting":"outer",
+			"collectionNodes":{
+				"tabsBack":{"selectors":["*"],"children":["backButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"backButton":{"selectors":["[id$=tabs_middle]"],"action":"click","decisive":true}
+			}			
+		},
 
 		{ "selectors":["form"], "collectionNode":"form", "nesting":"outer" },
 		{ "selectors":["map", "ul", "ol", "dl", "nav", "div", "a", "button"], "collectionNode":"buttonGroup", "nesting":"inner" }
