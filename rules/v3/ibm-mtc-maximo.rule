@@ -9,8 +9,6 @@
 	"operations": [    
 		{ "selectors":["#titlebar-co_0", "#toolbar2-co_0"], "collectionNode":"form", "nesting":"outer" },
 		{ "selectors":["div[navsearch]", ".navSection"], "collectionNode":"form", "nesting":"outer" },
-		{ "selectors":[".tabgroupback", ".tabBodyTable"], "collectionNode":"form", "nesting":"outer" },
-		{ "selectors":[".modal"], "collectionNode":"form", "nesting":"outer" },
 		{
 			"selectors":["#lookup_page1_tbod-tbd"], "collectionNode":"lookupTable","nesting":"outer",
 			"collectionNodes":{
@@ -22,6 +20,17 @@
 			}
 		},
 		{
+			"selectors":["[id$=tbod-tbd]"], "collectionNode":"dataGrid","nesting":"outer",
+			"collectionNodes":{
+				"dataGrid":{"selectors":["*"],"children":["dataRow"],"action":"or"},
+				"dataRow":{"selectors":[".tablerow"],"children":["html5.text", "rowButtons"],"action":"and"},
+				"rowButtons":{"selectors":["*"],"children":["rowButton", "html5.link"],"action":"or"}
+			},
+			"singleNodes":{
+				"rowButton":{"selectors":["span.anchor", "img[ctype]"],"action":"click","decisive":true}
+			}
+		},	
+		{
 			"selectors":["[id$=tabs_backToList]"], "collectionNode":"tabsBack","nesting":"outer",
 			"collectionNodes":{
 				"tabsBack":{"selectors":["*"],"children":["backButton"],"action":"or"}
@@ -30,7 +39,18 @@
 				"backButton":{"selectors":["[id$=tabs_middle]"],"action":"click","decisive":true}
 			}			
 		},
+		{
+			"selectors":[".RVReport"], "collectionNode":"treeView","nesting":"outer",
+			"collectionNodes":{
+				"treeView":{"selectors":["*"],"children":["spanButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"spanButton":{"selectors":["span[onclick]"],"action":"click","decisive":true}
+			}			
+		},
 
+		{ "selectors":[".tabgroupback", ".tabBodyTable"], "collectionNode":"form", "nesting":"outer" },
+		{ "selectors":[".modal"], "collectionNode":"form", "nesting":"outer" },
 		{ "selectors":["form"], "collectionNode":"form", "nesting":"outer" },
 		{ "selectors":["map", "ul", "ol", "dl", "nav", "div", "a", "button"], "collectionNode":"buttonGroup", "nesting":"inner" }
 	],
