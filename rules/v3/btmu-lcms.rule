@@ -6,17 +6,17 @@
 		}
 	],
 
-	"operations": [
-		{
-			"selectors":["#menu"], "collectionNode":"mainMenu","nesting":"outer",
-			"collectionNodes":{
-				"mainMenu":{"selectors":["*"],"children":["menuItem"],"action":"or"}
-			},
-			"singleNodes":{
-				"menuItem":{"selectors":["a.menu-li-a"],"action":"moveTo","decisive":true}
-			}
-		},
+	"operations":[
+		{"selectors":["form", "table"], "collectionNode":"form", "nesting":"outer"},
+		{"selectors":["map", "ul", "ol", "dl", "nav", "div", "a", "button"], "collectionNode":"buttonGroup", "nesting":"inner"}
+	],
 
-		{"selectors":["#menu"], "collectionNode":"html5.buttonGroup", "nesting":"outer"},
-	]
+	"collectionNodes":{
+		"form":{"selectors":["*"],"children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect", "buttonGroup"], "action":"and"},
+		"buttonGroup":{"selectors":["*"], "children":["html5.button", "html5.link", "imgButton"], "action":"or"}
+	},
+
+	"singleNodes":{
+		"imgButton":{"selectors":["img[id]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}
 }

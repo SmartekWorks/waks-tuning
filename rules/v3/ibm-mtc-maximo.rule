@@ -8,7 +8,7 @@
 
 	"operations": [    
 		{ "selectors":["#titlebar-co_0", "#toolbar2-co_0"], "collectionNode":"form", "nesting":"outer" },
-		{ "selectors":["div[navsearch]", ".navSection"], "collectionNode":"form", "nesting":"outer" },
+		{ "selectors":["div[navsearch]", ".navSection", ".menus"], "collectionNode":"form", "nesting":"outer" },
 		{
 			"selectors":["#lookup_page1_tbod-tbd"], "collectionNode":"lookupTable","nesting":"outer",
 			"collectionNodes":{
@@ -48,6 +48,16 @@
 				"spanButton":{"selectors":["span[onclick]"],"action":"click","decisive":true}
 			}			
 		},
+		{
+			"selectors":["[id$=treecontainer]"], "collectionNode":"treeContainer","nesting":"outer",
+			"collectionNodes":{
+				"treeContainer":{"selectors":["*"],"children":["treeRow"],"action":"or"},
+				"treeRow":{"selectors":["[id$=trn]"],"children":["html5.link","treeButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"treeButton":{"selectors":["img[onclick]"],"action":"click","decisive":true}
+			}
+		},
 
 		{ "selectors":[".tabgroupback", ".tabBodyTable"], "collectionNode":"form", "nesting":"outer" },
 		{ "selectors":[".modal"], "collectionNode":"form", "nesting":"outer" },
@@ -61,6 +71,6 @@
 	},
 
 	"singleNodes": {
-		"dButton": {"selectors":[".dButton"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+		"dButton": {"selectors":[".dButton", "img[ev=combobox]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
 	}
 }
