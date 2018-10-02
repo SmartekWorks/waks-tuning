@@ -12,13 +12,14 @@
 	],
 
 	"collectionNodes": {
-		"form": {"selectors":["*"], "children":["text", "textarea", "upload", "html5.checkbox", "html5.radio", "select", "multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"form": {"selectors":["*"], "children":["selectInput", "text", "textarea", "upload", "html5.checkbox", "html5.radio", "select", "multiSelect", "buttonGroup"], "action":"and", "label":"html5.block", "locator":"html5.block"},
 		"buttonGroup": {"selectors":["*"], "children":["button", "html5.link"], "action":"or", "label":"html5.block", "locator":"html5.block"},
 		"select":{"selectors":["select:not([multiple])"], "children":["html5.option"], "action":"or", "label":"smbcField", "locator":"smbcField"},
 		"multiSelect":{"selectors":["select[multiple]"], "children":["html5.option"], "action":"multi", "label":"smbcField", "locator":"smbcField"}
 	},
 
 	"singleNodes":{
+		"selectInput":{"selectors":["input.v-filterselect-input"], "decisive":false, "action":"type", "label":"smbcSelect", "locator":"smbcSelect"},
 		"text":{"selectors":["input:not([type])", "input[type=text]", "input[type=password]", "input[type=email]", "input[type=url]", "input[type=search]", "input[type=number]", "input[type=tel]"], "decisive":false, "action":"type", "label":"smbcField", "locator":"smbcField"},
 		"textarea":{"selectors":["textarea"], "decisive":false, "action":"type", "label":"smbcField", "locator":"smbcField"},
 		"upload":{"selectors":["input[type=file]"], "decisive":false, "action":"upload", "label":"smbcField", "locator":"smbcField"},
@@ -26,11 +27,13 @@
 	},
 
 	"labelPolicies":{
-		"smbcField":["divLabel", "realId"]
+		"smbcField":["fieldLabel", "realId"],
+		"smbcSelect":["selectLabel", "parentRealId"]
 	},
 
 	"locatorPolicies":{
-		"smbcField":["realId", "label", "xpath"]
+		"smbcField":["realId", "label", "xpath"],
+		"smbcSelect":["parentRealId", "label", "xpath"]
 	},
 
 	"settings":{
@@ -38,12 +41,20 @@
 			"realId": {
 				"attr":"id",
 				"pattern":"^field[0-9a-z\\-]{36}(.+?)$"
-			}
+			},
+			"parentRealId": {
+				"axis":"parent",
+				"attr":"id",
+				"pattern":"^field[0-9a-z\\-]{36}(.+?)$"
+			}			
 		},
 		"extLabelPolicies": {
-			"divLabel": {
+			"fieldLabel": {
 				"selector":"div[id~=^label[0-9a-z\\-]{36}@{realId}$]"
-			}
+			},
+			"selectLabel": {
+				"selector":"div[id~=^label[0-9a-z\\-]{36}@{parentRealId}$]"
+			}			
 		}
 	}
 }
