@@ -1,0 +1,45 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [    
+		{
+			"selectors": [
+				".datagrid table",
+			],
+			"collectionNode": "html5.table",
+			"nesting": "outer"
+		},
+		{
+			"selectors":[".datagrid-htable"], "collectionNode":"datagrid","nesting":"outer",
+			"collectionNodes":{
+				"datagrid":{"selectors":["*"],"children":["datarow"],"action":"or"},
+				"datarow":{"selectors":[".datagrid-row"],"children":["html5.form"],"action":"and"}
+			}
+		},
+		{
+			"selectors":[".menu"], "collectionNode":"menu","nesting":"outer",
+			"collectionNodes":{
+				"menu":{"selectors":["*"],"children":["divButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"divButton":{"selectors":["[onclick]"],"action":"click","decisive":true}
+			}
+		},
+		{"selectors":[".combo-p"], "collectionNode":"buttonGroup", "nesting":"outer"},
+		{"selectors":[".window", "form", "table"], "collectionNode":"form", "nesting":"outer"}
+	],
+
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["buttonGroup", "html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "html5.multiSelect"], "action":"and", "label":"html5.block", "locator":"html5.block"},
+		"buttonGroup": {"selectors":["*"], "children":["html5.button", "html5.link", "tlButton"], "action":"or", "label":"html5.block", "locator":"html5.block"}
+	},
+
+	"singleNodes": {
+		"tlButton": {"selectors":[".combo-arrow", ".combobox-item"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+	}	
+}

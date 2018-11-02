@@ -13,7 +13,8 @@
     {
       "selectors": [
         ".v-menubar",
-        ".v-menubar-popup"
+        ".v-menubar-popup",
+        ".v-filterselect-suggestmenu"
       ],
       "collectionNode": "buttonGroup",
       "nesting": "inner"
@@ -187,12 +188,24 @@
       "label": "smbcField",
       "locator": "smbcField"
     },
-    "checkbox":{"selectors":["input[type=checkbox]"], "decisive":false, "action":"check", "label":"smbcSelect", "locator":"smbcSelect", "group":{"by":"name", "label":"html5.group", "locator":"html5.group"}},
+    "checkbox": {
+      "selectors": ["input[type=checkbox]"],
+      "decisive": false,
+      "action": "check",
+      "label": "smbcSelect",
+      "locator": "smbcSelect",
+      "group": {
+        "by": "name",
+        "label": "html5.group",
+        "locator": "html5.group"
+      }
+    },
 
     "v-button": {
       "selectors": [
         ".v-button",
-        ".v-menubar-menuitem-caption"
+        ".v-menubar-menuitem-caption",
+        ".gwt-MenuItem"
       ],
       "decisive": true,
       "action": "click",
