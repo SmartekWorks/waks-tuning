@@ -1,0 +1,28 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [    
+		{
+			"selectors":["[data-label=header]", "[data-label=State1]", ".primary_button", "._2ndry_button"], "collectionNode":"axButtonGroup","nesting":"outer",
+			"collectionNodes":{
+				"axButtonGroup":{"selectors":["*"],"children":["axButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"axButton":{"selectors":[".text"],"action":"click","decisive":true}
+			}
+		},
+		{
+			"selectors":["div[id]"], "collectionNode":"divButtonGroup","nesting":"outer",
+			"collectionNodes":{
+				"divButtonGroup":{"selectors":["*"],"children":["divButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"divButton":{"selectors":[".label .text"],"action":"click","decisive":true}
+			}
+        }		
+    ]
+}

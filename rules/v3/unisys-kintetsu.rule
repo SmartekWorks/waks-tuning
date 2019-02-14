@@ -1,0 +1,30 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+
+	"operations": [
+		{"selectors":["#vs-seatmap-page"], "collectionNode":"html5.buttonGroup", "nesting":"outer"},
+		{
+			"selectors":["#vs-train-seatmap"], "collectionNode":"seatMap","nesting":"outer",
+			"collectionNodes":{
+				"seatMap":{"selectors":["*"],"children":["seatButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"seatButton":{"selectors":["[onclick]"],"action":"click","decisive":true}
+			}
+		},
+		{
+			"selectors":[".vs-search-select-station-area"], "collectionNode":"stationSelect","nesting":"outer",
+			"collectionNodes":{
+				"stationSelect":{"selectors":["*"],"children":["html5.link", "html5.button", "stationButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"stationButton":{"selectors":["[onclick]"],"action":"click","decisive":true}
+			}
+		}
+	]
+}

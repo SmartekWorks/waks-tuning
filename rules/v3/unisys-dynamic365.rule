@@ -1,0 +1,22 @@
+{
+    "imports": [
+        {
+        "name": "html5",
+        "version": "1.0.0"
+        }
+    ],
+    "operations": [
+        {"selectors":["#crmMasthead", "#crmTopBar"], "collectionNode":"html5.form", "nesting":"outer"},
+        {
+            "selectors":[".ms-crm-InlineTab-Read"], "collectionNode":"tabForm", "nesting":"outer",
+            "collectionNodes":{
+                "tabForm":{"selectors":["*"], "children":["html5.fieldEditor", "buttonGroup"],"action":"and"},
+                "buttonGroup":{"selectors":["*"], "children":["html5.link", "html5.button", "fieldButton"],"action":"or"}
+            },
+            "singleNodes":{
+                "fieldEditor":{"selectors":["input[type=text]"], "decisive":false, "action":"type", "label":"html5.text", "locator":"html5.text"},
+                "fieldButton":{"selectors":[".ms-crm-Field-Data-Print"], "decisive":true, "action":"click", "label":"html5.fieldLeft", "locator":"html5.field"}
+            }
+        }
+    ]
+}

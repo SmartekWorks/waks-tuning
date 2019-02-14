@@ -8,6 +8,15 @@
 
 	"operations": [    
 		{
+			"selectors":[".flatpickr-calendar"], "collectionNode":"datePicker","nesting":"outer",
+			"collectionNodes":{
+				"datePicker":{"selectors":["*"],"children":["dateButton"],"action":"or"}
+			},
+			"singleNodes":{
+				"dateButton":{"selectors":[".flatpickr-day:not(.prevMonthDay):not(.nextMonthDay)"],"action":"click","decisive":true}
+			}
+		},
+		{
 			"selectors":[".mdl-menu"], "collectionNode":"mdlMenu","nesting":"outer",
 			"collectionNodes":{
 				"mdlMenu":{"selectors":["*"],"children":["mdlMenuItem"],"action":"or"}
@@ -43,6 +52,6 @@
 	},
 
 	"singleNodes": {
-		"mdlButton": {"selectors":[".mdl-checkbox", ".mdl-radio", "[role=button]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
+		"mdlButton": {"selectors":[".mdl-checkbox", ".mdl-radio", "[role=button]", "[ng-click]"], "decisive":true, "action":"click", "label":"html5.button", "locator":"html5.button"}
 	}
 }

@@ -1,0 +1,35 @@
+{
+    "imports": [{
+        "name": "html5",
+        "version": "1.0.0"
+    }],
+    "operations": [{
+        "selectors": [
+            ".table-list"
+        ],
+        "collectionNode": "tableList",
+        "nesting": "outer",
+        "collectionNodes": {
+            "tableList": {
+                "selectors": [
+                    "tbody"
+                ],
+                "children": [
+                    "tableRow"
+                ],
+                "action": "or",
+                "label": "html5.block",
+                "locator": "html5.block"
+            }
+        },
+        "singleNodes": {
+            "tableRow": {
+                "selectors": [
+                    "tr"
+                ],
+                "decisive": "true",
+                "action": "rightClick"
+            }
+        }
+    }]
+}
