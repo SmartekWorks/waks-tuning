@@ -1,97 +1,19 @@
 {
-  "imports": [
-    {
-      "name": "html5",
-      "version": "1.0.0"
-    }
-  ],
-  "operations": [
-    {
-      "selectors": [
-        ".gui-table .listTable"
-      ],
-      "collectionNode": "grid",
-      "nesting": "outer",
-      "collectionNodes": {
-        "grid": {
-          "selectors": [
-            "*"
-          ],
-          "children": [
-            "gridRow"
-          ],
-          "locator": "cipsBlock",
-          "action": "or"
-        }
-      },
-      "singleNodes": {
-        "gridRow": {
-          "selectors": [
-            "[role=listitem]"
-          ],
-          "action": "doubleClick",
-          "decisive": true
-        }
-      }
-    },
-    {
-      "selectors": [
-        ".pickListMenuBody"
-      ],
-      "collectionNode": "dropdown",
-      "nesting": "outer",
-      "collectionNodes": {
-        "dropdown": {
-          "selectors": [
-            "*"
-          ],
-          "children": [
-            "item"
-          ],
-          "locator": "cipsBlock",
-          "action": "or"
-        }
-      },
-      "singleNodes": {
-        "item": {
-          "selectors": [
-            "tr"
-          ],
-          "action": "click",
-          "decisive": true
-        }
-      }
-    },
-    {
-      "selectors": [
-        "form"
-      ],
-      "collectionNode": "form",
-      "nesting": "outer"
-    },
-    {
-      "selectors": [
-        ".main-lefttree",
-        ".tabBarTop",
-        ".windowBody",
-        "map",
-        "ul",
-        "ol",
-        "dl",
-        "nav",
-        "div",
-        "a",
-        "button"
-      ],
-      "collectionNode": "buttonGroup",
-      "nesting": "outer"
-    }
-  ],
   "collectionNodes": {
-    "form": {
+    "buttonGroup": {
+      "action": "or",
+      "children": [
+        "html5.button",
+        "html5.link",
+        "cipsButton"
+      ],
+      "locator": "cipsBlock",
       "selectors": [
         "*"
-      ],
+      ]
+    },
+    "form": {
+      "action": "and",
       "children": [
         "text",
         "textarea",
@@ -103,69 +25,143 @@
         "buttonGroup"
       ],
       "locator": "cipsBlock",
-      "action": "and"
-    },
-    "buttonGroup": {
       "selectors": [
         "*"
-      ],
-      "children": [
-        "html5.button",
-        "html5.link",
-        "cipsButton"
-      ],
-      "locator": "cipsBlock",
-      "action": "or"
+      ]
     }
   },
-  "singleNodes": {
-    "text": {
-      "selectors": [
-        "input[type=text]",
-        "input[type=password]"
-      ],
-      "decisive": false,
-      "action": "type",
-      "label": "html5.fieldLeft",
-      "locator": "cipsText"
-    },
-    "textarea": {
-      "selectors": [
-        "textarea"
-      ],
-      "decisive": false,
-      "action": "type",
-      "label": "html5.fieldLeft",
-      "locator": "cipsText"
-    },
-    "upload": {
-      "selectors": [
-        "input[type=file]"
-      ],
-      "decisive": false,
-      "action": "type",
-      "label": "html5.fieldLeft",
-      "locator": "cipsText"
-    },
-    "cipsButton": {
-      "selectors": [
-        ".buttonTitle",
-        ".imgButton",
-        "[role=treeItem]",
-        ".tabTitleSelected .tabTitleSelected"
-      ],
-      "decisive": true,
-      "action": "click"
+  "imports": [
+    {
+      "name": "html5",
+      "version": "1.0.0"
     }
-  },
+  ],
   "locatorPolicies": {
-    "cipsText": [
-      "name",
-      "label"
-    ],
     "cipsBlock": [
       "name",
       "xpath"
+    ],
+    "cipsText": [
+      "name",
+      "label"
     ]
+  },
+  "operations": [
+    {
+      "collectionNode": "grid",
+      "collectionNodes": {
+        "grid": {
+          "action": "or",
+          "children": [
+            "gridRow"
+          ],
+          "locator": "cipsBlock",
+          "selectors": [
+            "*"
+          ]
+        }
+      },
+      "nesting": "outer",
+      "selectors": [
+        ".gui-table .listTable"
+      ],
+      "singleNodes": {
+        "gridRow": {
+          "action": "doubleClick",
+          "decisive": true,
+          "selectors": [
+            "[role=listitem]"
+          ]
+        }
+      }
+    },
+    {
+      "collectionNode": "dropdown",
+      "collectionNodes": {
+        "dropdown": {
+          "action": "or",
+          "children": [
+            "item"
+          ],
+          "locator": "cipsBlock",
+          "selectors": [
+            "*"
+          ]
+        }
+      },
+      "nesting": "outer",
+      "selectors": [
+        ".pickListMenuBody"
+      ],
+      "singleNodes": {
+        "item": {
+          "action": "click",
+          "decisive": true,
+          "selectors": [
+            "tr"
+          ]
+        }
+      }
+    },
+    {
+      "collectionNode": "form",
+      "nesting": "outer",
+      "selectors": [
+        "form"
+      ]
+    },
+    {
+      "collectionNode": "buttonGroup",
+      "nesting": "inner",
+      "selectors": [
+        ".main-lefttree",
+        ".tabBarTop",
+        ".windowBody",
+        "div.normal",
+        "a",
+        "button"
+      ]
+    }
+  ],
+  "singleNodes": {
+    "cipsButton": {
+      "action": "click",
+      "decisive": true,
+      "selectors": [
+        ".buttonTitle",
+        ".buttonRounded",
+        ".imgButton",
+        "[role=treeItem]",
+        ".tabTitleSelected .tabTitleSelected"
+      ]
+    },
+    "text": {
+      "action": "type",
+      "decisive": false,
+      "label": "html5.fieldLeft",
+      "locator": "cipsText",
+      "selectors": [
+        "input[type=text]",
+        "input[type=password]"
+      ]
+    },
+    "textarea": {
+      "action": "type",
+      "decisive": false,
+      "label": "html5.fieldLeft",
+      "locator": "cipsText",
+      "selectors": [
+        "textarea"
+      ]
+    },
+    "upload": {
+      "action": "type",
+      "decisive": false,
+      "label": "html5.fieldLeft",
+      "locator": "cipsText",
+      "selectors": [
+        "input[type=file]"
+      ]
+    }
   }
 }
