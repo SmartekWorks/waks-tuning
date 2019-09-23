@@ -1,0 +1,109 @@
+{
+  "imports": [
+    {
+      "name": "html5",
+      "version": "1.0.0"
+    }
+  ],
+  "operations": [
+    {
+      "collectionNode": "html5.buttonGroup",
+      "nesting": "outer",
+      "selectors": [
+        ".mainMenuDiv"
+      ]
+    },
+    {
+      "collectionNode": "form",
+      "collectionNodes": {
+        "form": {
+          "action": "and",
+          "children": [
+            "text",
+            "textarea",
+            "upload",
+            "html5.checkbox",
+            "html5.radio",
+            "select",
+            "html5.multiSelect",
+            "html5.buttonGroup"
+          ],
+          "selectors": [
+            "*"
+          ]
+        },
+        "select": {
+          "action": "or",
+          "children": [
+            "html5.option"
+          ],
+          "label": "fieldLeft",
+          "locator": "html5.field",
+          "selectors": [
+            "select:not([multiple])"
+          ]
+        }
+      },
+      "labelPolicies": {
+        "fieldLeft": [
+          "label",
+          "parentPrevSibling",
+          "parentTdPrevSibling",
+          "alt",
+          "title",
+          "id",
+          "name",
+          "placeholder",
+          "value"
+        ]
+      },
+      "nesting": "outer",
+      "selectors": [
+        "form"
+      ],
+      "singleNodes": {
+        "text": {
+          "action": "type",
+          "decisive": false,
+          "label": "fieldLeft",
+          "locator": "html5.field",
+          "selectors": [
+            "input:not([type])",
+            "input[type=text]",
+            "input[type=password]",
+            "input[type=email]",
+            "input[type=url]",
+            "input[type=search]",
+            "input[type=number]",
+            "input[type=tel]"
+          ]
+        },
+        "textarea": {
+          "action": "type",
+          "decisive": false,
+          "label": "fieldLeft",
+          "locator": "html5.field",
+          "selectors": [
+            "textarea"
+          ]
+        },
+        "upload": {
+          "action": "upload",
+          "decisive": false,
+          "label": "fieldLeft",
+          "locator": "html5.field",
+          "selectors": [
+            "input[type=file]"
+          ]
+        }
+      }
+    },
+    {
+      "collectionNode": "html5.buttonGroup",
+      "nesting": "outer",
+      "selectors": [
+        "input[type=button]"
+      ]
+    }
+  ]
+}
