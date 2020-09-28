@@ -1,0 +1,37 @@
+{
+  "imports": [
+    {
+      "name": "html5",
+      "version": "1.0.0"
+    }
+  ],
+  "operations": [
+    {
+      "selectors":[".subacctTableBig"], "collectionNode":"recordTable", "nesting":"outer",
+      "collectionNodes": {
+        "recordTable": { "selectors":["*"], "children":["recordRow"], "action":"or" },
+        "recordRow": { "selectors":[".data"], "children":["imgLink"], "action":"or" }
+      },
+      "singleNodes": {
+        "imgLink":  { "selectors":[".img_link"], "decisive":true, "action":"click" }
+      }
+    },
+    { "selectors":[".fc-table"], "collectionNode":"htmlLinks", "nesting":"outer", 
+      "collectionNodes": {
+        "htmlLinks": { "selectors":["*"], "children":["htmlLink"], "action":"or" }
+      },
+      "singleNodes": {
+        "htmlLink":  { "selectors":[".html-link"], "decisive":true, "action":"click" }
+      }      
+    },
+    {
+      "selectors":[".device_list", ".devicelist"], "collectionNode":"deviceList", "nesting":"outer",
+      "collectionNodes": {
+        "deviceList": { "selectors":["*"], "children":["deviceLink"], "action":"or" }
+      },
+      "singleNodes": {
+        "deviceLink":  { "selectors":[".setting_button", ".data"], "decisive":true, "action":"click" }
+      }
+    }    
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "imports": [
+    {
+      "name": "html5",
+      "version": "1.0.0"
+    }
+  ],
+  "operations": [
+    { "selectors":[".options-list"], "collectionNode":"nbList", "nesting":"outer",
+      "collectionNodes":{
+        "nbList":{ "selectors":["*"], "children":["nbOption"], "action":"or" }
+      },
+      "singleNodes":{
+        "nbOption":{ "selectors":["nb-option"], "action":"click", "decisive":true }
+      }
+    },
+    { "selectors":["nb-head", "nb-footer", "nb-local-menu", "main"], "collectionNode":"form", "nesting":"outer" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "imports": [
+    {
+      "name": "html5",
+      "version": "1.0.0"
+    }
+  ],
+  "operations": [
+    { "selectors":[".sec-modalCard", ".sec-headerCard", ".sec-footerCard"], "collectionNode":"html5.form", "nesting":"outer" },
+    { "selectors":[".sec-introductionCard", ".sec-extraContentsCard"], "collectionNode":"html5.buttonGroup", "nesting":"outer" }
+  ]
+}

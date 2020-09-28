@@ -1,0 +1,26 @@
+{
+  "imports": [
+    {
+      "name": "html5",
+      "version": "1.0.0"
+    }
+  ],
+  "operations": [
+    { "selectors":["ion-menu", "ion-list"], "collectionNode":"ionList", "nesting":"outer",
+      "collectionNodes":{
+        "ionList":{ "selectors":["*"], "children":["ionItem"], "action":"or" }
+      },
+      "singleNodes":{
+        "ionItem":{ "selectors":["ion-item"], "action":"click", "decisive":true }
+      }
+    },
+    { "selectors":["ion-modal", "ion-popover", "ion-tab-bar", "ion-header", "ion-footer", "ion-content"], "collectionNode":"form", "nesting":"outer" }
+  ],
+  "collectionNodes": {
+    "form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "buttonGroup"], "action":"and" },
+    "buttonGroup": { "selectors":["*"], "children":["ionButton"], "action":"or" }
+  },
+  "singleNodes": {
+    "ionButton": { "selectors":["ion-button", "ion-menu-button", "ion-tab-button", "ion-fab-button", "ion-back-button", "ion-radio", "ion-checkbox", "ion-toggle"], "action":"click", "decisive":true }
+  }
+}

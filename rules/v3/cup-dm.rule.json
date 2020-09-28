@@ -1,0 +1,48 @@
+{
+	"imports": [
+		{
+			"name": "html5",
+			"version": "1.0.0"
+		}
+	],
+	"operations": [
+		{ "selectors":[".x-panel-body"], "collectionNode":"menu", "nesting":"outer",
+			"collectionNodes":{
+				"menu":{ "selectors":["*"], "children":["menuItem"], "action":"or", "locatorPolicy":"dmBlock" }
+			},
+			"singleNodes":{
+				"menuItem":{ "selectors":[".x-panel-header-text"], "action":"click", "decisive":true }
+			}
+        },
+		{ "selectors":[".x-grid3-body"], "collectionNode":"grid", "nesting":"outer",
+			"collectionNodes":{
+                "grid":{ "selectors":["*"], "children":["gridRow"], "action":"or", "locatorPolicy":"dmBlock" },
+                "gridRow":{ "selectors":[".x-grid3-row"], "children":["rowButtons"], "action":"or", "locatorPolicy":"dmBlock" },
+                "rowButtons": { "selectors":["*"], "children":["rowButton"], "action":"or", "locatorPolicy":"dmBlock" }
+            },
+            "singleNodes": {
+                "rowButton": { "selectors":["img", ".x-grid3-row-checker"], "action":"click", "decisive":true }
+            }
+        },
+		{ "selectors":[".x-grid3-body"], "collectionNode":"gridList", "nesting":"outer",
+			"collectionNodes":{
+                "gridList":{ "selectors":["*"], "children":["rowButton"], "action":"or", "locatorPolicy":"dmBlock" }
+			},
+			"singleNodes":{
+				"rowButton":{ "selectors":[".x-grid3-row"], "action":"click", "decisive":true }
+			}
+		},                
+        {"selectors":["form", "table"], "collectionNode":"form", "nesting":"outer"},
+        {"selectors":["map", "ul", "ol", "dl", "nav", "div", "a", "button"], "collectionNode":"buttonGroup", "nesting":"inner"}   
+    ],
+	"collectionNodes": {
+		"form": {"selectors":["*"], "children":["html5.text", "html5.textarea", "html5.upload", "html5.checkbox", "html5.radio", "html5.select", "buttonGroup"], "action":"and", "locatorPolicy":"dmBlock" },
+		"buttonGroup": { "selectors":["*"], "children":["html5.button", "html5.link"], "action":"or", "locatorPolicy":"dmBlock" }
+	},
+	"singleNodes": {
+		"ionButton": { "selectors":["ion-button", "ion-menu-button", "ion-tab-button", "ion-fab-button", "ion-back-button", "ion-radio", "ion-checkbox", "ion-toggle"], "action":"click", "decisive":true }
+    },
+    "locatorPolicies": {
+        "dmBlock": ["name", "xpath"]
+    }
+}
