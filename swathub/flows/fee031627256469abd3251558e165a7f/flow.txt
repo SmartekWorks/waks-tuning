@@ -9,7 +9,7 @@
       {
         "code": "variable",
         "name": "Variable Name",
-        "value": "total2",
+        "value": "total",
         "enabled": true
       },
       {
