@@ -1,6 +1,32 @@
 [
   {
     "component": {
+      "type": "ctrl",
+      "code": "assign",
+      "name": "ASSIGN"
+    },
+    "inputs": [
+      {
+        "code": "variable",
+        "name": "Variable Name",
+        "value": "total2",
+        "enabled": true
+      },
+      {
+        "code": "value",
+        "name": "Value",
+        "value": "`100`",
+        "enabled": true
+      }
+    ],
+    "outputs": [],
+    "title": "ASSIGN total",
+    "options": "{}",
+    "enabled": true,
+    "blocks": {}
+  },
+  {
+    "component": {
       "type": "extension",
       "code": "EXTENSION_EXCEL_READ_CELL",
       "name": "Read Cell"
