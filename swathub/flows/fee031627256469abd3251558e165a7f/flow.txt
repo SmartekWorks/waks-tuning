@@ -1,0 +1,695 @@
+[
+  {
+    "component": {
+      "type": "ctrl",
+      "code": "assign",
+      "name": "ASSIGN"
+    },
+    "inputs": [
+      {
+        "code": "variable",
+        "name": "Variable Name",
+        "value": "total",
+        "enabled": true
+      },
+      {
+        "code": "value",
+        "name": "Value",
+        "value": "`100`",
+        "enabled": true
+      }
+    ],
+    "outputs": [],
+    "title": "ASSIGN total",
+    "options": "{}",
+    "enabled": true,
+    "blocks": {}
+  },
+  {
+    "component": {
+      "type": "extension",
+      "code": "EXTENSION_EXCEL_READ_CELL",
+      "name": "Read Cell"
+    },
+    "inputs": [
+      {
+        "code": "file",
+        "name": "File",
+        "value": "@{dataExcelPath}",
+        "enabled": true
+      },
+      {
+        "code": "sheet",
+        "name": "Sheet",
+        "value": "账单批量查询",
+        "enabled": true
+      },
+      {
+        "code": "cell",
+        "name": "Cell",
+        "value": "G4",
+        "enabled": true
+      }
+    ],
+    "outputs": [
+      {
+        "code": "result",
+        "name": "Result",
+        "value": "userCount",
+        "enabled": true
+      }
+    ],
+    "title": "Read Excel Cell 读取记录条数 userCount",
+    "options": "{}",
+    "enabled": true
+  },
+  {
+    "component": {
+      "type": "extension",
+      "code": "EXTENSION_EXCEL_READ_RANGE",
+      "name": "Read Range"
+    },
+    "inputs": [
+      {
+        "code": "file",
+        "name": "File",
+        "value": "@{dataExcelPath}",
+        "enabled": true
+      },
+      {
+        "code": "sheet",
+        "name": "Sheet",
+        "value": "账单批量查询",
+        "enabled": true
+      },
+      {
+        "code": "range",
+        "name": "Range",
+        "value": "`'B11:B' + (11 + parseInt(userCount))`",
+        "enabled": true
+      }
+    ],
+    "outputs": [
+      {
+        "code": "result",
+        "name": "Result",
+        "value": "userList",
+        "enabled": true
+      }
+    ],
+    "title": "Read Excel Range 读取用户列表 userList",
+    "options": "{}",
+    "enabled": true
+  },
+  {
+    "component": {
+      "type": "extension",
+      "code": "EXTENSION_EXCEL_READ_CELL",
+      "name": "Read Cell"
+    },
+    "inputs": [
+      {
+        "code": "file",
+        "name": "File",
+        "value": "@{dataExcelPath}",
+        "enabled": true
+      },
+      {
+        "code": "sheet",
+        "name": "Sheet",
+        "value": "账单批量查询",
+        "enabled": true
+      },
+      {
+        "code": "cell",
+        "name": "Cell",
+        "value": "C3",
+        "enabled": true
+      }
+    ],
+    "outputs": [
+      {
+        "code": "result",
+        "name": "Result",
+        "value": "startMonth",
+        "enabled": true
+      }
+    ],
+    "title": "Read Excel Cell 读取开始月份",
+    "options": "{}",
+    "enabled": true
+  },
+  {
+    "component": {
+      "type": "extension",
+      "code": "EXTENSION_EXCEL_READ_CELL",
+      "name": "Read Cell"
+    },
+    "inputs": [
+      {
+        "code": "file",
+        "name": "File",
+        "value": "@{dataExcelPath}",
+        "enabled": true
+      },
+      {
+        "code": "sheet",
+        "name": "Sheet",
+        "value": "账单批量查询",
+        "enabled": true
+      },
+      {
+        "code": "cell",
+        "name": "Cell",
+        "value": "E3",
+        "enabled": true
+      }
+    ],
+    "outputs": [
+      {
+        "code": "result",
+        "name": "Result",
+        "value": "endMonth",
+        "enabled": true
+      }
+    ],
+    "title": "Read Excel Cell 读取结束月份",
+    "options": "{}",
+    "enabled": true
+  },
+  {
+    "component": {
+      "type": "sop",
+      "code": "goto",
+      "name": "Browser Open URL"
+    },
+    "inputs": [
+      {
+        "code": "url",
+        "name": "URL",
+        "value": "@{fakeURL}",
+        "enabled": true
+      }
+    ],
+    "outputs": [],
+    "title": "Go to URL",
+    "options": "{}",
+    "enabled": true
+  },
+  {
+    "component": {
+      "type": "flow",
+      "code": "c142f2e092754fd48c2fab062d3636be",
+      "name": "登录"
+    },
+    "inputs": [
+      {
+        "code": "url",
+        "name": "url",
+        "value": "@{url}",
+        "enabled": true
+      },
+      {
+        "code": "工号",
+        "name": "工号",
+        "value": "@{username}",
+        "enabled": true
+      },
+      {
+        "code": "密码",
+        "name": "密码",
+        "value": "@{password}",
+        "enabled": true
+      }
+    ],
+    "outputs": [],
+    "title": "登录并导航",
+    "options": "{}",
+    "enabled": true
+  },
+  {
+    "component": {
+      "type": "ctrl",
+      "code": "assign",
+      "name": "ASSIGN"
+    },
+    "inputs": [
+      {
+        "code": "variable",
+        "name": "Variable Name",
+        "value": "userIndex",
+        "enabled": true
+      },
+      {
+        "code": "value",
+        "name": "Value",
+        "value": "`0`",
+        "enabled": true
+      }
+    ],
+    "outputs": [],
+    "title": "ASSIGN userIndex",
+    "options": "{}",
+    "enabled": true,
+    "blocks": {}
+  },
+  {
+    "component": {
+      "type": "ctrl",
+      "code": "assign",
+      "name": "ASSIGN"
+    },
+    "inputs": [
+      {
+        "code": "variable",
+        "name": "Variable Name",
+        "value": "hasRecord",
+        "enabled": true
+      },
+      {
+        "code": "value",
+        "name": "Value",
+        "value": "`true`",
+        "enabled": true
+      }
+    ],
+    "outputs": [],
+    "title": "ASSIGN 是否还有用户记录 hasRecord",
+    "options": "{}",
+    "enabled": true,
+    "blocks": {}
+  },
+  {
+    "component": {
+      "type": "ctrl",
+      "code": "while",
+      "name": "WHILE"
+    },
+    "inputs": [
+      {
+        "code": "condition",
+        "name": "Condition",
+        "value": "userIndex< userList.length && hasRecord",
+        "enabled": true
+      }
+    ],
+    "outputs": [],
+    "title": "WHILE",
+    "options": "{}",
+    "enabled": true,
+    "blocks": {
+      "loop": [
+        {
+          "component": {
+            "type": "ctrl",
+            "code": "assign",
+            "name": "ASSIGN"
+          },
+          "inputs": [
+            {
+              "code": "variable",
+              "name": "Variable Name",
+              "value": "userRow",
+              "enabled": true
+            },
+            {
+              "code": "value",
+              "name": "Value",
+              "value": "`[]`",
+              "enabled": true
+            }
+          ],
+          "outputs": [],
+          "title": "ASSIGN 用户账单信息 userRow",
+          "options": "{}",
+          "enabled": true,
+          "blocks": {}
+        },
+        {
+          "component": {
+            "type": "ctrl",
+            "code": "assign",
+            "name": "ASSIGN"
+          },
+          "inputs": [
+            {
+              "code": "variable",
+              "name": "Variable Name",
+              "value": "userNO",
+              "enabled": true
+            },
+            {
+              "code": "value",
+              "name": "Value",
+              "value": "`userList[userIndex][0]`",
+              "enabled": true
+            }
+          ],
+          "outputs": [],
+          "title": "ASSIGN 用户编号 userNO",
+          "options": "{}",
+          "enabled": true,
+          "blocks": {}
+        },
+        {
+          "component": {
+            "type": "ctrl",
+            "code": "ifelse",
+            "name": "IF/ELSE"
+          },
+          "inputs": [
+            {
+              "code": "condition",
+              "name": "Condition",
+              "value": "userNO !== ''",
+              "enabled": true
+            }
+          ],
+          "outputs": [],
+          "title": "IF/ELSE 用户编号不为空",
+          "options": "{}",
+          "enabled": true,
+          "blocks": {
+            "if": [
+              {
+                "component": {
+                  "type": "ctrl",
+                  "code": "assign",
+                  "name": "ASSIGN"
+                },
+                "inputs": [
+                  {
+                    "code": "variable",
+                    "name": "Variable Name",
+                    "value": "userMonth",
+                    "enabled": true
+                  },
+                  {
+                    "code": "value",
+                    "name": "Value",
+                    "value": "`startMonth`",
+                    "enabled": true
+                  }
+                ],
+                "outputs": [],
+                "title": "ASSIGN 电费月份 userMonth",
+                "options": "{}",
+                "enabled": true,
+                "blocks": {}
+              },
+              {
+                "component": {
+                  "type": "ctrl",
+                  "code": "while",
+                  "name": "WHILE"
+                },
+                "inputs": [
+                  {
+                    "code": "condition",
+                    "name": "Condition",
+                    "value": "userMonth <= endMonth",
+                    "enabled": true
+                  }
+                ],
+                "outputs": [],
+                "title": "WHILE",
+                "options": "{}",
+                "enabled": true,
+                "blocks": {
+                  "loop": [
+                    {
+                      "component": {
+                        "type": "flow",
+                        "code": "a51829ef369a431ea0cc8037ab29b030",
+                        "name": "小用户账单查询"
+                      },
+                      "inputs": [
+                        {
+                          "code": "电费年月",
+                          "name": "电费年月",
+                          "value": "@{userMonth}",
+                          "enabled": true
+                        },
+                        {
+                          "code": "用户编号",
+                          "name": "用户编号",
+                          "value": "@{userNO}",
+                          "enabled": true
+                        },
+                        {
+                          "code": "打印类型",
+                          "name": "打印类型",
+                          "value": "1",
+                          "enabled": true
+                        }
+                      ],
+                      "outputs": [
+                        {
+                          "code": "result",
+                          "name": "result",
+                          "value": "result",
+                          "enabled": true
+                        }
+                      ],
+                      "title": "小用户账单查询",
+                      "options": "{}",
+                      "enabled": true
+                    },
+                    {
+                      "component": {
+                        "type": "sop",
+                        "code": "logMessage",
+                        "name": "Log Message"
+                      },
+                      "inputs": [
+                        {
+                          "code": "level",
+                          "name": "Level",
+                          "value": "info",
+                          "selection": "Info",
+                          "enabled": true
+                        },
+                        {
+                          "code": "message",
+                          "name": "Message",
+                          "value": "电费年月：@{userMonth} 用户编号：@{userNO} 账单信息：@{result}",
+                          "enabled": true
+                        }
+                      ],
+                      "outputs": [],
+                      "title": "Log Message",
+                      "options": "{}",
+                      "enabled": true
+                    },
+                    {
+                      "component": {
+                        "type": "ctrl",
+                        "code": "assign",
+                        "name": "ASSIGN"
+                      },
+                      "inputs": [
+                        {
+                          "code": "variable",
+                          "name": "Variable Name",
+                          "value": "userRow",
+                          "enabled": true
+                        },
+                        {
+                          "code": "value",
+                          "name": "Value",
+                          "value": "`var a=userRow; \na.push(result.status); \na.push(result.total); \na.push(result.fee);\na`",
+                          "enabled": true
+                        }
+                      ],
+                      "outputs": [],
+                      "title": "ASSIGN 追加用户账单信息 userRow",
+                      "options": "{}",
+                      "enabled": true,
+                      "blocks": {}
+                    },
+                    {
+                      "component": {
+                        "type": "ctrl",
+                        "code": "assign",
+                        "name": "ASSIGN"
+                      },
+                      "inputs": [
+                        {
+                          "code": "variable",
+                          "name": "Variable Name",
+                          "value": "userMonth",
+                          "enabled": true
+                        },
+                        {
+                          "code": "value",
+                          "name": "Value",
+                          "value": "`var y=userMonth.substr(0,4); var m=userMonth.substr(4);\nvar d=new Date(y+'-'+m+'-01');d.setMonth(d.getMonth()+1);\nvar y=d.getFullYear(); var m=d.getMonth()+1; if (m<10){m='0'+m;}\ny+''+m;`",
+                          "enabled": true
+                        }
+                      ],
+                      "outputs": [],
+                      "title": "ASSIGN 电费年月 userMonth++",
+                      "options": "{}",
+                      "enabled": true,
+                      "blocks": {}
+                    }
+                  ]
+                }
+              },
+              {
+                "component": {
+                  "type": "ctrl",
+                  "code": "assign",
+                  "name": "ASSIGN"
+                },
+                "inputs": [
+                  {
+                    "code": "variable",
+                    "name": "Variable Name",
+                    "value": "userTable",
+                    "enabled": true
+                  },
+                  {
+                    "code": "value",
+                    "name": "Value",
+                    "value": "`var a=[]; a.push(userRow); a`",
+                    "enabled": true
+                  }
+                ],
+                "outputs": [],
+                "title": "ASSIGN 生成单行userTable",
+                "options": "{}",
+                "enabled": true,
+                "blocks": {}
+              },
+              {
+                "component": {
+                  "type": "extension",
+                  "code": "EXTENSION_EXCEL_WRITE_RANGE",
+                  "name": "Write Range"
+                },
+                "inputs": [
+                  {
+                    "code": "file",
+                    "name": "File",
+                    "value": "@{dataExcelPath}",
+                    "enabled": true
+                  },
+                  {
+                    "code": "sheet",
+                    "name": "Sheet",
+                    "value": "账单批量查询",
+                    "enabled": true
+                  },
+                  {
+                    "code": "cell",
+                    "name": "Cell",
+                    "value": "`'C'+(11+userIndex)`",
+                    "enabled": true
+                  },
+                  {
+                    "code": "value",
+                    "name": "Value",
+                    "value": "@{userTable}",
+                    "enabled": true
+                  }
+                ],
+                "outputs": [
+                  {
+                    "code": "result",
+                    "name": "Result",
+                    "value": "result",
+                    "enabled": true
+                  }
+                ],
+                "title": "Write Excel Range 更新账单信息 userTable",
+                "options": "{}",
+                "enabled": true
+              }
+            ],
+            "else": [
+              {
+                "component": {
+                  "type": "sop",
+                  "code": "logMessage",
+                  "name": "Log Message"
+                },
+                "inputs": [
+                  {
+                    "code": "level",
+                    "name": "Level",
+                    "value": "info",
+                    "selection": "Info",
+                    "enabled": true
+                  },
+                  {
+                    "code": "message",
+                    "name": "Message",
+                    "value": "用户编号为空，index：@{userIndex}",
+                    "enabled": true
+                  }
+                ],
+                "outputs": [],
+                "title": "Log Message",
+                "options": "{}",
+                "enabled": true
+              },
+              {
+                "component": {
+                  "type": "ctrl",
+                  "code": "assign",
+                  "name": "ASSIGN"
+                },
+                "inputs": [
+                  {
+                    "code": "variable",
+                    "name": "Variable Name",
+                    "value": "hasRecord",
+                    "enabled": true
+                  },
+                  {
+                    "code": "value",
+                    "name": "Value",
+                    "value": "`false`",
+                    "enabled": true
+                  }
+                ],
+                "outputs": [],
+                "title": "ASSIGN 设置hasRecord为false",
+                "options": "{}",
+                "enabled": true,
+                "blocks": {}
+              }
+            ]
+          }
+        },
+        {
+          "component": {
+            "type": "ctrl",
+            "code": "assign",
+            "name": "ASSIGN"
+          },
+          "inputs": [
+            {
+              "code": "variable",
+              "name": "Variable Name",
+              "value": "userIndex",
+              "enabled": true
+            },
+            {
+              "code": "value",
+              "name": "Value",
+              "value": "`userIndex+1`",
+              "enabled": true
+            }
+          ],
+          "outputs": [],
+          "title": "ASSIGN userIndex++",
+          "options": "{}",
+          "enabled": true,
+          "blocks": {}
+        }
+      ]
+    }
+  }
+]
