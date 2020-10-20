@@ -9,6 +9,32 @@
       {
         "code": "variable",
         "name": "Variable Name",
+        "value": "average",
+        "enabled": true
+      },
+      {
+        "code": "value",
+        "name": "Value",
+        "value": "`100`",
+        "enabled": true
+      }
+    ],
+    "outputs": [],
+    "title": "ASSIGN average",
+    "options": "{}",
+    "enabled": true,
+    "blocks": {}
+  },
+  {
+    "component": {
+      "type": "ctrl",
+      "code": "assign",
+      "name": "ASSIGN"
+    },
+    "inputs": [
+      {
+        "code": "variable",
+        "name": "Variable Name",
         "value": "total",
         "enabled": true
       },
