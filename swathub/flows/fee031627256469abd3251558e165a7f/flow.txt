@@ -9,7 +9,7 @@
       {
         "code": "variable",
         "name": "Variable Name",
-        "value": "average",
+        "value": "average2",
         "enabled": true
       },
       {
@@ -20,7 +20,7 @@
       }
     ],
     "outputs": [],
-    "title": "ASSIGN average",
+    "title": "ASSIGN average2",
     "options": "{}",
     "enabled": true,
     "blocks": {}
